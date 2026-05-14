@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+:root {
+    --neutral-color: #888;
+    --miku-color: #31e6f0;
+    --teto-color: #ff1744;
+    --neru-color: #ffd543;
+    --gumi-color: #38d753;
+    --background-color: #f5f5f5;
+    --secondary-color: #ebebeb;
+    --text-color: #333;
+}
+
+body {
+    background-color: var(--background-color);
+    background-image: radial-gradient(
+        circle,
+        var(--neutral-color) 1px,
+        transparent 1px
+    );
+    background-repeat: repeat;
+    background-size: 25px 25px;
+}
+
+.navbar {
+    border-bottom: 2px solid var(--neutral-color);
+    background-color: var(--secondary-color);
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.virtual-singers-button {
+    height: 3rem;
+    padding: 0 2rem 0 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background-color: var(--secondary-color);
+
+    transition: 0.1s ease;
+
+    &.miku-button {
+        &.active-button {
+            background-color: var(--miku-color);
+            color: var(--background-color);
+        }
+    }
+    &.teto-button {
+        &.active-button {
+            background-color: var(--teto-color);
+            color: var(--background-color);
+        }
+    }
+    &.neru-button {
+        &.active-button {
+            background-color: var(--neru-color);
+            color: var(--background-color);
+        }
+    }
+    &.gumi-button {
+        &.active-button {
+            background-color: var(--gumi-color);
+            color: var(--background-color);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        &.miku-button {
+            border-bottom: 3px solid var(--miku-color);
+        }
+        &.teto-button {
+            border-bottom: 3px solid var(--teto-color);
+        }
+        &.neru-button {
+            border-bottom: 3px solid var(--neru-color);
+        }
+        &.gumi-button {
+            border-bottom: 3px solid var(--gumi-color);
+        }
+    }
+
+    &:active {
+        &.miku-button {
+            background-color: var(--miku-color);
+            color: var(--background-color);
+        }
+        &.teto-button {
+            background-color: var(--teto-color);
+            color: var(--background-color);
+        }
+        &.neru-button {
+            background-color: var(--neru-color);
+            color: var(--background-color);
+        }
+        &.gumi-button {
+            background-color: var(--gumi-color);
+            color: var(--background-color);
+        }
+    }
+}
+
+.other-button {
+    height: 3rem;
+    padding: 0 2rem 0 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background-color: var(--secondary-color);
+    transition: 0.1s ease;
+
+    &.active-button {
+        background-color: var(--neutral-color);
+        color: var(--background-color);
+    }
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 3px solid var(--neutral-color);
+    }
+
+    &:active {
+        background-color: var(--neutral-color);
+        color: var(--background-color);
+    }
+}
