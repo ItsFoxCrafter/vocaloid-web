@@ -30,7 +30,7 @@ body {
 }
 
 .navbar {
-    border-bottom: 2px solid var(--neutral-color);
+    border-bottom: 1px solid var(--neutral-color);
     background-color: var(--secondary-color);
     height: 3rem;
     display: flex;
@@ -42,9 +42,9 @@ body {
     height: 3rem;
     padding: 0 2rem 0 2rem;
     font-size: 1.2rem;
+    background-color: transparent;
     border: none;
     border-bottom: 3px solid transparent;
-    background-color: var(--secondary-color);
 
     transition: 0.1s ease;
 
@@ -113,9 +113,9 @@ body {
     height: 3rem;
     padding: 0 2rem 0 2rem;
     font-size: 1.2rem;
+    background-color: transparent;
     border: none;
     border-bottom: 3px solid transparent;
-    background-color: var(--secondary-color);
     transition: 0.1s ease;
 
     &.active-button {
@@ -132,4 +132,43 @@ body {
         background-color: var(--neutral-color);
         color: var(--background-color);
     }
+}
+
+.hero-section,
+.hero-meta {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.hero-section {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.hero-title {
+    font-size: 5rem;
+    width: 5%;
+
+    &.miku-title {
+        color: var(--miku-color);
+    }
+    &.teto-title {
+        color: var(--teto-color);
+    }
+    &.neru-title {
+        color: var(--neru-color);
+    }
+    &.gumi-title {
+        color: var(--gumi-color);
+    }
+}
+
+.hero-meta {
+    width: 50%;
+    margin-top: 1rem;
+}
+
+.hero-image {
+    width: 40%;
 }
