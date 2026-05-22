@@ -1,0 +1,8 @@
+{
+    "title": "GUMI",
+    "codename": "VA-M01",
+    "subtitle": "VOCALOID6",
+    "date": "June 26, 2009",
+    "description": "GUMI (グミ) is a Japanese VOCALOID developed and distributed by Internet Co., Ltd. as Megpoid (メグッポイド) which was initially released in June 2009 for the VOCALOID2 engine. There have since been three installments developed for the VOCALOID3 engine: an update of the VOCALOID2 voice bank, additional Japanese voice libraries serving as an expansion pack, and a new bank dedicated to the English language. Her Japanese voicebanks were updated to the VOCALOID4 engine in November 2015, while for the VOCALOID6 engine, she released as a Japanese AI vocal in October 2022, which allowed her to use the \"Multilingual\" function to sing in English and Mandarin Chinese without the need for recording fully dedicated voicebanks to each language.[1] In July 2024, GUMI received an extension to her AI Megpoid voicebank, AI Megpoid SOLID, also for the VOCALOID6 engine.[2][3]\n\nIn January 2014, GUMI received a speech voicebank known as Megpoid Talk. She later received a speech voicebank for A.I.VOICE in September 2022.[4] In June 2024, GUMI received an update to her A.I.VOICE voicebank for A.I.VOICE2.[5][6]\n\nIn December 2023, GUMI received an AI voice database for Synthesizer V Studio, developed by AH-Software Co. Ltd. but distributed by Internet. An update for Synthesizer V Studio 2 has released in September 2025.[7]\n\nHer voice is provided by Filipino-Japanese singer and voice actress Megumi Nakajima (中島愛; Nakajima Megumi).",
+    "imageUrl": "./src/assets/img/gumi.webp"
+}
