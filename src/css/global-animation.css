@@ -1,4 +1,5 @@
-.hero-section {
+.hero-section,
+.error-section {
     animation: up-fade-in-animation 0.5s ease-out;
 }
 

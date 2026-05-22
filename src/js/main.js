@@ -1,4 +1,5 @@
 const CONTENT = document.getElementById("content");
+const VOCALS = ["miku", "teto", "neru", "gumi"];
 
 function renderPage(page) {
     const JSON_PATH = `./src/json/vocals/${page}.json`;
@@ -50,9 +51,13 @@ function generateError(page, error) {
                 errorData.title[
                     Math.floor(Math.random() * errorData.title.length)
                 ];
+            const RANDOM_VOCAL =
+                VOCALS[Math.floor(Math.random() * VOCALS.length)];
+
             ERROR_SECTION.data = {
                 title: RANDOM_ERROR,
                 description: `Unable to load data for "${page}". ${error.message}`,
+                vocal: RANDOM_VOCAL,
             };
             CONTENT.appendChild(ERROR_SECTION);
         })
