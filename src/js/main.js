@@ -1,7 +1,7 @@
 const CONTENT = document.getElementById("content");
 
 function renderPage(page) {
-    const JSON_PATH = `./src/json/${page}.json`;
+    const JSON_PATH = `./src/json/vocals/${page}.json`;
 
     fetch(JSON_PATH)
         .then((response) => {
@@ -29,7 +29,36 @@ function renderPage(page) {
         })
         .catch((err) => {
             console.error(err);
-            CONTENT.innerHTML = `<p class="error">Could not load page: ${page}</p>`;
+            CONTENT.innerHTML = "";
+            generateError(page, err);
+        });
+}
+
+function generateError(page, error) {
+    const ERROR_JSON_PATH = `./src/json/error/error.json`;
+    fetch(ERROR_JSON_PATH)
+        .then((response) => {
+            if (!response.ok)
+                throw new Error(
+                    `Failed to load ${ERROR_JSON_PATH} (status ${response.status})`,
+                );
+            return response.json();
+        })
+        .then((errorData) => {
+            const ERROR_SECTION = document.createElement("c-error-section");
+            const RANDOM_ERROR =
+                errorData.title[
+                    Math.floor(Math.random() * errorData.title.length)
+                ];
+            ERROR_SECTION.data = {
+                title: RANDOM_ERROR,
+                description: `Unable to load data for "${page}". ${error.message}`,
+            };
+            CONTENT.appendChild(ERROR_SECTION);
+        })
+        .catch((err) => {
+            console.error(err);
+            CONTENT.innerHTML = `<p class="error-fallback">An unexpected error occurred while loading the error page.</p>`;
         });
 }
 
