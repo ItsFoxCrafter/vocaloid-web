@@ -25,6 +25,7 @@ function renderPage(page) {
                 description: data.description,
                 imageUrl: data.imageUrl,
                 page,
+                imageDividerUrl: data.imageDividerUrl,
             };
             CONTENT.appendChild(HERO_SECTION);
         })

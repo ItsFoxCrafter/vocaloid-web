@@ -10,9 +10,10 @@
 :root {
     --neutral-color: #888;
     --miku-color: #31e6f0;
-    --teto-color: #ff1744;
+    --teto-color: #ff4081;
     --neru-color: #ffd543;
     --gumi-color: #38d753;
+    --rin-len-color: #ffd024;
     --background-color: #f5f5f5;
     --secondary-color: #ebebeb;
     --text-color: #333;
@@ -72,6 +73,12 @@ body {
             color: var(--background-color);
         }
     }
+    &.rin-len-button {
+        &.active-button {
+            background-color: var(--rin-len-color);
+            color: var(--background-color);
+        }
+    }
 
     &:hover {
         cursor: pointer;
@@ -86,6 +93,9 @@ body {
         }
         &.gumi-button {
             border-bottom: 3px solid var(--gumi-color);
+        }
+        &.rin-len-button {
+            border-bottom: 3px solid var(--rin-len-color);
         }
     }
 
@@ -104,6 +114,10 @@ body {
         }
         &.gumi-button {
             background-color: var(--gumi-color);
+            color: var(--background-color);
+        }
+        &.rin-len-button {
+            background-color: var(--rin-len-color);
             color: var(--background-color);
         }
     }
@@ -162,6 +176,9 @@ body {
     &.gumi-title {
         color: var(--gumi-color);
     }
+    &.rin-len-title {
+        color: var(--rin-len-color);
+    }
 }
 
 .hero-meta {
@@ -171,6 +188,15 @@ body {
 
 .hero-image {
     width: 40%;
+}
+
+.divider {
+    width: 100%;
+    height: 4rem;
+    margin: 2rem 0;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    background-position: 0 center;
 }
 
 .error-section {

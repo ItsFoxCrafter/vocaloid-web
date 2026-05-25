@@ -4,5 +4,6 @@
     "subtitle": "UTAU",
     "date": "April 1, 2008",
     "description": "Kasane Teto (重音テト) is a Japanese (and later English) UTAU who was originally created as a troll VOCALOID by fans. Her surname 重音 (Kasane) literally means heavy sound or overlapped sound; while these interpretations are widely accepted among fans, TWINDRILL has not released any announcements about the meaning of the name. Her name テト (Teto) comes from Tetopettenson, a parody song of Le Beau Tambour. Although her original voicebank was only for use in UTAU, many people still mistook her for a VOCALOID (and still mistake her for one to this day). Though she had no final voicebank released for the VOCALOID engine, there were attempts in 2012 to release Teto for VOCALOID in collaboration with AH-Software Co. Ltd., and she later had a private beta voicebank with Crypton Future Media, Inc. in 2017. She later released as a speech voicebank for the TALQu text-to-speech synthesizer in January 2022, an AI singing voice database developed by AH-Software for Synthesizer V Studio in April 2023, and an AI text-to-speech voice library also by AH-Software for VOICEPEAK in April 2025. Her voice provider is Mayo Oyamano.",
-    "imageUrl": "./src/assets/img/teto.webp"
+    "imageUrl": "./src/assets/img/teto.webp",
+    "imageDividerUrl": "./src/assets/img/dividers/divider-teto.png"
 }

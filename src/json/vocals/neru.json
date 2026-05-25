@@ -4,5 +4,6 @@
     "subtitle": "DERIVATIVE",
     "date": "November 1, 2007",
     "description": "Akita Neru (亞北ネル) is an officially recognized derivative. The term Derivative is used here to describe a fanmade VOCALOID character that is based on an already existing character.",
-    "imageUrl": "./src/assets/img/neru.webp"
+    "imageUrl": "./src/assets/img/neru.webp",
+    "imageDividerUrl": "./src/assets/img/dividers/divider-neru.png"
 }

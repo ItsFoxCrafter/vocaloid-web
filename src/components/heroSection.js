@@ -1,5 +1,14 @@
 class CHeroSection extends HTMLElement {
-    set data({ title, codename, subtitle, date, description, imageUrl, page }) {
+    set data({
+        title,
+        codename,
+        subtitle,
+        date,
+        description,
+        imageUrl,
+        page,
+        imageDividerUrl,
+    }) {
         const titleClass = page ? `hero-title ${page}-title` : "hero-title";
 
         this.innerHTML = `
@@ -15,6 +24,7 @@ class CHeroSection extends HTMLElement {
             </div>
             <img src="${imageUrl}" alt="${title}" class="hero-image" />
         </section>
+        <div class="divider" style="background-image: url('${imageDividerUrl}')"></div>
         `;
     }
 }
