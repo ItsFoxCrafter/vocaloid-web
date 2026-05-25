@@ -1,0 +1,9 @@
+{
+    "title": "MEGURINE LUKA",
+    "codename": "CV03",
+    "subtitle": "VOCALOID2",
+    "date": "January 30, 2009",
+    "description": "Megurine Luka (巡音ルカ), codenamed CV03, is a bilingual Japanese-English vocal developed and distributed by Crypton Future Media, Inc., and was initially released in January 2009 for the VOCALOID2 engine. She is the third and final release of Crypton's Character Vocal Series, and is a Character Voice type vocal. In March 2015, she received an update to the VOCALOID4 engine.\n\nHer voice is provided by the Japanese voice actress and singer, Yū Asakawa (浅川悠 / Asakawa Yū), who was recorded in Japanese and English for the voicebank.\n\nAs of August 31, 2019, there will be no further installments with the VOCALOID program. Instead Crypton is focusing on their own program, Piapro Studio.",
+    "imageUrl": "./src/assets/img/luka.webp",
+    "imageDividerUrl": "./src/assets/img/dividers/divider-luka.png"
+}
