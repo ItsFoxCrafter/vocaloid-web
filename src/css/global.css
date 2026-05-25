@@ -13,6 +13,7 @@
     --teto-color: #ff4081;
     --neru-color: #ffd543;
     --gumi-color: #38d753;
+    --luka-color: #ff7eb9;
     --rin-len-color: #ffd024;
     --background-color: #f5f5f5;
     --secondary-color: #ebebeb;
@@ -73,6 +74,12 @@ body {
             color: var(--background-color);
         }
     }
+    &.luka-button {
+        &.active-button {
+            background-color: var(--luka-color);
+            color: var(--background-color);
+        }
+    }
     &.rin-len-button {
         &.active-button {
             background-color: var(--rin-len-color);
@@ -94,6 +101,9 @@ body {
         &.gumi-button {
             border-bottom: 3px solid var(--gumi-color);
         }
+        &.luka-button {
+            border-bottom: 3px solid var(--luka-color);
+        }
         &.rin-len-button {
             border-bottom: 3px solid var(--rin-len-color);
         }
@@ -114,6 +124,10 @@ body {
         }
         &.gumi-button {
             background-color: var(--gumi-color);
+            color: var(--background-color);
+        }
+        &.luka-button {
+            background-color: var(--luka-color);
             color: var(--background-color);
         }
         &.rin-len-button {
@@ -175,6 +189,9 @@ body {
     }
     &.gumi-title {
         color: var(--gumi-color);
+    }
+    &.luka-title {
+        color: var(--luka-color);
     }
     &.rin-len-title {
         color: var(--rin-len-color);

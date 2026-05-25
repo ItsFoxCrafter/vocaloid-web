@@ -7,6 +7,7 @@ class CNavbar extends HTMLElement {
                 <button class="virtual-singers-button teto-button" data-page="teto">TETO</button>
                 <button class="virtual-singers-button neru-button" data-page="neru">NERU</button>
                 <button class="virtual-singers-button gumi-button" data-page="gumi">GUMI</button>
+                <button class="virtual-singers-button luka-button" data-page="luka">Luka</button>
                 <button class="virtual-singers-button rin-len-button" data-page="rin-len">RIN/LIN</button>
             </div>
 
