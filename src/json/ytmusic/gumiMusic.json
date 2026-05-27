@@ -1,0 +1,25 @@
+{
+    "songs": [
+        {
+            "id": "0",
+            "title": "ECHO",
+            "artist": "Crusher",
+            "album": "ECHO",
+            "ytlink": "https://www.youtube.com/watch?v=cQKGUgOfD8U"
+        },
+        {
+            "id": "1",
+            "title": "MONSTER",
+            "artist": "KIRA",
+            "album": "MONSTER",
+            "ytlink": "https://www.youtube.com/watch?v=HNIypYrVlkA"
+        },
+        {
+            "id": "2",
+            "title": "Burn Me Down",
+            "artist": "KIRA",
+            "album": "Burn Me Down",
+            "ytlink": "https://www.youtube.com/watch?v=oTGJOVzMHPo"
+        }
+    ]
+}
