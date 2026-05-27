@@ -1,0 +1,25 @@
+{
+    "songs": [
+        {
+            "id": "0",
+            "title": "ジィガ (JYGA)",
+            "artist": "雨良 Amala",
+            "album": "ジィガ",
+            "ytlink": "https://www.youtube.com/watch?v=sFq0bIGgtOM"
+        },
+        {
+            "id": "1",
+            "title": "Lost One's Weeping",
+            "artist": "Neru OFFICIAL",
+            "album": "Lost One's Weeping",
+            "ytlink": "https://www.youtube.com/watch?v=8oBV3jPTW4s"
+        },
+        {
+            "id": "2",
+            "title": "Antidisestablishmentarianism",
+            "artist": "Dasu and Stellar Paradigm",
+            "album": "Antidisestablishmentarianism",
+            "ytlink": "https://www.youtube.com/watch?v=AdgSIU05FPw"
+        }
+    ]
+}
