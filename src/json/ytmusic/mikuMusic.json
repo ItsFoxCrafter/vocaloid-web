@@ -12,14 +12,77 @@
             "title": "SUPERFUSION",
             "artist": "Maiku Tachibana",
             "album": "SUPERFUSION",
-            "ytlink": "https://www.youtube.com/watch?v=I7A1Qvgl9MI&pp=ygUQbWlrdSBzdXBlcmZ1c2lvbg%3D%3D"
+            "ytlink": "https://www.youtube.com/watch?v=I7A1Qvgl9MI"
         },
         {
             "id": "3",
             "title": "LOOPING THE ROOMS",
             "artist": "rusino",
             "album": "LOOPING THE ROOMS",
-            "ytlink": "https://www.youtube.com/watch?v=icBDYkfxpMs&pp=ygUSaGF0c3VuZSBtaWt1IHNvbmdz"
+            "ytlink": "https://www.youtube.com/watch?v=icBDYkfxpMs"
+        },
+        {
+            "id": "4",
+            "title": "Rabbit Hole",
+            "artist": "DECO*27",
+            "album": "Rabbit Hole",
+            "ytlink": "https://www.youtube.com/watch?v=eSW2LVbPThw"
+        },
+        {
+            "id": "5",
+            "title": "Monitoring",
+            "artist": "DECO*27",
+            "album": "Monitoring",
+            "ytlink": "https://www.youtube.com/watch?v=kbNdx0yqbZE"
+        },
+        {
+            "id": "6",
+            "title": "Monitoring (Best Friend Remix)",
+            "artist": "DECO*27",
+            "album": "Monitoring (Best Friend Remix)",
+            "ytlink": "https://www.youtube.com/watch?v=C-CYwNz3z8w"
+        },
+        {
+            "id": "7",
+            "title": "Retry Now",
+            "artist": "Nakiso",
+            "album": "Retry Now",
+            "ytlink": "https://www.youtube.com/watch?v=3iUgKH8c7p4"
+        },
+        {
+            "id": "8",
+            "title": "Confessions of a Rotten girl",
+            "artist": "SAWTONE",
+            "album": "Confessions of a Rotten girl",
+            "ytlink": "https://www.youtube.com/watch?v=sV2H712ldOI"
+        },
+        {
+            "id": "9",
+            "title": "Cherry Pop",
+            "artist": "DECO*27",
+            "album": "Cherry Pop",
+            "ytlink": "https://www.youtube.com/watch?v=BI9Ue6JwJic"
+        },
+        {
+            "id": "10",
+            "title": "The Vampire",
+            "artist": "DECO*27",
+            "album": "The Vampire",
+            "ytlink": "https://www.youtube.com/watch?v=e1xCOsgWG0M"
+        },
+        {
+            "id": "11",
+            "title": "Telepathy",
+            "artist": "DECO*27",
+            "album": "Telepathy",
+            "ytlink": "https://www.youtube.com/watch?v=c56TpxfO9q0"
+        },
+        {
+            "id": "12",
+            "title": "Mimukauwa Nice Try",
+            "artist": "ぬぬぬぬぬぬぬぬぬぬぬ",
+            "album": "Mimukauwa Nice Try",
+            "ytlink": "https://www.youtube.com/watch?v=Ljr2wMSBHqU&t=50s"
         }
     ]
 }

@@ -1,68 +1,68 @@
 function getMusicJsonPath(page) {
-    const normalizedPage = String(page || "").toLowerCase();
-    return `./src/json/ytmusic/${normalizedPage}Music.json`;
+    const NORMALIZED_PAGE = String(page || "").toLowerCase();
+    return `./src/json/ytmusic/${NORMALIZED_PAGE}Music.json`;
 }
 
 function getYoutubeEmbedUrl(link) {
     try {
-        const url = new URL(link);
-        if (url.hostname.includes("youtu.be")) {
-            return `https://www.youtube.com/embed/${url.pathname.slice(1)}`;
+        const PARSED_URL = new URL(link);
+        if (PARSED_URL.hostname.includes("youtu.be")) {
+            return `https://www.youtube.com/embed/${PARSED_URL.pathname.slice(1)}`;
         }
-        const videoId = url.searchParams.get("v");
-        if (videoId) {
-            return `https://www.youtube.com/embed/${videoId}`;
+        const VIDEO_ID = PARSED_URL.searchParams.get("v");
+        if (VIDEO_ID) {
+            return `https://www.youtube.com/embed/${VIDEO_ID}`;
         }
     } catch (error) {
-        const match = link.match(
+        const MATCH = link.match(
             /(?:youtu\.be\/|v=|\/embed\/)([A-Za-z0-9_-]{11})/,
         );
-        if (match) return `https://www.youtube.com/embed/${match[1]}`;
+        if (MATCH) return `https://www.youtube.com/embed/${MATCH[1]}`;
     }
     return link;
 }
 
 function readMusicJSONFile(page) {
-    const musicOutput = document.getElementById("musicOutputContainer");
-    if (!musicOutput) return;
+    const MUSIC_OUTPUT = document.getElementById("musicOutputContainer");
+    if (!MUSIC_OUTPUT) return;
 
     const JSON_PATH = getMusicJsonPath(page);
-    musicOutput.innerHTML = `<p>Loading music for ${page}...</p>`;
+    MUSIC_OUTPUT.innerHTML = `<p>Loading music for ${page}...</p>`;
 
     fetch(JSON_PATH)
-        .then((response) => {
-            if (!response.ok)
+        .then((RESPONSE) => {
+            if (!RESPONSE.ok)
                 throw new Error(
-                    `Failed to load ${JSON_PATH} (status ${response.status})`,
+                    `Failed to load ${JSON_PATH} (status ${RESPONSE.status})`,
                 );
-            return response.json();
+            return RESPONSE.json();
         })
-        .then((data) => {
-            if (!data?.songs?.length) {
-                musicOutput.innerHTML = `<p>No music found for ${page}.</p>`;
+        .then((DATA) => {
+            if (!DATA?.songs?.length) {
+                MUSIC_OUTPUT.innerHTML = `<p>No music found for ${page}.</p>`;
                 return;
             }
 
-            musicOutput.innerHTML = `
+            MUSIC_OUTPUT.innerHTML = `
                 <div class="music-list">
-                    ${data.songs
-                        .map((song) => {
-                            const embedUrl = getYoutubeEmbedUrl(song.ytlink);
+                    ${DATA.songs
+                        .map((SONG) => {
+                            const EMBED_URL = getYoutubeEmbedUrl(SONG.ytlink);
                             return `
                         <div class="music-item">
                             <div class="music-video">
                                 <iframe
-                                    src="${embedUrl}"
-                                    title="${song.title} video"
+                                    src="${EMBED_URL}"
+                                    title="${SONG.title} video"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen
                                 ></iframe>
                             </div>
                             <div class="music-item-meta">
-                                <h3>${song.title}</h3>
-                                <p>${song.artist}</p>
-                                <p class="music-album">${song.album || ""}</p>
+                                <h3>${SONG.title}</h3>
+                                <p>${SONG.artist}</p>
+                                <p class="music-album">${SONG.album || ""}</p>
                             </div>
                         </div>`;
                         })
@@ -70,7 +70,7 @@ function readMusicJSONFile(page) {
                 </div>
             `;
         })
-        .catch((err) => {
-            musicOutput.innerHTML = `<p class="music-error">Unable to load music for ${page}. ${err.message}</p>`;
+        .catch((ERR) => {
+            MUSIC_OUTPUT.innerHTML = `<p class="music-error">Unable to load music for ${page}. ${ERR.message}</p>`;
         });
 }
