@@ -28,6 +28,8 @@ function renderPage(page) {
                 imageDividerUrl: data.imageDividerUrl,
             };
             CONTENT.appendChild(HERO_SECTION);
+
+            renderMusicSection(page);
         })
         .catch((err) => {
             console.error(err);
@@ -66,6 +68,11 @@ function generateError(page, error) {
             console.error(err);
             CONTENT.innerHTML = `<p class="error-fallback">An unexpected error occurred while loading the error page.</p>`;
         });
+}
+
+function renderMusicSection(page) {
+    const MUSIC_SECTION = document.createElement("c-music-section");
+    CONTENT.appendChild(MUSIC_SECTION);
 }
 
 const SOUND_MAP = {
