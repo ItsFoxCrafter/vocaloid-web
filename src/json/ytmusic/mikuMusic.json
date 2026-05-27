@@ -1,0 +1,25 @@
+{
+    "songs": [
+        {
+            "id": "0",
+            "title": "MIKU",
+            "artist": "Anamanguci",
+            "album": "MIKU",
+            "ytlink": "https://www.youtube.com/watch?v=NocXEwsJGOQ&pp=ygUSbWlrdSBhbmFtYW5hZ3VjaGkg"
+        },
+        {
+            "id": "1",
+            "title": "SUPERFUSION",
+            "artist": "Maiku Tachibana",
+            "album": "SUPERFUSION",
+            "ytlink": "https://www.youtube.com/watch?v=I7A1Qvgl9MI&pp=ygUQbWlrdSBzdXBlcmZ1c2lvbg%3D%3D"
+        },
+        {
+            "id": "3",
+            "title": "LOOPING THE ROOMS",
+            "artist": "rusino",
+            "album": "LOOPING THE ROOMS",
+            "ytlink": "https://www.youtube.com/watch?v=icBDYkfxpMs&pp=ygUSaGF0c3VuZSBtaWt1IHNvbmdz"
+        }
+    ]
+}

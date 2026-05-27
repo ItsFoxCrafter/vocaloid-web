@@ -73,6 +73,7 @@ function generateError(page, error) {
 function renderMusicSection(page) {
     const MUSIC_SECTION = document.createElement("c-music-section");
     CONTENT.appendChild(MUSIC_SECTION);
+    readMusicJSONFile(page);
 }
 
 const SOUND_MAP = {
