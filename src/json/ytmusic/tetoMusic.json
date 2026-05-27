@@ -1,0 +1,88 @@
+{
+    "songs": [
+        {
+            "id": "0",
+            "title": "Lose Your Head",
+            "artist": "Vanelily",
+            "album": "Lose Your Head",
+            "ytlink": "https://www.youtube.com/watch?v=36h1nhV_klE"
+        },
+        {
+            "id": "1",
+            "title": "Ghost Experience",
+            "artist": "32ki",
+            "album": "Ghost Experience",
+            "ytlink": "https://www.youtube.com/watch?v=hbGFPAF9-_Q"
+        },
+        {
+            "id": "3",
+            "title": "Exection Clap",
+            "artist": "TRAP CHICK",
+            "album": "Exection Clap",
+            "ytlink": "https://www.youtube.com/watch?v=YcxhmHEykPg"
+        },
+        {
+            "id": "4",
+            "title": "Leviteto",
+            "artist": "PPP Sounds",
+            "album": "Leviteto",
+            "ytlink": "https://www.youtube.com/watch?v=_J_hTrOT8LA"
+        },
+        {
+            "id": "5",
+            "title": "Tetoris",
+            "artist": "Hiiragi Magnetite",
+            "album": "Tetoris",
+            "ytlink": "https://www.youtube.com/watch?v=Soy4jGPHr3g"
+        },
+        {
+            "id": "6",
+            "title": "The One Running The Show (Kasane teto SynthV Cover)",
+            "artist": "The Cappuccino04",
+            "album": "The One Running The Show",
+            "ytlink": "https://www.youtube.com/watch?v=FTB0bnVyuIo"
+        },
+        {
+            "id": "7",
+            "title": "Machine Love",
+            "artist": "Jamie Paige",
+            "album": "Machine Love",
+            "ytlink": "https://www.youtube.com/watch?v=sqK-jh4TDXo"
+        },
+        {
+            "id": "8",
+            "title": "Machine Love Remix Medley For Jamie's BD",
+            "artist": "4M-P",
+            "album": "Machine Love Remix Medley",
+            "ytlink": "https://www.youtube.com/watch?v=xNGKUt9fNuQ"
+        },
+        {
+            "id": "9",
+            "title": "イガク - 重音テト(Medicine)",
+            "artist": "原口沙輔",
+            "album": "イガク - 重音テト",
+            "ytlink": "https://www.youtube.com/watch?v=F38EuG2dAyM"
+        },
+        {
+            "id": "10",
+            "title": "急性恋愛中毒 (Acute Love Addiction)",
+            "artist": "ぴーなた",
+            "album": "急性恋愛中毒",
+            "ytlink": "https://www.youtube.com/watch?v=6cDSJs-b_Us"
+        },
+        {
+            "id": "11",
+            "title": "Im Talking To You!",
+            "artist": "ぴーなた",
+            "album": "Im Talking To You!",
+            "ytlink": "https://www.youtube.com/watch?v=V4elF7---KQ"
+        },
+        {
+            "id": "12",
+            "title": "Debug Drug",
+            "artist": "rusino",
+            "album": "Debug Drug",
+            "ytlink": "https://www.youtube.com/watch?v=00bzO4dmPPc"
+        }
+    ]
+}
