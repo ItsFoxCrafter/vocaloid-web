@@ -1,0 +1,25 @@
+{
+    "songs": [
+        {
+            "id": "0",
+            "title": "BUTCHER VANITY",
+            "artist": "Vanelily",
+            "album": "BUTCHER VANITY",
+            "ytlink": "https://www.youtube.com/watch?v=vjBFftpQxxM"
+        },
+        {
+            "id": "1",
+            "title": "Lemonade",
+            "artist": "worzy",
+            "album": "Lemonade",
+            "ytlink": "https://www.youtube.com/watch?v=bY4RqgNQVuc"
+        },
+        {
+            "id": "2",
+            "title": "INSOMNIA",
+            "artist": "ROMA",
+            "album": "INSOMNIA",
+            "ytlink": "https://www.youtube.com/watch?v=9HDPGcRSRcA"
+        }
+    ]
+}
