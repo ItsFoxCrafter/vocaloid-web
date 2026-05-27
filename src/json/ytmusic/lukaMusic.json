@@ -1,0 +1,18 @@
+{
+    "songs": [
+        {
+            "id": "0",
+            "title": "Artificial Flower Bouquet",
+            "artist": "nazoJ",
+            "album": "Artificial Flower Bouquet",
+            "ytlink": "https://www.youtube.com/watch?v=wewNq2ZHlLY"
+        },
+        {
+            "id": "1",
+            "title": "Phantom Thief Hatch",
+            "artist": "nazoJ",
+            "album": "Phantom Thief Hatch",
+            "ytlink": "https://www.youtube.com/watch?v=lXWsJEoBHPU"
+        }
+    ]
+}
