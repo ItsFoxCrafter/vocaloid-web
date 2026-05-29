@@ -5,9 +5,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Bebas Neue", "Bebas Neue Regular", sans-serif;
+    transition: 0.1s ease;
 }
 
-:root {
+:root[data-theme="light"] {
     --neutral-color: #888;
     --miku-color: #31e6f0;
     --teto-color: #ff4081;
@@ -20,9 +21,23 @@
     --secondary-color: #ebebeb;
     --text-color: #333;
 }
+:root[data-theme="dark"] {
+    --neutral-color: #888;
+    --miku-color: #31e6f0;
+    --teto-color: #ff4081;
+    --neru-color: #ffd543;
+    --gumi-color: #38d753;
+    --luka-color: #ff7eb9;
+    --yixi-color: #d80036;
+    --rin-len-color: #ffd024;
+    --background-color: #121212;
+    --secondary-color: #1e1e1e;
+    --text-color: #eee;
+}
 
 body {
     background-color: var(--background-color);
+    color: var(--text-color);
     background-image: radial-gradient(
         circle,
         var(--neutral-color) 1px,
@@ -50,13 +65,23 @@ body {
     align-items: center;
 }
 
+.other-buttons-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
 .virtual-singers-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     height: 3rem;
-    padding: 0 2rem 0 2rem;
+    padding: 0 2rem;
     font-size: 1.2rem;
     background-color: transparent;
     border: none;
     border-bottom: 3px solid transparent;
+    color: var(--text-color);
 
     transition: 0.1s ease;
 
@@ -166,6 +191,7 @@ body {
     background-color: transparent;
     border: none;
     border-bottom: 3px solid transparent;
+    color: var(--text-color);
     transition: 0.1s ease;
 
     &.active-button {
@@ -182,6 +208,36 @@ body {
         background-color: var(--neutral-color);
         color: var(--background-color);
     }
+}
+
+.theme-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 0 1rem;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    transition: 0.1s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--neutral-color);
+        color: var(--background-color);
+    }
+
+    &:active {
+        background-color: var(--neutral-color);
+        color: var(--background-color);
+    }
+}
+
+.theme-changer-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--text-color);
+    display: block;
 }
 
 .hero-section,
@@ -326,10 +382,10 @@ body {
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--neutral-color);
     border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
 .music-item-meta h3 {
@@ -339,7 +395,7 @@ body {
 
 .music-item-meta p {
     margin: 0;
-    color: var(--neutral-color);
+    color: var(--text-color);
 }
 
 .music-album {
@@ -352,6 +408,11 @@ body {
     border-radius: 8px;
 }
 
-.music-error {
-    color: crimson;
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
 }

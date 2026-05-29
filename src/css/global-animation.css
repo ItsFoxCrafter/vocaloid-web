@@ -1,7 +1,8 @@
 .hero-section,
 .error-section,
 .music-section,
-.welcome-section {
+.welcome-section,
+.about-section {
     animation: up-fade-in-animation 0.5s ease-out;
 }
 
