@@ -19,7 +19,7 @@
     --rin-len-color: #ffd024;
     --background-color: #f5f5f5;
     --secondary-color: #ebebeb;
-    --text-color: #333;
+    --text-color: #141414;
 }
 :root[data-theme="dark"] {
     --neutral-color: #888;
