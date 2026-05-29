@@ -1,5 +1,17 @@
 const CONTENT = document.getElementById("content");
 
+function checkClickedButton(page) {
+    if (page == "about") {
+        const ABOUT_SECTION = document.createElement("c-about-section");
+        CONTENT.innerHTML = "";
+        CONTENT.appendChild(ABOUT_SECTION);
+    } else if (page == "theme-changer") {
+        changeTheme();
+    } else {
+        renderPage(page);
+    }
+}
+
 function renderPage(page) {
     const JSON_PATH = `./src/json/vocals/${page}.json`;
 
