@@ -1,4 +1,4 @@
-const VOCALS = ["miku", "teto", "neru", "gumi"];
+const VOCALS = ["miku", "teto", "neru", "gumi", "rin-len", "yixi"];
 
 function generateError(page, error) {
     const ERROR_JSON_PATH = `./src/json/error/error.json`;
