@@ -26,18 +26,21 @@ class CNavbar extends HTMLElement {
             </div>
         `;
 
-        const buttons = this.querySelectorAll("button[data-page]");
-        buttons.forEach((button) => {
-            button.addEventListener("click", () => {
-                buttons.forEach((btn) => btn.classList.remove("active-button"));
-                button.classList.add("active-button");
-                if (typeof playButtonSound === "function") {
-                    playButtonSound(button.dataset.page);
-                }
-                if (typeof checkClickedButton === "function") {
-                    checkClickedButton(button.dataset.page);
-                }
-            });
+        this.addEventListener("click", (event) => {
+            const button = event.target.closest("button[data-page]");
+            if (!button) return;
+
+            this.querySelectorAll("button[data-page]").forEach((btn) =>
+                btn.classList.remove("active-button"),
+            );
+            button.classList.add("active-button");
+
+            if (typeof playButtonSound === "function") {
+                playButtonSound(button.dataset.page);
+            }
+            if (typeof checkClickedButton === "function") {
+                checkClickedButton(button.dataset.page);
+            }
         });
     }
 }
