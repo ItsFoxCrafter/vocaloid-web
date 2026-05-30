@@ -1,0 +1,198 @@
+/**
+ * @file responsive.css
+ * @description Mobile and tablet responsiveness for VocaWeb.
+ *              Import this AFTER global.css in index.html.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Tablet       (max-width: 1024px)
+ *  2. Mobile       (max-width: 768px)
+ *  3. Small Mobile (max-width: 480px)
+ *
+ * Breakpoints are mobile-last (desktop-first) to match the existing
+ * global.css approach. Add new rules under the appropriate breakpoint.
+ */
+
+/* §1 Tablet (max-width: 1024px) ─────────────────────────────── */
+
+@media (max-width: 1024px) {
+    /* shrink navbar buttons a little so they don't overflow */
+    .virtual-singers-button,
+    .other-button {
+        padding: 0 1.2rem;
+        font-size: 1rem;
+    }
+
+    /* hero: slightly tighter margins */
+    .hero-section {
+        margin-left: 1rem;
+    }
+
+    /* music grid: force 2 columns max */
+    .music-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* §2 Mobile (max-width: 768px) ──────────────────────────────── */
+
+@media (max-width: 768px) {
+    /* ── Navbar ── */
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem 0;
+        gap: 0.25rem;
+    }
+
+    /* vocalist buttons scroll horizontally so they stay on one row */
+    .virtual-singers-button-container {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .virtual-singers-button-container::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    .virtual-singers-button {
+        flex-shrink: 0;
+        padding: 0 1rem;
+        font-size: 0.95rem;
+        border-bottom: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .other-buttons-container {
+        width: 100%;
+        justify-content: flex-end;
+        border-top: 1px solid var(--neutral-color);
+    }
+
+    .other-button {
+        padding: 0 1rem;
+        font-size: 0.95rem;
+    }
+
+    /* ── Welcome ── */
+
+    .welcome-section {
+        height: auto;
+        min-height: 80vh;
+        padding: 2rem 1rem;
+    }
+
+    .welcome-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    /* ── Hero ── */
+
+    /* stack image below text on mobile */
+    .hero-section {
+        flex-direction: column;
+        margin: 1rem;
+        gap: 1rem;
+    }
+
+    .hero-meta {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        width: auto;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 360px;
+        align-self: center;
+    }
+
+    /* ── Error ── */
+
+    .error-section {
+        height: auto;
+        min-height: 80vh;
+        padding: 2rem 1rem;
+    }
+
+    .error-img {
+        width: 60%;
+        max-width: 240px;
+    }
+
+    /* ── About ── */
+
+    .about-section {
+        height: auto;
+        min-height: 80vh;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+    }
+
+    /* ── Music ── */
+
+    .music-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .search-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 1rem;
+    }
+
+    #searchBar {
+        width: 100%;
+    }
+
+    #searchButton {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .music-list {
+        grid-template-columns: 1fr;
+        padding: 0 0.75rem;
+    }
+}
+
+/* §3 Small Mobile (max-width: 480px) ────────────────────────── */
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: clamp(2rem, 14vw, 3rem);
+    }
+
+    .welcome-subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-image {
+        max-width: 280px;
+    }
+
+    .error-img {
+        width: 75%;
+    }
+
+    /* tighten up music cards on very small screens */
+    .music-item {
+        padding: 0.75rem;
+    }
+}
