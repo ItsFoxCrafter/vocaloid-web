@@ -15,7 +15,7 @@ class CWelcomeSection extends HTMLElement {
             <div class="welcome-section">
                 <p class="welcome-eyebrow">VOCAWEB</p>
                 <h1 class="welcome-title">
-                    YOUR FAVORITE<br /><span class="welcome-highlight">VIRTUAL SINGER</span>
+                    CHOOSE YOUR<br /><span class="welcome-highlight">VIRTUAL SINGER</span>
                 </h1>
                 <p class="welcome-subtitle">
                     Select a vocalist from the nav to explore their world
