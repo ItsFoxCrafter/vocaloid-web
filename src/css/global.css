@@ -21,6 +21,7 @@
     --secondary-color: #ebebeb;
     --text-color: #141414;
 }
+
 :root[data-theme="dark"] {
     --neutral-color: #888;
     --miku-color: #31e6f0;
@@ -47,7 +48,11 @@ body {
     background-size: 25px 25px;
 }
 
-.welcome-section {
+/* ─── Shared section layout ─────────────────────────────────── */
+
+.welcome-section,
+.error-section,
+.about-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,6 +60,80 @@ body {
     height: 80vh;
     text-align: center;
 }
+
+.welcome-section {
+    gap: 1rem;
+}
+
+/* ─── Welcome ────────────────────────────────────────────────── */
+
+.welcome-eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    color: var(--neutral-color);
+}
+
+.welcome-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+}
+
+.welcome-highlight {
+    -webkit-text-stroke: 2px var(--text-color);
+    color: transparent;
+}
+
+.welcome-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--neutral-color);
+    margin-top: 0.5rem;
+}
+
+.welcome-dots {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: dot-pulse 2.4s ease-in-out infinite;
+}
+
+.dot-miku {
+    background: var(--miku-color);
+    animation-delay: 0s;
+}
+.dot-teto {
+    background: var(--teto-color);
+    animation-delay: 0.2s;
+}
+.dot-neru {
+    background: var(--neru-color);
+    animation-delay: 0.4s;
+}
+.dot-gumi {
+    background: var(--gumi-color);
+    animation-delay: 0.6s;
+}
+.dot-luka {
+    background: var(--luka-color);
+    animation-delay: 0.8s;
+}
+.dot-rin-len {
+    background: var(--rin-len-color);
+    animation-delay: 1s;
+}
+.dot-yixi {
+    background: var(--yixi-color);
+    animation-delay: 1.2s;
+}
+
+/* ─── Navbar ─────────────────────────────────────────────────── */
 
 .navbar {
     border-bottom: 1px solid var(--neutral-color);
@@ -71,10 +150,9 @@ body {
     height: 100%;
 }
 
-.virtual-singers-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+/* shared base for all nav buttons */
+.virtual-singers-button,
+.other-button {
     height: 3rem;
     padding: 0 2rem;
     font-size: 1.2rem;
@@ -82,134 +160,80 @@ body {
     border: none;
     border-bottom: 3px solid transparent;
     color: var(--text-color);
-
     transition: 0.1s ease;
-
-    &.miku-button {
-        &.active-button {
-            background-color: var(--miku-color);
-            color: var(--background-color);
-        }
-    }
-    &.teto-button {
-        &.active-button {
-            background-color: var(--teto-color);
-            color: var(--background-color);
-        }
-    }
-    &.neru-button {
-        &.active-button {
-            background-color: var(--neru-color);
-            color: var(--background-color);
-        }
-    }
-    &.gumi-button {
-        &.active-button {
-            background-color: var(--gumi-color);
-            color: var(--background-color);
-        }
-    }
-    &.luka-button {
-        &.active-button {
-            background-color: var(--luka-color);
-            color: var(--background-color);
-        }
-    }
-    &.rin-len-button {
-        &.active-button {
-            background-color: var(--rin-len-color);
-            color: var(--background-color);
-        }
-    }
-    &.yixi-button {
-        &.active-button {
-            background-color: var(--yixi-color);
-            color: var(--background-color);
-        }
-    }
-    &:hover {
-        cursor: pointer;
-        &.miku-button {
-            border-bottom: 3px solid var(--miku-color);
-        }
-        &.teto-button {
-            border-bottom: 3px solid var(--teto-color);
-        }
-        &.neru-button {
-            border-bottom: 3px solid var(--neru-color);
-        }
-        &.gumi-button {
-            border-bottom: 3px solid var(--gumi-color);
-        }
-        &.luka-button {
-            border-bottom: 3px solid var(--luka-color);
-        }
-        &.rin-len-button {
-            border-bottom: 3px solid var(--rin-len-color);
-        }
-        &.yixi-button {
-            border-bottom: 3px solid var(--yixi-color);
-        }
-    }
-
-    &:active {
-        &.miku-button {
-            background-color: var(--miku-color);
-            color: var(--background-color);
-        }
-        &.teto-button {
-            background-color: var(--teto-color);
-            color: var(--background-color);
-        }
-        &.neru-button {
-            background-color: var(--neru-color);
-            color: var(--background-color);
-        }
-        &.gumi-button {
-            background-color: var(--gumi-color);
-            color: var(--background-color);
-        }
-        &.luka-button {
-            background-color: var(--luka-color);
-            color: var(--background-color);
-        }
-        &.rin-len-button {
-            background-color: var(--rin-len-color);
-            color: var(--background-color);
-        }
-        &.yixi-button {
-            background-color: var(--yixi-color);
-            color: var(--background-color);
-        }
-    }
+    cursor: pointer;
 }
 
-.other-button {
-    height: 3rem;
-    padding: 0 2rem 0 2rem;
-    font-size: 1.2rem;
-    background-color: transparent;
-    border: none;
-    border-bottom: 3px solid transparent;
-    color: var(--text-color);
-    transition: 0.1s ease;
-
-    &.active-button {
-        background-color: var(--neutral-color);
-        color: var(--background-color);
-    }
-
-    &:hover {
-        cursor: pointer;
-        border-bottom: 3px solid var(--neutral-color);
-    }
-
-    &:active {
-        background-color: var(--neutral-color);
-        color: var(--background-color);
-    }
+/* vocalist color accents — active & hover border */
+.miku-button.active-button,
+.miku-button:active {
+    background-color: var(--miku-color);
+    color: var(--background-color);
+}
+.teto-button.active-button,
+.teto-button:active {
+    background-color: var(--teto-color);
+    color: var(--background-color);
+}
+.neru-button.active-button,
+.neru-button:active {
+    background-color: var(--neru-color);
+    color: var(--background-color);
+}
+.gumi-button.active-button,
+.gumi-button:active {
+    background-color: var(--gumi-color);
+    color: var(--background-color);
+}
+.luka-button.active-button,
+.luka-button:active {
+    background-color: var(--luka-color);
+    color: var(--background-color);
+}
+.rin-len-button.active-button,
+.rin-len-button:active {
+    background-color: var(--rin-len-color);
+    color: var(--background-color);
+}
+.yixi-button.active-button,
+.yixi-button:active {
+    background-color: var(--yixi-color);
+    color: var(--background-color);
 }
 
+.miku-button:hover {
+    border-bottom: 3px solid var(--miku-color);
+}
+.teto-button:hover {
+    border-bottom: 3px solid var(--teto-color);
+}
+.neru-button:hover {
+    border-bottom: 3px solid var(--neru-color);
+}
+.gumi-button:hover {
+    border-bottom: 3px solid var(--gumi-color);
+}
+.luka-button:hover {
+    border-bottom: 3px solid var(--luka-color);
+}
+.rin-len-button:hover {
+    border-bottom: 3px solid var(--rin-len-color);
+}
+.yixi-button:hover {
+    border-bottom: 3px solid var(--yixi-color);
+}
+
+/* neutral "other" buttons (About, etc.) */
+.other-button.active-button,
+.other-button:active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}
+.other-button:hover {
+    border-bottom: 3px solid var(--neutral-color);
+}
+
+/* theme toggle button */
 .theme-button {
     display: inline-flex;
     align-items: center;
@@ -220,17 +244,13 @@ body {
     border: none;
     color: var(--text-color);
     transition: 0.1s ease;
+    cursor: pointer;
+}
 
-    &:hover {
-        cursor: pointer;
-        background-color: var(--neutral-color);
-        color: var(--background-color);
-    }
-
-    &:active {
-        background-color: var(--neutral-color);
-        color: var(--background-color);
-    }
+.theme-button:hover,
+.theme-button:active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
 }
 
 .theme-changer-icon {
@@ -239,6 +259,8 @@ body {
     color: var(--text-color);
     display: block;
 }
+
+/* ─── Hero ───────────────────────────────────────────────────── */
 
 .hero-section,
 .hero-meta {
@@ -255,28 +277,28 @@ body {
 .hero-title {
     font-size: 5rem;
     width: 5%;
+}
 
-    &.miku-title {
-        color: var(--miku-color);
-    }
-    &.teto-title {
-        color: var(--teto-color);
-    }
-    &.neru-title {
-        color: var(--neru-color);
-    }
-    &.gumi-title {
-        color: var(--gumi-color);
-    }
-    &.luka-title {
-        color: var(--luka-color);
-    }
-    &.rin-len-title {
-        color: var(--rin-len-color);
-    }
-    &.yixi-title {
-        color: var(--yixi-color);
-    }
+.hero-title.miku-title {
+    color: var(--miku-color);
+}
+.hero-title.teto-title {
+    color: var(--teto-color);
+}
+.hero-title.neru-title {
+    color: var(--neru-color);
+}
+.hero-title.gumi-title {
+    color: var(--gumi-color);
+}
+.hero-title.luka-title {
+    color: var(--luka-color);
+}
+.hero-title.rin-len-title {
+    color: var(--rin-len-color);
+}
+.hero-title.yixi-title {
+    color: var(--yixi-color);
 }
 
 .hero-meta {
@@ -289,6 +311,8 @@ body {
     height: 100%;
 }
 
+/* ─── Divider ────────────────────────────────────────────────── */
+
 .divider {
     width: 100%;
     height: 4rem;
@@ -298,18 +322,13 @@ body {
     background-position: 0 center;
 }
 
-.error-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    text-align: center;
-}
+/* ─── Error ──────────────────────────────────────────────────── */
 
 .error-img {
     width: 30%;
 }
+
+/* ─── Music ──────────────────────────────────────────────────── */
 
 .music-section {
     width: 100%;
@@ -334,31 +353,26 @@ body {
     border: 1px solid var(--neutral-color);
     border-radius: 4px;
     transition: 0.1s ease;
+}
 
-    &:focus {
-        border-color: 3px solid var(--neutral-color);
-    }
+#searchBar:focus {
+    border-color: 3px solid var(--neutral-color);
 }
 
 #searchButton {
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
-    border: none;
     border: 1px solid var(--neutral-color);
     border-radius: 4px;
     margin-left: 1rem;
     cursor: pointer;
     transition: 0.1s ease;
+}
 
-    &:hover {
-        background-color: var(--neutral-color);
-        color: var(--background-color);
-    }
-
-    &:active {
-        background-color: var(--neutral-color);
-        color: var(--background-color);
-    }
+#searchButton:hover,
+#searchButton:active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
 }
 
 #musicOutputContainer {
@@ -406,13 +420,4 @@ body {
     width: 100%;
     min-height: 200px;
     border-radius: 8px;
-}
-
-.about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    text-align: center;
 }

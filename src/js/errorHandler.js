@@ -7,7 +7,7 @@ async function fetchVocalNames() {
             `Failed to load vocal names (status ${response.status})`,
         );
 
-    return await response.json(); // ✅ now actually returns the data
+    return await response.json();
 }
 
 async function generateError(page, error) {
@@ -15,7 +15,7 @@ async function generateError(page, error) {
 
     try {
         const [VOCALS, errorData] = await Promise.all([
-            fetchVocalNames(), // ✅ awaited properly
+            fetchVocalNames(),
             fetch(ERROR_JSON_PATH).then((res) => {
                 if (!res.ok)
                     throw new Error(

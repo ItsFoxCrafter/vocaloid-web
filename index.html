@@ -3,6 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore your favorite Vocaloid virtual singers — Miku, Teto, Neru, Gumi, Luka and more."
+        />
+        <meta
+            name="keywords"
+            content="vocaloid, hatsune miku, kasane teto, vocaloid wiki, virtual singer"
+        />
+        <meta name="author" content="your name here" />
+        <meta property="og:title" content="VocaWeb" />
+        <meta
+            property="og:description"
+            content="Explore your favorite Vocaloid virtual singers."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://your-site-url.com" />
         <title>VocaWeb</title>
 
         <link rel="stylesheet" href="./src/css/global.css" />
@@ -12,13 +28,11 @@
         <c-navbar></c-navbar>
 
         <div id="content">
-            <div class="welcome-section">
-                <h1>WELCOME TO VOCAWEB</h1>
-                <h3>CLICK ON YOUR FAVORITE VOCALOID</h3>
-            </div>
+            <c-welcome-section></c-welcome-section>
         </div>
 
         <script src="./src/components/navbar.js"></script>
+        <script src="./src/components/welcomeSection.js"></script>
         <script src="./src/components/heroSection.js"></script>
         <script src="./src/components/musicSection.js"></script>
         <script src="./src/components/aboutSection.js"></script>
