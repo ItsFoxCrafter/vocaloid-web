@@ -1,4 +1,26 @@
+/**
+ * @file aboutSection.js
+ * @description Defines the <c-about-section> custom element.
+ *              Renders static content: project info, credits, disclaimer,
+ *              and contact links. Update the HTML below to edit any of these.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. CAboutSection class
+ *     1a. connectedCallback — renders the about page HTML
+ *  2. customElements.define
+ *
+ * Contributing
+ * ------------
+ *  To add yourself to the credits, add a <p> entry under the CREDITS <h1>.
+ *  Keep the format consistent: ROLE: DESCRIPTION: <a href="...">Name</a>
+ */
+
+/* §1 CAboutSection ──────────────────────────────────────────── */
+
 class CAboutSection extends HTMLElement {
+    /* §1a connectedCallback ─────────────────────────────────── */
+
     connectedCallback() {
         this.innerHTML = `
         <section class="about-section">
@@ -13,7 +35,7 @@ class CAboutSection extends HTMLElement {
             <p>VIAMLION: FOR YI XI's DATA: <a href="https://vimalion.pro/">vimalion</a></p>
             <p>YOUTUBE: FOR THE MUSIC: <a href="https://www.youtube.com/">YouTube</a></p>
             <p>LUCIDE: FOR THE ICONS: <a href="https://lucide.dev/">Lucide</a></p>
-            
+
             <h1>DISCLAIMER</h1>
             <p>All content on this site is for informational and entertainment purposes only. We do not claim ownership of any of the music, images, or information presented here. All rights belong to their respective creators and copyright holders.</p>
             <p>We do not host any of the music only the images; we simply provide links to publicly available content. If you are a copyright holder and have any concerns about the content on this site, please contact us and we will address the issue promptly.</p>
@@ -24,5 +46,7 @@ class CAboutSection extends HTMLElement {
         `;
     }
 }
+
+/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-about-section", CAboutSection);

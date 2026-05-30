@@ -1,4 +1,30 @@
+/**
+ * @file global.css
+ * @description Main stylesheet for VocaWeb. Covers theming, layout, and
+ *              all component styles. global-animation.css handles keyframes.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Reset & Base
+ *  2. Theme Variables  (light / dark)
+ *  3. Body
+ *  4. Shared Section Layout
+ *  5. Welcome Section
+ *  6. Navbar
+ *     6a. Nav Button Base
+ *     6b. Vocalist Color Accents
+ *     6c. Other / Theme Buttons
+ *  7. Hero Section
+ *  8. Divider
+ *  9. Error Section
+ * 10. Music Section
+ *
+ * To jump to a section search for its heading comment, e.g. "§6 Navbar".
+ */
+
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+/* §1 Reset & Base ───────────────────────────────────────────── */
 
 * {
     margin: 0;
@@ -7,6 +33,8 @@
     font-family: "Bebas Neue", "Bebas Neue Regular", sans-serif;
     transition: 0.1s ease;
 }
+
+/* §2 Theme Variables ────────────────────────────────────────── */
 
 :root[data-theme="light"] {
     --neutral-color: #888;
@@ -36,6 +64,8 @@
     --text-color: #eee;
 }
 
+/* §3 Body ───────────────────────────────────────────────────── */
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -48,8 +78,9 @@ body {
     background-size: 25px 25px;
 }
 
-/* ─── Shared section layout ─────────────────────────────────── */
+/* §4 Shared Section Layout ──────────────────────────────────── */
 
+/* welcome, error, and about all share the same centered full-height layout */
 .welcome-section,
 .error-section,
 .about-section {
@@ -65,7 +96,7 @@ body {
     gap: 1rem;
 }
 
-/* ─── Welcome ────────────────────────────────────────────────── */
+/* §5 Welcome Section ────────────────────────────────────────── */
 
 .welcome-eyebrow {
     font-size: 0.85rem;
@@ -97,6 +128,7 @@ body {
     margin-top: 1rem;
 }
 
+/* base dot — color and delay set per vocalist below */
 .dot {
     width: 10px;
     height: 10px;
@@ -133,7 +165,7 @@ body {
     animation-delay: 1.2s;
 }
 
-/* ─── Navbar ─────────────────────────────────────────────────── */
+/* §6 Navbar ─────────────────────────────────────────────────── */
 
 .navbar {
     border-bottom: 1px solid var(--neutral-color);
@@ -150,7 +182,9 @@ body {
     height: 100%;
 }
 
-/* shared base for all nav buttons */
+/* §6a Nav Button Base ───────────────────────────────────────── */
+
+/* shared base styles for vocalist and other nav buttons */
 .virtual-singers-button,
 .other-button {
     height: 3rem;
@@ -164,7 +198,13 @@ body {
     cursor: pointer;
 }
 
-/* vocalist color accents — active & hover border */
+/* §6b Vocalist Color Accents ────────────────────────────────── */
+
+/*
+ * Each vocalist button gets its brand color on active/pressed state,
+ * and a colored bottom border on hover.
+ * To add a new vocalist: copy a block, swap the class name and CSS variable.
+ */
 .miku-button.active-button,
 .miku-button:active {
     background-color: var(--miku-color);
@@ -223,7 +263,9 @@ body {
     border-bottom: 3px solid var(--yixi-color);
 }
 
-/* neutral "other" buttons (About, etc.) */
+/* §6c Other / Theme Buttons ─────────────────────────────────── */
+
+/* neutral "About" style buttons */
 .other-button.active-button,
 .other-button:active {
     background-color: var(--neutral-color);
@@ -233,7 +275,7 @@ body {
     border-bottom: 3px solid var(--neutral-color);
 }
 
-/* theme toggle button */
+/* theme toggle (sun/moon icon button) */
 .theme-button {
     display: inline-flex;
     align-items: center;
@@ -260,7 +302,7 @@ body {
     display: block;
 }
 
-/* ─── Hero ───────────────────────────────────────────────────── */
+/* §7 Hero Section ───────────────────────────────────────────── */
 
 .hero-section,
 .hero-meta {
@@ -279,6 +321,7 @@ body {
     width: 5%;
 }
 
+/* vocalist brand colors for the hero title */
 .hero-title.miku-title {
     color: var(--miku-color);
 }
@@ -311,8 +354,9 @@ body {
     height: 100%;
 }
 
-/* ─── Divider ────────────────────────────────────────────────── */
+/* §8 Divider ────────────────────────────────────────────────── */
 
+/* animated repeating image strip between hero and music sections */
 .divider {
     width: 100%;
     height: 4rem;
@@ -322,13 +366,13 @@ body {
     background-position: 0 center;
 }
 
-/* ─── Error ──────────────────────────────────────────────────── */
+/* §9 Error Section ──────────────────────────────────────────── */
 
 .error-img {
     width: 30%;
 }
 
-/* ─── Music ──────────────────────────────────────────────────── */
+/* §10 Music Section ─────────────────────────────────────────── */
 
 .music-section {
     width: 100%;

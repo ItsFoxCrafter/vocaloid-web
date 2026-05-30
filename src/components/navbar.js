@@ -1,16 +1,39 @@
+/**
+ * @file navbar.js
+ * @description Defines the <c-navbar> custom element.
+ *              Renders the top navigation bar and handles all button click
+ *              routing via a single delegated event listener.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. CNavbar class
+ *     1a. connectedCallback  — renders the navbar HTML
+ *     1b. click listener     — handles active state and routing
+ *  2. customElements.define
+ *
+ * Dependencies
+ * ------------
+ *  - playButtonSound()    (soundHandler.js)
+ *  - checkClickedButton() (pageRenderer.js)
+ *  - <c-virtual-singer-button> elements are injected by navbarButtonRenderer.js
+ *
+ * Note on button population
+ * --------------------------
+ *  The .virtual-singers-button-container is intentionally left empty here.
+ *  navbarButtonRenderer.js fills it dynamically from vocaloidNames.json,
+ *  so new vocalists only need a JSON entry — no HTML changes required.
+ */
+
+/* §1 CNavbar ────────────────────────────────────────────────── */
+
 class CNavbar extends HTMLElement {
+    /* §1a connectedCallback ─────────────────────────────────── */
+
     connectedCallback() {
         this.innerHTML = `
         <nav class="navbar">
-            <div class="virtual-singers-button-container">
-                <button class="virtual-singers-button miku-button" data-page="miku">MIKU</button>
-                <button class="virtual-singers-button teto-button" data-page="teto">TETO</button>
-                <button class="virtual-singers-button neru-button" data-page="neru">NERU</button>
-                <button class="virtual-singers-button gumi-button" data-page="gumi">GUMI</button>
-                <button class="virtual-singers-button luka-button" data-page="luka">LUKA</button>
-                <button class="virtual-singers-button rin-len-button" data-page="rin-len">RIN/LIN</button>
-                <button class="virtual-singers-button yixi-button" data-page="yixi">YI-XI</button>
-            </div>
+            <!-- vocalist buttons are injected here by navbarButtonRenderer.js -->
+            <div class="virtual-singers-button-container"></div>
 
             <div class="other-buttons-container">
                 <button class="theme-button" data-page="theme-changer">
@@ -26,10 +49,14 @@ class CNavbar extends HTMLElement {
             </div>
         `;
 
+        /* §1b click listener ────────────────────────────────── */
+
+        // single delegated listener handles all buttons inside the navbar
         this.addEventListener("click", (event) => {
             const button = event.target.closest("button[data-page]");
             if (!button) return;
 
+            // deactivate all buttons, then activate the clicked one
             this.querySelectorAll("button[data-page]").forEach((btn) =>
                 btn.classList.remove("active-button"),
             );
@@ -44,5 +71,7 @@ class CNavbar extends HTMLElement {
         });
     }
 }
+
+/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-navbar", CNavbar);

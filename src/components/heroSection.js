@@ -1,4 +1,34 @@
+/**
+ * @file heroSection.js
+ * @description Defines the <c-hero-section> custom element.
+ *              Renders a vocalist's name, description, metadata, image,
+ *              and their animated divider strip.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. CHeroSection class
+ *     1a. data setter  — receives vocalist data and renders the section
+ *  2. customElements.define
+ *
+ * Expected data shape
+ * --------------------
+ *  {
+ *    title:          string  — vocalist display name (e.g. "Hatsune Miku")
+ *    codename:       string  — internal codename or voice bank name
+ *    subtitle:       string  — short tagline or role
+ *    date:           string  — release/debut date
+ *    description:    string  — short bio shown as a heading
+ *    imageUrl:       string  — path to the vocalist's main image
+ *    page:           string  — slug used to apply the correct color class
+ *    imageDividerUrl: string — path to the repeating divider strip image
+ *  }
+ */
+
+/* §1 CHeroSection ───────────────────────────────────────────── */
+
 class CHeroSection extends HTMLElement {
+    /* §1a data setter ───────────────────────────────────────── */
+
     set data({
         title,
         codename,
@@ -9,6 +39,7 @@ class CHeroSection extends HTMLElement {
         page,
         imageDividerUrl,
     }) {
+        // apply the vocalist's brand color to the title via a CSS class
         const titleClass = page ? `hero-title ${page}-title` : "hero-title";
 
         this.innerHTML = `
@@ -28,5 +59,7 @@ class CHeroSection extends HTMLElement {
         `;
     }
 }
+
+/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-hero-section", CHeroSection);

@@ -1,3 +1,20 @@
+/**
+ * @file global-animation.css
+ * @description All keyframe animations and animation assignments for VocaWeb.
+ *              Kept separate from global.css so animations are easy to find
+ *              and tweak without touching layout or theme code.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Animation Assignments
+ *  2. Keyframes
+ *     - up-fade-in-animation  (sections entering the viewport)
+ *     - divider-background    (scrolling divider strip)
+ *     - dot-pulse             (welcome screen color dots)
+ */
+
+/* §1 Animation Assignments ──────────────────────────────────── */
+
 .hero-section,
 .error-section,
 .music-section,
@@ -10,6 +27,9 @@
     animation: divider-background 8s linear infinite;
 }
 
+/* §2 Keyframes ──────────────────────────────────────────────── */
+
+/* sections slide up and fade in when rendered */
 @keyframes up-fade-in-animation {
     from {
         opacity: 0;
@@ -21,6 +41,7 @@
     }
 }
 
+/* divider image scrolls horizontally on a loop */
 @keyframes divider-background {
     0% {
         background-position: 0 center;
@@ -30,6 +51,7 @@
     }
 }
 
+/* welcome dots breathe in sequence */
 @keyframes dot-pulse {
     0%,
     100% {
