@@ -11,9 +11,14 @@
  *     - up-fade-in-animation  (sections entering the viewport)
  *     - divider-background    (scrolling divider strip)
  *     - dot-pulse             (welcome screen color dots)
+ *     - background-animation  (scrolling body dot grid)
  */
 
 /* §1 Animation Assignments ──────────────────────────────────── */
+
+body {
+    animation: background-animation 3s linear infinite;
+}
 
 .hero-section,
 .error-section,
@@ -61,5 +66,15 @@
     50% {
         transform: scale(1.5);
         opacity: 1;
+    }
+}
+
+/* background dots moving bottom-right */
+@keyframes background-animation {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 25px 25px;
     }
 }
