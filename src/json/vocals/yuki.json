@@ -1,0 +1,9 @@
+{
+    "title": "KAAI YUKI",
+    "codename": "NONE",
+    "subtitle": "VOCALOID",
+    "date": "December 4, 2009",
+    "description": "Kaai Yuki (歌愛ユキ) is a Japanese VOCALOID developed and distributed by AH-Software Co. Ltd., and was initially released in December 2009 for the VOCALOID2 engine. Yuki's vocals are based on an elementary school student. Since the voice provider was a young fourth grade girl at the time, her identity was never revealed for legal reasons. Her voice provider has spoken about Yuki for the character's 10th anniversary (2019) and for VOCALOID's 20th anniversary (2024), but still remains anonymous. She was the first female VOCALOID whose voice samples were not produced from an adult. She was updated to the VOCALOID4 engine in October 2015, specially introducing another voice provider to supply growl voice samples due to her initial voice provider maturing.",
+    "imageUrl": "./src/assets/img/yuki.webp",
+    "imageDividerUrl": "./src/assets/img/dividers/divider-yuki.png"
+}

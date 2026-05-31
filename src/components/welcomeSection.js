@@ -28,6 +28,7 @@ class CWelcomeSection extends HTMLElement {
                     <span class="dot dot-luka"></span>
                     <span class="dot dot-rin-len"></span>
                     <span class="dot dot-yixi"></span>
+                    <span class="dot dot-yuki"></span>
                 </div>
             </div>
         `;

@@ -1,0 +1,25 @@
+{
+    "songs": [
+        {
+            "id": "0",
+            "title": "Lost Umbrella",
+            "artist": "inabakumori",
+            "album": "Lost Umbrella",
+            "ytlink": "https://www.youtube.com/watch?v=DeKLpgzh-qQ"
+        },
+        {
+            "id": "1",
+            "title": "Lag Train",
+            "artist": "inabakumori",
+            "album": "Lag Train",
+            "ytlink": "https://www.youtube.com/watch?v=UnIhRpIT7nc"
+        },
+        {
+            "id": "2",
+            "title": "ド屑(DOKUZU)",
+            "artist": "NAKISO",
+            "album": "ド屑",
+            "ytlink": "https://www.youtube.com/watch?v=5XehRIb81k8"
+        }
+    ]
+}
