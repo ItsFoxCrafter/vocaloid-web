@@ -119,30 +119,20 @@ Then add button color rules under **§6b Vocalist Color Accents**:
 
 ```css
 .your-vocalist-button.active-button,
-.your-vocalist-button:active {
-    background-color: var(--your-vocalist-color);
-    color: var(--background-color);
-}
-.your-vocalist-button:hover {
-    border-bottom: 3px solid var(--your-vocalist-color);
-}
+.your-vocalist-button:active { background-color: var(--your-vocalist-color); color: var(--background-color); }
+.your-vocalist-button:hover  { border-bottom: 3px solid var(--your-vocalist-color); }
 ```
 
 And a hero title color rule under **§7 Hero Section**:
 
 ```css
-.hero-title.your-vocalist-title {
-    color: var(--your-vocalist-color);
-}
+.hero-title.your-vocalist-title { color: var(--your-vocalist-color); }
 ```
 
 And a welcome dot under **§5 Welcome Section**:
 
 ```css
-.dot-your-vocalist {
-    background: var(--your-vocalist-color);
-    animation-delay: Xs;
-}
+.dot-your-vocalist { background: var(--your-vocalist-color); animation-delay: Xs; }
 ```
 
 Increment the `animation-delay` by `0.2s` from the last dot.
@@ -159,7 +149,75 @@ Open `src/components/welcomeSection.js` and add a dot span inside `.welcome-dots
 
 ---
 
-### 2. Bug Fixes & Code Improvements
+### 2. Adding Songs to an Existing Vocalist
+
+Love a song that isn't listed yet? You can add it to any vocalist's playlist without touching any code — just edit a single JSON file.
+
+#### Step-by-step
+
+**1. Find the right playlist file**
+
+Open `src/json/ytmusic/<slug>Music.json` for the vocalist you want to add to (e.g. `mikuMusic.json` for Miku).
+
+**2. Add your song entry**
+
+Append a new object to the `"songs"` array:
+
+```json
+{
+    "id": "next number in sequence",
+    "title": "Song Title",
+    "artist": "Artist Name",
+    "album": "Album Name",
+    "ytlink": "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+}
+```
+
+- `id` must be unique within the file — just increment from the last entry
+- `album` can be `""` if the song has no album
+- Both `youtube.com/watch?v=` and `youtu.be/` links work
+- The YouTube video must be publicly available (not private or age-restricted)
+
+**3. Open a PR**
+
+Title it clearly, e.g. `feat(miku): add "World is Mine" to playlist`.
+In the PR description, mention why you picked the song — a short note like "classic Miku track, surprised it wasn't already here" is fine.
+
+> **One PR per vocalist.** If you're adding songs to multiple vocalists, open a separate PR for each so they're easy to review independently.
+
+---
+
+### 3. Promoting Your Own Vocaloid Music
+
+Made an original song using a Vocaloid or UTAU voice? You can add it to the relevant vocalist's playlist and credit yourself as the artist — this is encouraged!
+
+#### Rules
+
+- The song **must use a Vocaloid, UTAU, or other vocal synth voice** as the main singer — the vocalist it's listed under must actually sing in it
+- The YouTube link must be to **your own upload** of the song
+- The song must be **publicly available** (not unlisted or private)
+- No instrumental-only tracks — the vocalist needs to be audible
+- One song per PR — don't add your whole discography at once
+
+#### Step-by-step
+
+Follow the exact same steps as **"Adding Songs to an Existing Vocalist"** above. The only difference is the `artist` field should be your name or producer alias:
+
+```json
+{
+    "id": "next number in sequence",
+    "title": "Your Song Title",
+    "artist": "Your Name / Producer Alias",
+    "album": "",
+    "ytlink": "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+}
+```
+
+In your PR description, mention that this is your own work so maintainers know to give it a quick listen before merging.
+
+---
+
+### 4. Bug Fixes & Code Improvements
 
 - Keep changes focused — one fix per PR
 - Follow the existing code style (see below)
@@ -172,7 +230,6 @@ Open `src/components/welcomeSection.js` and add a dot span inside `.welcome-dots
 This project uses plain HTML/CSS/JS with no linter configured, so just match what's already there:
 
 **JavaScript**
-
 - `const` for values that don't change, `let` for those that do
 - `SCREAMING_SNAKE_CASE` for constants defined inside functions
 - `camelCase` for variables and function names
@@ -180,13 +237,11 @@ This project uses plain HTML/CSS/JS with no linter configured, so just match wha
 - Always handle fetch errors with a try/catch or `.catch()`
 
 **CSS**
-
 - CSS variables for all colors — never hardcode hex values inside rules
 - Follow the section order in `global.css` (see the TOC at the top of that file)
 - No nesting — keep selectors flat
 
 **General**
-
 - No frameworks, no build tools — keep it vanilla
 - Don't introduce `npm` dependencies
 
@@ -203,6 +258,9 @@ Before opening a PR, make sure:
 - [ ] CSS additions follow the existing style and section order
 - [ ] Code matches the existing style (indentation, naming, comments)
 - [ ] You've tested it locally with a live server (not `file://`)
+- [ ] *(song additions)* The YouTube link is public and playable
+- [ ] *(song additions)* The `id` field is unique within the playlist file
+- [ ] *(own music)* The vocalist listed actually sings in the track
 
 ---
 
