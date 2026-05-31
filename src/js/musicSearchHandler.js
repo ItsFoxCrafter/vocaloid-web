@@ -62,13 +62,19 @@ function initSearch() {
     // live search — filters on every keystroke
     SEARCH_BAR.addEventListener("input", () => {
         const RESULTS = filterSongs(SEARCH_BAR.value);
-        renderSongs(RESULTS, `No songs found for "${SEARCH_BAR.value}".`);
+        renderSongs(
+            RESULTS,
+            `No songs found for "${SEARCH_BAR.value}". Add them by contributing to the JSON file!`,
+        );
     });
 
     // also fires on button click for users who don't expect live search
     SEARCH_BUTTON.addEventListener("click", () => {
         const RESULTS = filterSongs(SEARCH_BAR.value);
-        renderSongs(RESULTS, `No songs found for "${SEARCH_BAR.value}".`);
+        renderSongs(
+            RESULTS,
+            `No songs found for "${SEARCH_BAR.value}". Add them by contributing to the JSON file!`,
+        );
     });
 
     // pressing Enter in the search bar triggers the button
