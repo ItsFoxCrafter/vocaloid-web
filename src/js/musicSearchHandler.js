@@ -53,52 +53,58 @@ function filterSongs(term) {
  * Attaches event listeners to #searchBar and #searchButton.
  * Called once after <c-music-section> is confirmed to be in the DOM.
  */
-function initSearch() {
+function initSearch(signal) {
     const SEARCH_BAR = document.getElementById("searchBar");
     const SEARCH_BUTTON = document.getElementById("searchButton");
 
     if (!SEARCH_BAR || !SEARCH_BUTTON) return;
 
-    // live search — filters on every keystroke
-    SEARCH_BAR.addEventListener("input", () => {
-        const RESULTS = filterSongs(SEARCH_BAR.value);
-        renderSongs(
-            RESULTS,
-            `No songs found for "${SEARCH_BAR.value}". Add them by contributing to the JSON file!`,
-        );
-    });
+    SEARCH_BAR.addEventListener(
+        "input",
+        () => {
+            const RESULTS = filterSongs(SEARCH_BAR.value);
+            renderSongs(RESULTS, `No songs found for "${SEARCH_BAR.value}".`);
+        },
+        { signal },
+    );
 
-    // also fires on button click for users who don't expect live search
-    SEARCH_BUTTON.addEventListener("click", () => {
-        const RESULTS = filterSongs(SEARCH_BAR.value);
-        renderSongs(
-            RESULTS,
-            `No songs found for "${SEARCH_BAR.value}". Add them by contributing to the JSON file!`,
-        );
-    });
+    SEARCH_BUTTON.addEventListener(
+        "click",
+        () => {
+            const RESULTS = filterSongs(SEARCH_BAR.value);
+            renderSongs(RESULTS, `No songs found for "${SEARCH_BAR.value}".`);
+        },
+        { signal },
+    );
 
-    // pressing Enter in the search bar triggers the button
-    SEARCH_BAR.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") SEARCH_BUTTON.click();
-    });
+    SEARCH_BAR.addEventListener(
+        "keydown",
+        (e) => {
+            if (e.key === "Enter") SEARCH_BUTTON.click();
+        },
+        { signal },
+    );
 }
 
 /* §3 Auto-init ──────────────────────────────────────────────── */
 
 /**
- * <c-music-section> is injected dynamically by pageRenderer.js, so
- * #searchBar doesn't exist on page load. MutationObserver watches #content
- * and calls initSearch() the moment the music section appears.
+ * <c-music-section> is injected dynamically on every vocalist click,
+ * so we watch #content continuously and re-run initSearch() each time
+ * a new #searchBar appears. abortController cleans up the old listeners
+ * before attaching new ones so they don't stack up.
  */
+let searchAbortController = null;
+
 const searchObserver = new MutationObserver(() => {
     if (document.getElementById("searchBar")) {
-        initSearch();
-        // stop watching once the elements are found
-        searchObserver.disconnect();
+        // cancel listeners from the previous vocalist before adding new ones
+        if (searchAbortController) searchAbortController.abort();
+        searchAbortController = new AbortController();
+        initSearch(searchAbortController.signal);
     }
 });
 
-// start watching as soon as the script loads
 const CONTENT_ROOT = document.getElementById("content");
 if (CONTENT_ROOT) {
     searchObserver.observe(CONTENT_ROOT, { childList: true, subtree: true });
