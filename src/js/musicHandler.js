@@ -6,9 +6,11 @@
  *
  * TABLE OF CONTENTS
  * -----------------
- *  1. getMusicJsonPath    — builds the path to a vocalist's music JSON file
- *  2. getYoutubeEmbedUrl  — normalizes any YouTube URL to an embed URL
- *  3. readMusicJSONFile   — fetches the JSON and renders the music list HTML
+ *  1. currentSongs        — shared songs array, read by musicSearchHandler.js
+ *  2. getMusicJsonPath    — builds the path to a vocalist's music JSON file
+ *  3. getYoutubeEmbedUrl  — normalizes any YouTube URL to an embed URL
+ *  4. renderSongs         — renders any songs array into #musicOutputContainer
+ *  5. readMusicJSONFile   — fetches the JSON and renders the music list HTML
  *
  * Dependencies
  * ------------
@@ -21,7 +23,16 @@
  *  { "songs": [{ "title": "", "artist": "", "album": "", "ytlink": "" }] }
  */
 
-/* §1 getMusicJsonPath ───────────────────────────────────────── */
+/* §1 currentSongs ───────────────────────────────────────────── */
+
+/**
+ * Stores the full song list for the currently open vocalist page.
+ * musicSearchHandler.js reads and filters this array — do not rename it.
+ * Reset to [] whenever a new vocalist page loads.
+ */
+let currentSongs = [];
+
+/* §2 getMusicJsonPath ───────────────────────────────────────── */
 
 /**
  * Returns the path to a vocalist's YouTube music JSON file.
@@ -33,7 +44,7 @@ function getMusicJsonPath(page) {
     return `./src/json/ytmusic/${NORMALIZED_PAGE}Music.json`;
 }
 
-/* §2 getYoutubeEmbedUrl ─────────────────────────────────────── */
+/* §3 getYoutubeEmbedUrl ─────────────────────────────────────── */
 
 /**
  * Converts any YouTube URL format into a /embed/ URL.
@@ -68,7 +79,53 @@ function getYoutubeEmbedUrl(link) {
     return link;
 }
 
-/* §3 readMusicJSONFile ──────────────────────────────────────── */
+/* §4 renderSongs ────────────────────────────────────────────── */
+
+/**
+ * Renders an array of song objects into #musicOutputContainer.
+ * Used by both readMusicJSONFile (full load) and musicSearchHandler (filtered).
+ *
+ * @param {Object[]} songs        - Array of song objects to render
+ * @param {string}   emptyMessage - Text shown when the songs array is empty
+ */
+function renderSongs(songs, emptyMessage = "No songs found.") {
+    const MUSIC_OUTPUT = document.getElementById("musicOutputContainer");
+    if (!MUSIC_OUTPUT) return;
+
+    if (!songs.length) {
+        MUSIC_OUTPUT.innerHTML = `<p>${emptyMessage}</p>`;
+        return;
+    }
+
+    MUSIC_OUTPUT.innerHTML = `
+        <div class="music-list">
+            ${songs
+                .map((SONG) => {
+                    const EMBED_URL = getYoutubeEmbedUrl(SONG.ytlink);
+                    return `
+                <div class="music-item">
+                    <div class="music-video">
+                        <iframe
+                            src="${EMBED_URL}"
+                            title="${SONG.title} video"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    <div class="music-item-meta">
+                        <h3>${SONG.title}</h3>
+                        <p>${SONG.artist}</p>
+                        <p class="music-album">${SONG.album || ""}</p>
+                    </div>
+                </div>`;
+                })
+                .join("")}
+        </div>
+    `;
+}
+
+/* §5 readMusicJSONFile ──────────────────────────────────────── */
 
 /**
  * Fetches the music JSON for a vocalist and renders the song grid into
@@ -82,6 +139,9 @@ function readMusicJSONFile(page) {
 
     const JSON_PATH = getMusicJsonPath(page);
     MUSIC_OUTPUT.innerHTML = `<p>Loading music for ${page}...</p>`;
+
+    // reset the shared songs array so search doesn't show stale results
+    currentSongs = [];
 
     fetch(JSON_PATH)
         .then((RESPONSE) => {
@@ -97,33 +157,9 @@ function readMusicJSONFile(page) {
                 return;
             }
 
-            // build the song grid — each song gets a card with an embedded video
-            MUSIC_OUTPUT.innerHTML = `
-                <div class="music-list">
-                    ${DATA.songs
-                        .map((SONG) => {
-                            const EMBED_URL = getYoutubeEmbedUrl(SONG.ytlink);
-                            return `
-                        <div class="music-item">
-                            <div class="music-video">
-                                <iframe
-                                    src="${EMBED_URL}"
-                                    title="${SONG.title} video"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen
-                                ></iframe>
-                            </div>
-                            <div class="music-item-meta">
-                                <h3>${SONG.title}</h3>
-                                <p>${SONG.artist}</p>
-                                <p class="music-album">${SONG.album || ""}</p>
-                            </div>
-                        </div>`;
-                        })
-                        .join("")}
-                </div>
-            `;
+            // store songs globally so musicSearchHandler.js can filter them
+            currentSongs = DATA.songs;
+            renderSongs(currentSongs);
         })
         .catch((ERR) => {
             MUSIC_OUTPUT.innerHTML = `<p class="music-error">Unable to load music for ${page}. ${ERR.message}</p>`;

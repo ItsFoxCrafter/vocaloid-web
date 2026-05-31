@@ -13,7 +13,7 @@ class CMusicSection extends HTMLElement {
         this.innerHTML = `
             <section class="music-section">
                 <div class="search-container">
-                    <input id="searchBar" placeholder="Search for music...">
+                    <input id="searchBar" placeholder="Search for music, artist or album...">
                     <button id="searchButton">
                         <img class="theme-changer-icon" src="./src/assets/img/icons/search.svg" alt="Search">
                     </button>
