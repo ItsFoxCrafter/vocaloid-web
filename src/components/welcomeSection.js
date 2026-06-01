@@ -20,6 +20,9 @@ class CWelcomeSection extends HTMLElement {
                 <p class="welcome-subtitle">
                     Select a vocalist from the nav to explore their world
                 </p>
+                <p class="welcome-disclaimer"></p>
+                    WARNING SOUNDS MAY PLAY AUTOMATICALLY ON SOME PAGES
+                </p>
                 <div class="welcome-dots">
                     <span class="dot dot-miku"></span>
                     <span class="dot dot-teto"></span>
