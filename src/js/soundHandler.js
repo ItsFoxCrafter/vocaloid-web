@@ -27,7 +27,6 @@ const SOUND_MAP = {
         "./src/assets/sound/teto/i-hate-miku-teto.mp3",
         "./src/assets/sound/teto/teetoo.mp3",
         "./src/assets/sound/teto/teto-ahhhh.mp3",
-        "./src/assets/sound/teto/teto-cursing-for-some-reason.mp3",
         "./src/assets/sound/teto/teto-wav.mp3",
     ],
     neru: ["./src/assets/sound/neru/neru-phone.mp3"],
