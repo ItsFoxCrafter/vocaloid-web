@@ -7,9 +7,10 @@
  * TABLE OF CONTENTS
  * -----------------
  *  1. SOUND_MAP       — maps vocalist slugs to their audio file paths
- *  2. Audio State     — cache and playing-state trackers
+ *  2. Audio State     — cache, playing-state, and mute trackers
  *  3. getSoundSrc     — picks a sound file for a given page
- *  4. playButtonSound — plays the sound, guarding against overlap
+ *  4. playButtonSound — plays the sound, guarding against overlap and mute
+ *  5. toggleSound     — toggles mute state and updates the navbar button UI
  *
  * Adding sounds for a new vocalist
  * ----------------------------------
@@ -37,6 +38,9 @@ const SOUND_MAP = {
 const audioCache = {}; // stores Audio instances so we don't recreate them
 const audioState = {}; // tracks whether a clip is currently playing
 
+// persists mute preference across page reloads
+let isSoundMuted = localStorage.getItem("soundMuted") === "true";
+
 /* §3 getSoundSrc ────────────────────────────────────────────── */
 
 /**
@@ -57,11 +61,15 @@ function getSoundSrc(page) {
 
 /**
  * Plays a sound for the given vocalist.
- * Skips silently if no sound is mapped, or if a clip is already playing.
+ * Skips silently if sound is muted, no sound is mapped,
+ * or if a clip is already playing.
  *
  * @param {string} page - Vocalist slug matching a key in SOUND_MAP
  */
 function playButtonSound(page) {
+    // respect the mute toggle
+    if (isSoundMuted) return;
+
     const soundSrc = getSoundSrc(page);
     if (!soundSrc) return;
 
@@ -90,4 +98,39 @@ function playButtonSound(page) {
         console.warn("Unable to play audio:", err);
         audioState[page].playing = false;
     });
+}
+
+/* §5 toggleSound ────────────────────────────────────────────── */
+
+/**
+ * Toggles the global mute state and updates the sound button appearance.
+ * Saves the preference to localStorage so it persists on reload.
+ * Called by navbar.js when the sound toggle button is clicked.
+ */
+function toggleSound() {
+    const SOUND_BTN = document.querySelector(".sound-button");
+
+    isSoundMuted = !isSoundMuted;
+    localStorage.setItem("soundMuted", isSoundMuted);
+
+    // Ensure the button exists before trying to modify its classes
+    if (SOUND_BTN) {
+        // This will remove the class if it exists, and add it if it doesn't
+        SOUND_BTN.classList.toggle("active-button");
+
+        // Keeps your mute/unmute visual states working
+        SOUND_BTN.classList.toggle("muted", isSoundMuted);
+        SOUND_BTN.title = isSoundMuted ? "Sound off" : "Sound on";
+    }
+}
+
+/**
+ * Applies the saved mute state to the sound button on initial load.
+ * Called once by navbar.js after the button is rendered.
+ */
+function initSoundButton() {
+    const SOUND_BTN = document.querySelector(".sound-button");
+    if (!SOUND_BTN) return;
+    SOUND_BTN.classList.toggle("muted", isSoundMuted);
+    SOUND_BTN.title = isSoundMuted ? "Sound off" : "Sound on";
 }

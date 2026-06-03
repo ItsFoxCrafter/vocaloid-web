@@ -289,7 +289,8 @@ body {
 }
 
 /* theme toggle (sun/moon icon button) */
-.theme-button {
+.theme-button,
+.sound-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -303,16 +304,24 @@ body {
 }
 
 .theme-button:hover,
-.theme-button:active {
+.theme-button:active,
+.sound-button:hover,
+.sound-button:active {
     background-color: var(--neutral-color);
     color: var(--background-color);
 }
 
-.theme-changer-icon {
+.theme-changer-icon,
+.sound-icon {
     width: 1.5rem;
     height: 1.5rem;
     color: var(--text-color);
     display: block;
+}
+
+.sound-button.active-button {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
 }
 
 /* §7 Hero Section ───────────────────────────────────────────── */
