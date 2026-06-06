@@ -32,6 +32,39 @@ body {
     animation: divider-background 8s linear infinite;
 }
 
+.dot-miku {
+    background: var(--miku-color);
+    animation-delay: 0s;
+}
+.dot-teto {
+    background: var(--teto-color);
+    animation-delay: 0.2s;
+}
+.dot-neru {
+    background: var(--neru-color);
+    animation-delay: 0.4s;
+}
+.dot-gumi {
+    background: var(--gumi-color);
+    animation-delay: 0.6s;
+}
+.dot-luka {
+    background: var(--luka-color);
+    animation-delay: 0.8s;
+}
+.dot-rin-len {
+    background: var(--rin-len-color);
+    animation-delay: 1s;
+}
+.dot-yixi {
+    background: var(--yixi-color);
+    animation-delay: 1.2s;
+}
+.dot-yuki {
+    background: var(--yuki-color);
+    animation-delay: 1.4s;
+}
+
 /* §2 Keyframes ──────────────────────────────────────────────── */
 
 /* sections slide up and fade in when rendered */

@@ -1,0 +1,34 @@
+/**
+ * @file variables.css
+ * @description Theme CSS custom properties (light / dark).
+ */
+
+:root[data-theme="light"] {
+    --neutral-color: #888;
+    --miku-color: #31e6f0;
+    --teto-color: #ff4081;
+    --neru-color: #ffd543;
+    --gumi-color: #38d753;
+    --luka-color: #ff7eb9;
+    --yixi-color: #d80036;
+    --yuki-color: #d1343c;
+    --rin-len-color: #ffd024;
+    --background-color: #f5f5f5;
+    --secondary-color: #ebebeb;
+    --text-color: #141414;
+}
+
+:root[data-theme="dark"] {
+    --neutral-color: #888;
+    --miku-color: #31e6f0;
+    --teto-color: #ff4081;
+    --neru-color: #ffd543;
+    --gumi-color: #38d753;
+    --luka-color: #ff7eb9;
+    --yixi-color: #d80036;
+    --yuki-color: #d1343c;
+    --rin-len-color: #ffd024;
+    --background-color: #121212;
+    --secondary-color: #1e1e1e;
+    --text-color: #eee;
+}

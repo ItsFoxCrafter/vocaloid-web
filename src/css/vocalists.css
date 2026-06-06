@@ -1,0 +1,115 @@
+/**
+ * @file vocalists.css
+ * @description Vocalist-branded class rules collected in one place.
+ *              Uses CSS custom properties defined in variables.css.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Navbar — Button active/hover accent colors
+ *  2. Hero   — Title brand colors and dot colors
+ *
+ * To add a new vocalist: add its color variable in variables.css,
+ * then copy a rule block below and replace the slug + CSS variable.
+ */
+
+/* §1 Navbar ─ Button active/hover accent colors ─────────────── */
+
+.miku-button.active-button,
+.miku-button:active {
+    background-color: var(--miku-color);
+    color: var(--background-color);
+}
+.teto-button.active-button,
+.teto-button:active {
+    background-color: var(--teto-color);
+    color: var(--background-color);
+}
+.neru-button.active-button,
+.neru-button:active {
+    background-color: var(--neru-color);
+    color: var(--background-color);
+}
+.gumi-button.active-button,
+.gumi-button:active {
+    background-color: var(--gumi-color);
+    color: var(--background-color);
+}
+.luka-button.active-button,
+.luka-button:active {
+    background-color: var(--luka-color);
+    color: var(--background-color);
+}
+.rin-len-button.active-button,
+.rin-len-button:active {
+    background-color: var(--rin-len-color);
+    color: var(--background-color);
+}
+.yixi-button.active-button,
+.yixi-button:active {
+    background-color: var(--yixi-color);
+    color: var(--background-color);
+}
+.yuki-button.active-button,
+.yuki-button:active {
+    background-color: var(--yuki-color);
+    color: var(--background-color);
+}
+.miku-button:hover {
+    border-bottom: 3px solid var(--miku-color);
+}
+.teto-button:hover {
+    border-bottom: 3px solid var(--teto-color);
+}
+.neru-button:hover {
+    border-bottom: 3px solid var(--neru-color);
+}
+.gumi-button:hover {
+    border-bottom: 3px solid var(--gumi-color);
+}
+.luka-button:hover {
+    border-bottom: 3px solid var(--luka-color);
+}
+.rin-len-button:hover {
+    border-bottom: 3px solid var(--rin-len-color);
+}
+.yixi-button:hover {
+    border-bottom: 3px solid var(--yixi-color);
+}
+.yuki-button:hover {
+    border-bottom: 3px solid var(--yuki-color);
+}
+
+/* §2 Hero ─ Title brand colors and dot colors ──────────────────────────────── */
+
+.hero-title.miku-title,
+.dot-miku {
+    color: var(--miku-color);
+}
+.hero-title.teto-title,
+.dot-teto {
+    color: var(--teto-color);
+}
+.hero-title.neru-title,
+.dot-neru {
+    color: var(--neru-color);
+}
+.hero-title.gumi-title,
+.dot-gumi {
+    color: var(--gumi-color);
+}
+.hero-title.luka-title,
+.dot-luka {
+    color: var(--luka-color);
+}
+.hero-title.rin-len-title,
+.dot-rin-len {
+    color: var(--rin-len-color);
+}
+.hero-title.yixi-title,
+.dot-yixi {
+    color: var(--yixi-color);
+}
+.hero-title.yuki-title,
+.dot-yuki {
+    color: var(--yuki-color);
+}

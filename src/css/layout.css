@@ -1,0 +1,31 @@
+/**
+ * @file layout.css
+ * @description Body and shared section layout.
+ */
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    background-image: radial-gradient(
+        circle,
+        var(--neutral-color) 1px,
+        transparent 1px
+    );
+    background-repeat: repeat;
+    background-size: 25px 25px;
+}
+
+.welcome-section,
+.error-section,
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.welcome-section {
+    gap: 1rem;
+}

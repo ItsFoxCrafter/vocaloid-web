@@ -1,0 +1,77 @@
+/**
+ * @file navbar.css
+ * @description Navbar, other buttons, theme/sound buttons.
+ *              Vocalist button accent colors live in vocalists.css.
+ */
+
+.navbar {
+    border-bottom: 1px solid var(--neutral-color);
+    background-color: var(--secondary-color);
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.other-buttons-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.virtual-singers-button,
+.other-button {
+    height: 3rem;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-color);
+    transition: 0.1s ease;
+    cursor: pointer;
+}
+
+.other-button.active-button,
+.other-button:active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}
+.other-button:hover {
+    border-bottom: 3px solid var(--neutral-color);
+}
+
+.theme-button,
+.sound-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 0 1rem;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    transition: 0.1s ease;
+    cursor: pointer;
+}
+
+.theme-button:hover,
+.theme-button:active,
+.sound-button:hover,
+.sound-button:active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}
+
+.theme-changer-icon,
+.sound-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--text-color);
+    display: block;
+}
+
+.sound-button.active-button {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}

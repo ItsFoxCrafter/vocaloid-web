@@ -1,0 +1,42 @@
+/**
+ * @file welcome.css
+ * @description Welcome section. Vocalist dot colors live in vocalists.css.
+ */
+
+.welcome-eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    color: var(--neutral-color);
+}
+
+.welcome-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+}
+
+.welcome-highlight {
+    -webkit-text-stroke: 2px var(--text-color);
+    color: transparent;
+}
+
+.welcome-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--neutral-color);
+    margin-top: 0.5rem;
+}
+
+.welcome-dots {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: dot-pulse 2.4s ease-in-out infinite;
+}
+

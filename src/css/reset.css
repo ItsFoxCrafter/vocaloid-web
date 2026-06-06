@@ -1,0 +1,12 @@
+/**
+ * @file reset.css
+ * @description Reset & base styles.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bebas Neue", "Bebas Neue Regular", sans-serif;
+    transition: 0.1s ease;
+}

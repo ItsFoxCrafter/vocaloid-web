@@ -1,0 +1,31 @@
+/**
+ * @file hero.css
+ * @description Hero section layout. Vocalist title colors live in vocalists.css.
+ */
+
+.hero-section,
+.hero-meta {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.hero-section {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.hero-title {
+    font-size: 5rem;
+    width: 5%;
+}
+
+.hero-meta {
+    width: 50%;
+    margin-top: 1rem;
+}
+
+.hero-image {
+    width: 40%;
+    height: 100%;
+}
