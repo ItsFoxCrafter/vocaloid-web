@@ -99,9 +99,9 @@ This is shown on the error screen when a page fails to load.
 
 ---
 
-**7. Add the CSS color variable and button styles**
+**7. Add the CSS color variable and class rules**
 
-Open `src/css/global.css` and add the vocalist's brand color to both theme blocks (§2):
+**7a. Add the color variable** in `src/css/variables.css` — add to **both** theme blocks:
 
 ```css
 :root[data-theme="light"] {
@@ -115,22 +115,21 @@ Open `src/css/global.css` and add the vocalist's brand color to both theme block
 }
 ```
 
-Then add button color rules under **§6b Vocalist Color Accents**:
+**7b. Add vocalist class rules** in `src/css/vocalists.css` — add a block to each section:
 
+Under **§1 Navbar** (button accent colors):
 ```css
 .your-vocalist-button.active-button,
 .your-vocalist-button:active { background-color: var(--your-vocalist-color); color: var(--background-color); }
 .your-vocalist-button:hover  { border-bottom: 3px solid var(--your-vocalist-color); }
 ```
 
-And a hero title color rule under **§7 Hero Section**:
-
+Under **§2 Hero** (title brand color):
 ```css
 .hero-title.your-vocalist-title { color: var(--your-vocalist-color); }
 ```
 
-And a welcome dot under **§5 Welcome Section**:
-
+Under **§3 Welcome** (dot color & animation delay):
 ```css
 .dot-your-vocalist { background: var(--your-vocalist-color); animation-delay: Xs; }
 ```
@@ -146,6 +145,8 @@ Open `src/components/welcomeSection.js` and add a dot span inside `.welcome-dots
 ```html
 <span class="dot dot-your-vocalist"></span>
 ```
+
+> The dot's color and animation-delay are already handled by the `.dot-your-vocalist` rule you added to `vocalists.css` in step 7.
 
 ---
 
@@ -238,7 +239,8 @@ This project uses plain HTML/CSS/JS with no linter configured, so just match wha
 
 **CSS**
 - CSS variables for all colors — never hardcode hex values inside rules
-- Follow the section order in `global.css` (see the TOC at the top of that file)
+- Put the right rule in the right partial: variables in `variables.css`, vocalist-branded classes in `vocalists.css`, layout in `layout.css`, and section-specific rules in their respective `welcome.css`, `navbar.css`, `hero.css`, `divider.css`, `error.css`, `music.css`
+- Follow the section order within each partial (see the TOC at the top of each file)
 - No nesting — keep selectors flat
 
 **General**
@@ -255,7 +257,8 @@ Before opening a PR, make sure:
 - [ ] The change is limited to what the issue describes
 - [ ] New vocalist JSON files follow the exact structure shown above
 - [ ] Images are in the correct folders with the correct naming convention
-- [ ] CSS additions follow the existing style and section order
+- [ ] CSS additions go in the correct partial file (`variables.css`, `vocalists.css`, or the relevant section CSS)
+- [ ] `animation-delay` in `vocalists.css` is incremented by `0.2s` from the last dot entry
 - [ ] Code matches the existing style (indentation, naming, comments)
 - [ ] You've tested it locally with a live server (not `file://`)
 - [ ] *(song additions)* The YouTube link is public and playable

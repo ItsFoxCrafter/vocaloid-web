@@ -31,8 +31,19 @@ vocaloid-web/
     │   └── sound/               # vocalist audio clips
     ├── components/              # custom HTML elements (<c-navbar>, <c-hero-section>, etc.)
     ├── css/
-    │   ├── global.css           # all layout, theming, and component styles
-    │   └── global-animation.css # keyframe animations
+    │   ├── global.css           # manifest — imports all partial CSS files below
+    │   ├── reset.css            # universal reset & box-sizing
+    │   ├── variables.css        # light/dark theme CSS custom properties
+    │   ├── vocalists.css        # vocalist-branded class rules (navbar, hero, welcome)
+    │   ├── layout.css           # body background & shared section layout
+    │   ├── welcome.css          # welcome section
+    │   ├── navbar.css           # navbar, other/theme buttons
+    │   ├── hero.css             # hero section layout
+    │   ├── divider.css          # animated divider strip
+    │   ├── error.css            # error page
+    │   ├── music.css            # music search & cards
+    │   ├── responsive.css       # mobile/tablet breakpoints
+    │   └── animations.css       # keyframe animations
     ├── js/
     │   ├── errorHandler.js      # error screen logic
     │   ├── musicHandler.js      # music fetch and render
@@ -83,7 +94,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide. The short version:
 2. Create `src/json/vocals/<slug>.json`
 3. Create `src/json/ytmusic/<slug>Music.json`
 4. Add the vocalist's image to `src/assets/img/`
-5. Add a CSS variable and button color rules in `src/css/global.css`
+5. Add a CSS variable in `src/css/variables.css` and color class rules in `src/css/vocalists.css`
 
 ---
 
