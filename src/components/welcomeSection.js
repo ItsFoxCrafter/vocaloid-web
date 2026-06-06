@@ -24,14 +24,6 @@ class CWelcomeSection extends HTMLElement {
                     WARNING SOUNDS MAY PLAY AUTOMATICALLY ON SOME PAGES
                 </p>
                 <div class="welcome-dots">
-                    <span class="dot dot-miku"></span>
-                    <span class="dot dot-teto"></span>
-                    <span class="dot dot-neru"></span>
-                    <span class="dot dot-gumi"></span>
-                    <span class="dot dot-luka"></span>
-                    <span class="dot dot-rin-len"></span>
-                    <span class="dot dot-yixi"></span>
-                    <span class="dot dot-yuki"></span>
                 </div>
             </div>
         `;
