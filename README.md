@@ -22,23 +22,40 @@ Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools, just 
 ```
 vocaloid-web/
 ├── index.html
+├── README.md
+├── CONTRIBUTING.md
+├── LICENSE
 └── src/
     ├── assets/
     │   ├── img/
-    │   │   ├── dividers/        # animated divider strip per vocalist
-    │   │   ├── icons/           # UI icons (SVG)
-    │   │   └── signs/           # vocalist sign images used in error screen
-    │   └── sound/               # vocalist audio clips
-    ├── components/              # custom HTML elements (<c-navbar>, <c-hero-section>, etc.)
+    │   │   ├── <vocalist>.webp          # vocalist portrait images
+    │   │   ├── dividers/
+    │   │   │   └── divider-<vocalist>.png  # animated divider strip per vocalist
+    │   │   ├── icons/
+    │   │   │   ├── search.svg
+    │   │   │   └── sun-moon.svg
+    │   │   └── signs/
+    │   │       └── sign-<vocalist>.png     # vocalist sign images used in error screen
+    │   └── sound/
+    │       └── <vocalist>/                 # vocalist audio clips
+    ├── components/                        # custom HTML elements
+    │   ├── aboutSection.js
+    │   ├── errorSection.js
+    │   ├── heroSection.js
+    │   ├── musicSection.js
+    │   ├── navbar.js
+    │   ├── virtualSingerButton.js
+    │   ├── welcomeDots.js
+    │   └── welcomeSection.js
     ├── css/
     │   ├── global.css           # manifest — imports all partial CSS files below
     │   ├── reset.css            # universal reset & box-sizing
     │   ├── variables.css        # light/dark theme CSS custom properties
-    │   ├── vocalists.css        # vocalist-branded class rules (navbar, hero, welcome)
     │   ├── layout.css           # body background & shared section layout
     │   ├── welcome.css          # welcome section
     │   ├── navbar.css           # navbar, other/theme buttons
     │   ├── hero.css             # hero section layout
+    │   ├── vocalists.css        # vocalist-branded class rules (navbar, hero, welcome)
     │   ├── divider.css          # animated divider strip
     │   ├── error.css            # error page
     │   ├── music.css            # music search & cards
@@ -47,18 +64,34 @@ vocaloid-web/
     ├── js/
     │   ├── errorHandler.js      # error screen logic
     │   ├── musicHandler.js      # music fetch and render
+    │   ├── musicSearchHandler.js  # search filtering logic
     │   ├── navbarButtonRenderer.js  # dynamic navbar population
     │   ├── pageRenderer.js      # main content router
     │   ├── soundHandler.js      # audio clip playback
-    │   └── themeHandler.js      # dark/light theme toggle
+    │   ├── themeHandler.js      # dark/light theme toggle
+    │   └── welcomeDotsRenderer.js  # welcome dot population
     └── json/
         ├── vocaloidNames.json   # list of active vocalist slugs
         ├── error/
         │   └── error.json       # random error titles
         ├── vocals/              # per-vocalist bio data
-        │   └── miku.json
+        │   ├── gumi.json
+        │   ├── luka.json
+        │   ├── miku.json
+        │   ├── neru.json
+        │   ├── rin-len.json
+        │   ├── teto.json
+        │   ├── yixi.json
+        │   └── yuki.json
         └── ytmusic/             # per-vocalist music playlists
-            └── mikuMusic.json
+            ├── gumiMusic.json
+            ├── lukaMusic.json
+            ├── mikuMusic.json
+            ├── neruMusic.json
+            ├── rin-lenMusic.json
+            ├── tetoMusic.json
+            ├── yixiMusic.json
+            └── yukiMusic.json
 ```
 
 ---
