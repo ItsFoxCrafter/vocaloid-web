@@ -12,40 +12,31 @@
 }
 
 .search-container {
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 2rem;
+    width: 100%;
+    max-width: 600px;
 }
 
 #searchBar {
-    width: 80%;
-    padding: 0.5rem;
-    font-size: 1.2rem;
+    width: 100%;
+    max-width: 600px;
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
     border: 1px solid var(--neutral-color);
-    border-radius: 4px;
+    background: transparent;
+    color: var(--text-color);
+    outline: none;
     transition: 0.1s ease;
+}
+
+#searchBar::placeholder {
+    color: var(--neutral-color);
 }
 
 #searchBar:focus {
-    border-color: 3px solid var(--neutral-color);
-}
-
-#searchButton {
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border: 1px solid var(--neutral-color);
-    border-radius: 4px;
-    margin-left: 1rem;
-    cursor: pointer;
-    transition: 0.1s ease;
-}
-
-#searchButton:hover,
-#searchButton:active {
-    background-color: var(--neutral-color);
-    color: var(--background-color);
+    border-color: var(--text-color);
 }
 
 #musicOutputContainer {
@@ -72,7 +63,6 @@
     background-color: var(--background-color);
     color: var(--text-color);
     border: 1px solid var(--neutral-color);
-    border-radius: 12px;
 }
 
 .music-item-meta h3 {
@@ -92,5 +82,4 @@
 .music-video iframe {
     width: 100%;
     min-height: 200px;
-    border-radius: 8px;
 }

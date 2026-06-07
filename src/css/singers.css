@@ -1,0 +1,168 @@
+/**
+ * @file singers.css
+ * @description Vocalist grid page — category-based browsing.
+ */
+
+.vocalist-grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+}
+
+.vocalist-search {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1rem;
+}
+
+.vocalist-search-input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--neutral-color);
+    background: transparent;
+    color: var(--text-color);
+    outline: none;
+    transition: 0.1s ease;
+}
+
+.vocalist-search-input::placeholder {
+    color: var(--neutral-color);
+}
+
+.vocalist-search-input:focus {
+    border-color: var(--text-color);
+}
+
+/* ── Mode Toggle ── */
+
+.vocalist-mode-toggle {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--neutral-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+
+.mode-btn.active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}
+
+/* ── Square Mode ── */
+
+.vocalist-grid.mode-square {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.mode-square .vocalist-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border: 3px solid var(--accent);
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        border-width 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.mode-square .vocalist-card:hover,
+.mode-square .vocalist-card:active,
+.mode-square .vocalist-card.active {
+    border-width: 6px;
+    background-color: var(--accent);
+}
+
+.mode-square .vocalist-card:hover .vocalist-card-name,
+.mode-square .vocalist-card:active .vocalist-card-name,
+.mode-square .vocalist-card.active .vocalist-card-name {
+    color: var(--text-color);
+}
+
+.mode-square .vocalist-card-name {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 2rem;
+    color: var(--accent);
+    z-index: 1;
+    transition: color 0.15s ease;
+}
+
+.mode-square .vocalist-card-img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+}
+
+/* ── List Mode ── */
+
+.vocalist-grid.mode-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.mode-list .vocalist-card {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    height: 120px;
+    border: 3px solid var(--accent);
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        border-width 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.mode-list .vocalist-card:hover,
+.mode-list .vocalist-card:active,
+.mode-list .vocalist-card.active {
+    border-width: 6px;
+    background-color: var(--accent);
+}
+
+.mode-list .vocalist-card:hover .vocalist-card-name,
+.mode-list .vocalist-card:active .vocalist-card-name,
+.mode-list .vocalist-card.active .vocalist-card-name {
+    color: var(--text-color);
+}
+
+.mode-list .vocalist-card-name {
+    display: flex;
+    align-items: center;
+    padding-left: 1.5rem;
+    font-size: 2rem;
+    color: var(--accent);
+    flex: 1;
+    transition: color 0.15s ease;
+}
+
+.mode-list .vocalist-card-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200%;
+    width: auto;
+    pointer-events: none;
+}

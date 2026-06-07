@@ -14,11 +14,11 @@
  * ------------
  *  - currentSongs  (musicHandler.js) — the full songs array to filter
  *  - renderSongs() (musicHandler.js) — renders a songs array into the DOM
- *  - #searchBar and #searchButton exist inside <c-music-section>
+ *  - #searchBar exists inside <c-music-section>
  *
  * How it works
  * ------------
- *  Search fires on button click AND on every keystroke (live search).
+ *  Search fires on every keystroke (live search).
  *  It searches across title, artist, and album fields — all case-insensitive.
  *  Clearing the input restores the full song list automatically.
  */
@@ -50,37 +50,19 @@ function filterSongs(term) {
 /* §2 initSearch ─────────────────────────────────────────────── */
 
 /**
- * Attaches event listeners to #searchBar and #searchButton.
+ * Attaches event listeners to #searchBar.
  * Called once after <c-music-section> is confirmed to be in the DOM.
  */
 function initSearch(signal) {
     const SEARCH_BAR = document.getElementById("searchBar");
-    const SEARCH_BUTTON = document.getElementById("searchButton");
 
-    if (!SEARCH_BAR || !SEARCH_BUTTON) return;
+    if (!SEARCH_BAR) return;
 
     SEARCH_BAR.addEventListener(
         "input",
         () => {
             const RESULTS = filterSongs(SEARCH_BAR.value);
             renderSongs(RESULTS, `No songs found for "${SEARCH_BAR.value}".`);
-        },
-        { signal },
-    );
-
-    SEARCH_BUTTON.addEventListener(
-        "click",
-        () => {
-            const RESULTS = filterSongs(SEARCH_BAR.value);
-            renderSongs(RESULTS, `No songs found for "${SEARCH_BAR.value}".`);
-        },
-        { signal },
-    );
-
-    SEARCH_BAR.addEventListener(
-        "keydown",
-        (e) => {
-            if (e.key === "Enter") SEARCH_BUTTON.click();
         },
         { signal },
     );

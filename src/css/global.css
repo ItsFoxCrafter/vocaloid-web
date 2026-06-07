@@ -11,7 +11,8 @@
  *  - welcome.css     Welcome Section
  *  - navbar.css      Navbar & Buttons
  *  - hero.css        Hero Section
- *  - vocalists.css   Vocalist color classes (overrides for navbar, hero, welcome)
+ *  - vocalists.css   Vocalist color classes (hero, welcome)
+ *  - singers.css     Vocalist grid (category browsing)
  *  - divider.css     Divider Strip
  *  - error.css       Error Section
  *  - music.css       Music Section
@@ -27,6 +28,7 @@
 @import url("./navbar.css");
 @import url("./hero.css");
 @import url("./vocalists.css");
+@import url("./singers.css");
 @import url("./divider.css");
 @import url("./error.css");
 @import url("./music.css");

@@ -39,13 +39,10 @@ class CHeroSection extends HTMLElement {
         page,
         imageDividerUrl,
     }) {
-        // apply the vocalist's brand color to the title via a CSS class
-        const titleClass = page ? `hero-title ${page}-title` : "hero-title";
-
         this.innerHTML = `
         <section class="hero-section">
             <div class="hero-text">
-                <h1 class="${titleClass}">${title}</h1>
+                <h1 class="hero-title" style="color: var(--${page}-color);">${title}</h1>
                 <h2 class="hero-description">${description}</h2>
                 <div class="hero-meta">
                     <h4 class="hero-codename">${codename}</h4>

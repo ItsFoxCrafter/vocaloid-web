@@ -1,46 +1,18 @@
-/**
- * @file navbar.js
- * @description Defines the <c-navbar> custom element.
- *              Renders the top navigation bar and handles all button click
- *              routing via a single delegated event listener.
- *
- * TABLE OF CONTENTS
- * -----------------
- *  1. CNavbar class
- *     1a. connectedCallback  — renders the navbar HTML
- *     1b. click listener     — handles active state and routing
- *  2. customElements.define
- *
- * Dependencies
- * ------------
- *  - playButtonSound()    (soundHandler.js)
- *  - toggleSound()        (soundHandler.js)
- *  - initSoundButton()    (soundHandler.js)
- *  - checkClickedButton() (pageRenderer.js)
- *  - <c-virtual-singer-button> elements are injected by navbarButtonRenderer.js
- *
- * Note on button population
- * --------------------------
- *  The .virtual-singers-button-container is intentionally left empty here.
- *  navbarButtonRenderer.js fills it dynamically from vocaloidNames.json,
- *  so new vocalists only need a JSON entry — no HTML changes required.
- */
-
-/* §1 CNavbar ────────────────────────────────────────────────── */
-
 class CNavbar extends HTMLElement {
-    /* §1a connectedCallback ─────────────────────────────────── */
-
     connectedCallback() {
         this.innerHTML = `
         <nav class="navbar">
-            <!-- vocalist buttons are injected here by navbarButtonRenderer.js -->
-            <div class="virtual-singers-button-container"></div>
+            <div class="category-buttons-container">
+                <button class="other-button" data-page="all">ALL</button>
+                <button class="other-button" data-page="vocaloid">VOCALOID</button>
+                <button class="other-button" data-page="utau">UTAU</button>
+                <button class="other-button" data-page="vsynth">VSYNTH</button>
+                <button class="other-button" data-page="other">OTHER</button>
+            </div>
 
             <div class="other-buttons-container">
 
-                <!-- sound toggle — mutes/unmutes vocalist clips -->
-                <button class="sound-button active-button" data-action="sound-toggle" title="Sound on">
+                <button class="sound-button" data-action="sound-toggle" title="Sound on">
                     <svg class="sound-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/>
                         <path d="M16 9a5 5 0 0 1 0 6"/>
@@ -48,7 +20,6 @@ class CNavbar extends HTMLElement {
                     </svg>
                 </button>
 
-                <!-- theme toggle — switches light/dark mode -->
                 <button class="theme-button" data-action="theme-toggle" title="Toggle theme">
                     <svg class="theme-changer-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 2v2"/>
@@ -63,29 +34,22 @@ class CNavbar extends HTMLElement {
             </div>
         `;
 
-        // apply saved mute state to the button immediately after rendering
         if (typeof initSoundButton === "function") initSoundButton();
 
-        /* §1b click listener ────────────────────────────────── */
-
-        // single delegated listener handles all buttons inside the navbar
         this.addEventListener("click", (event) => {
             const button = event.target.closest("button");
             if (!button) return;
 
-            // sound toggle — doesn't affect active state or page routing
             if (button.dataset.action === "sound-toggle") {
                 if (typeof toggleSound === "function") toggleSound();
                 return;
             }
 
-            // theme toggle — doesn't affect active state
             if (button.dataset.action === "theme-toggle") {
                 if (typeof changeTheme === "function") changeTheme();
                 return;
             }
 
-            // vocalist / other buttons — update active state and route
             if (button.dataset.page) {
                 this.querySelectorAll("button[data-page]").forEach((btn) =>
                     btn.classList.remove("active-button"),
@@ -102,7 +66,5 @@ class CNavbar extends HTMLElement {
         });
     }
 }
-
-/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-navbar", CNavbar);

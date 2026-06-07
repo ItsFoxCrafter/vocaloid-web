@@ -17,15 +17,20 @@
 
 @media (max-width: 1024px) {
     /* shrink navbar buttons a little so they don't overflow */
-    .virtual-singers-button,
-    .other-button {
+    .category-buttons-container .other-button,
+    .other-buttons-container .other-button {
         padding: 0 1.2rem;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     /* hero: slightly tighter margins */
     .hero-section {
         margin-left: 1rem;
+    }
+
+    /* vocalist grid: 3 columns max */
+    .vocalist-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     /* music grid: force 2 columns max */
@@ -46,25 +51,24 @@
         gap: 0.25rem;
     }
 
-    /* vocalist buttons scroll horizontally so they stay on one row */
-    .virtual-singers-button-container {
+    /* category buttons scroll horizontally so they stay on one row */
+    .category-buttons-container {
         display: flex;
         flex-direction: row;
         overflow-x: auto;
         width: 100%;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
     }
 
-    .virtual-singers-button-container::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
+    .category-buttons-container::-webkit-scrollbar {
+        display: none;
     }
 
-    .virtual-singers-button {
+    .category-buttons-container .other-button {
         flex-shrink: 0;
         padding: 0 1rem;
-        font-size: 0.95rem;
-        border-bottom: none;
+        font-size: 0.85rem;
         border-bottom: 2px solid transparent;
     }
 
@@ -74,7 +78,7 @@
         border-top: 1px solid var(--neutral-color);
     }
 
-    .other-button {
+    .other-buttons-container .other-button {
         padding: 0 1rem;
         font-size: 0.95rem;
     }
@@ -161,6 +165,14 @@
         margin-left: 0;
     }
 
+    .vocalist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vocalist-card-name {
+        font-size: 0.9rem;
+    }
+
     .music-list {
         grid-template-columns: 1fr;
         padding: 0 0.75rem;
@@ -189,6 +201,14 @@
 
     .error-img {
         width: 75%;
+    }
+
+    .vocalist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vocalist-grid-container {
+        padding: 1rem;
     }
 
     /* tighten up music cards on very small screens */

@@ -42,6 +42,7 @@ Create `src/json/vocals/<slug>.json` using this exact structure:
     "title": "DISPLAY NAME",
     "codename": "CV##",
     "subtitle": "VOCALOID / UTAU / etc.",
+    "type": "vocaloid",
     "date": "Month DD, YYYY",
     "description": "A short bio paragraph here.",
     "imageUrl": "./src/assets/img/<slug>.webp",
@@ -50,6 +51,12 @@ Create `src/json/vocals/<slug>.json` using this exact structure:
 ```
 
 All fields are required. If a field genuinely has no value (e.g. no codename), use an empty string `""`.
+
+The `type` field determines which category the vocalist appears under:
+- `"vocaloid"` — official Vocaloid voicebanks
+- `"utau"` — UTAU voicebanks
+- `"vsynth"` — other vocal synths (e.g. Synthesizer V, CeVIO)
+- `"other"` — anything else
 
 ---
 
@@ -99,9 +106,9 @@ This is shown on the error screen when a page fails to load.
 
 ---
 
-**7. Add the CSS color variable and class rules**
+**7. Add the CSS color variable**
 
-**7a. Add the color variable** in `src/css/variables.css` — add to **both** theme blocks:
+Add the color variable in `src/css/variables.css` — add to **both** theme blocks:
 
 ```css
 :root[data-theme="light"] {
@@ -115,21 +122,14 @@ This is shown on the error screen when a page fails to load.
 }
 ```
 
-**7b. Add vocalist class rules** in `src/css/vocalists.css` — add a block to each section:
+The variable is used automatically by:
+- The hero section title (via `style="color: var(--<slug>-color)"`)
+- The vocalist grid cards (via `style="--accent: var(--<slug>-color)"`)
 
-Under **§1 Navbar** (button accent colors):
-```css
-.your-vocalist-button.active-button,
-.your-vocalist-button:active { background-color: var(--your-vocalist-color); color: var(--background-color); }
-.your-vocalist-button:hover  { border-bottom: 3px solid var(--your-vocalist-color); }
-```
+No CSS class rules are needed for the hero title or grid cards — they use inline style with your variable.
 
-Under **§2 Hero** (title brand color):
-```css
-.hero-title.your-vocalist-title { color: var(--your-vocalist-color); }
-```
+You do need to add a **welcome dot rule** in `src/css/vocalists.css`:
 
-Under **§3 Welcome** (dot color & animation delay):
 ```css
 .dot-your-vocalist { background: var(--your-vocalist-color); animation-delay: Xs; }
 ```

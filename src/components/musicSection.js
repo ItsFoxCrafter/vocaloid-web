@@ -14,9 +14,6 @@ class CMusicSection extends HTMLElement {
             <section class="music-section">
                 <div class="search-container">
                     <input id="searchBar" placeholder="Search for music, artist or album...">
-                    <button id="searchButton">
-                        <img class="theme-changer-icon" src="./src/assets/img/icons/search.svg" alt="Search">
-                    </button>
                 </div>
                 <div id="musicOutputContainer">
                     <h2>HOW BOUT YOU SEARCH FOR SOMETHING?..</h2>

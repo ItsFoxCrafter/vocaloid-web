@@ -8,12 +8,13 @@ Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools, just 
 
 ## Features
 
-- Browse vocalist pages for Miku, Teto, Neru, Gumi, Luka, Rin/Len, Yi Xi and more
-- Embedded YouTube music player per vocalist
+- Browse vocalists by category (VOCALOID, UTAU, VSYNTH, OTHER) with a dynamic grid
+- Square and list layout modes with real-time search
+- Individual vocalist pages with bios and embedded YouTube music
 - Light / dark theme toggle with localStorage persistence
-- Vocalist sound clips on navbar button click
+- Sound clips on category button click
 - Animated welcome screen and section transitions
-- Fully community-expandable — new vocalists only need a JSON entry
+- Fully community-expandable — new vocalists only need a JSON entry and a color variable
 
 ---
 
@@ -44,7 +45,7 @@ vocaloid-web/
     │   ├── heroSection.js
     │   ├── musicSection.js
     │   ├── navbar.js
-    │   ├── virtualSingerButton.js
+    │   ├── vocalistGrid.js
     │   ├── welcomeDots.js
     │   └── welcomeSection.js
     ├── css/
@@ -55,7 +56,8 @@ vocaloid-web/
     │   ├── welcome.css          # welcome section
     │   ├── navbar.css           # navbar, other/theme buttons
     │   ├── hero.css             # hero section layout
-    │   ├── vocalists.css        # vocalist-branded class rules (navbar, hero, welcome)
+    │   ├── vocalists.css        # vocalist-branded welcome dot rules
+    │   ├── singers.css          # vocalist grid (square/list) and search
     │   ├── divider.css          # animated divider strip
     │   ├── error.css            # error page
     │   ├── music.css            # music search & cards
@@ -65,8 +67,7 @@ vocaloid-web/
     │   ├── errorHandler.js      # error screen logic
     │   ├── musicHandler.js      # music fetch and render
     │   ├── musicSearchHandler.js  # search filtering logic
-    │   ├── navbarButtonRenderer.js  # dynamic navbar population
-    │   ├── pageRenderer.js      # main content router
+    │   ├── pageRenderer.js      # main content router (categories & vocalist pages)
     │   ├── soundHandler.js      # audio clip playback
     │   ├── themeHandler.js      # dark/light theme toggle
     │   └── welcomeDotsRenderer.js  # welcome dot population
@@ -124,10 +125,10 @@ Then open `http://localhost:<port>` in your browser.
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide. The short version:
 
 1. Add the slug to `src/json/vocaloidNames.json`
-2. Create `src/json/vocals/<slug>.json`
+2. Create `src/json/vocals/<slug>.json` (include a `"type"` field: `"vocaloid"`, `"utau"`, `"vsynth"`, or `"other"`)
 3. Create `src/json/ytmusic/<slug>Music.json`
 4. Add the vocalist's image to `src/assets/img/`
-5. Add a CSS variable in `src/css/variables.css` and color class rules in `src/css/vocalists.css`
+5. Add a CSS color variable in `src/css/variables.css` (both light and dark themes)
 
 ---
 
