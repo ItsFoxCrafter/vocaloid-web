@@ -53,6 +53,7 @@ Create `src/json/vocals/<slug>.json` using this exact structure:
 All fields are required. If a field genuinely has no value (e.g. no codename), use an empty string `""`.
 
 The `type` field determines which category the vocalist appears under:
+
 - `"vocaloid"` — official Vocaloid voicebanks
 - `"utau"` — UTAU voicebanks
 - `"vsynth"` — other vocal synths (e.g. Synthesizer V, CeVIO)
@@ -123,6 +124,7 @@ Add the color variable in `src/css/variables.css` — add to **both** theme bloc
 ```
 
 The variable is used automatically by:
+
 - The hero section title (via `style="color: var(--<slug>-color)"`)
 - The vocalist grid cards (via `style="--accent: var(--<slug>-color)"`)
 
@@ -131,22 +133,13 @@ No CSS class rules are needed for the hero title or grid cards — they use inli
 You do need to add a **welcome dot rule** in `src/css/vocalists.css`:
 
 ```css
-.dot-your-vocalist { background: var(--your-vocalist-color); animation-delay: Xs; }
+.dot-your-vocalist {
+    background: var(--your-vocalist-color);
+    animation-delay: Xs;
+}
 ```
 
 Increment the `animation-delay` by `0.2s` from the last dot.
-
----
-
-**8. Add a dot to the welcome section**
-
-Open `src/components/welcomeSection.js` and add a dot span inside `.welcome-dots`:
-
-```html
-<span class="dot dot-your-vocalist"></span>
-```
-
-> The dot's color and animation-delay are already handled by the `.dot-your-vocalist` rule you added to `vocalists.css` in step 7.
 
 ---
 
@@ -231,6 +224,7 @@ In your PR description, mention that this is your own work so maintainers know t
 This project uses plain HTML/CSS/JS with no linter configured, so just match what's already there:
 
 **JavaScript**
+
 - `const` for values that don't change, `let` for those that do
 - `SCREAMING_SNAKE_CASE` for constants defined inside functions
 - `camelCase` for variables and function names
@@ -238,12 +232,14 @@ This project uses plain HTML/CSS/JS with no linter configured, so just match wha
 - Always handle fetch errors with a try/catch or `.catch()`
 
 **CSS**
+
 - CSS variables for all colors — never hardcode hex values inside rules
 - Put the right rule in the right partial: variables in `variables.css`, vocalist-branded classes in `vocalists.css`, layout in `layout.css`, and section-specific rules in their respective `welcome.css`, `navbar.css`, `hero.css`, `divider.css`, `error.css`, `music.css`
 - Follow the section order within each partial (see the TOC at the top of each file)
 - No nesting — keep selectors flat
 
 **General**
+
 - No frameworks, no build tools — keep it vanilla
 - Don't introduce `npm` dependencies
 
@@ -261,9 +257,9 @@ Before opening a PR, make sure:
 - [ ] `animation-delay` in `vocalists.css` is incremented by `0.2s` from the last dot entry
 - [ ] Code matches the existing style (indentation, naming, comments)
 - [ ] You've tested it locally with a live server (not `file://`)
-- [ ] *(song additions)* The YouTube link is public and playable
-- [ ] *(song additions)* The `id` field is unique within the playlist file
-- [ ] *(own music)* The vocalist listed actually sings in the track
+- [ ] _(song additions)_ The YouTube link is public and playable
+- [ ] _(song additions)_ The `id` field is unique within the playlist file
+- [ ] _(own music)_ The vocalist listed actually sings in the track
 
 ---
 
