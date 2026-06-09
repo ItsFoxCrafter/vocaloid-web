@@ -50,10 +50,19 @@ class CHeroSection extends HTMLElement {
                     <h4 class="hero-date">${date}</h4>
                 </div>
             </div>
-            <img src="${imageUrl}" alt="${title}" class="hero-image" />
+            <div class="hero-media">
+                <img src="${imageUrl}" alt="${title}" class="hero-image" />
+                <button class="hero-share-btn" aria-label="Share ${title}">SHARE</button>
+            </div>
         </section>
         <div class="divider" style="background-image: url('${imageDividerUrl}')"></div>
         `;
+
+        this.querySelector(".hero-share-btn").addEventListener("click", () => {
+            const MODAL = document.createElement("c-share-modal");
+            MODAL.data = { title, description, imageUrl, page };
+            document.body.appendChild(MODAL);
+        });
     }
 }
 

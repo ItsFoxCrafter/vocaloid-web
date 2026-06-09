@@ -15,7 +15,7 @@ function updateSocialMeta(title, description) {
     setMeta("twitter:title", title);
     setMeta("og:description", description);
     setMeta("twitter:description", description);
-    document.title = `${title} — VocaWeb`;
+    document.title = title;
 }
 
 function loadPage(page) {
