@@ -1,4 +1,4 @@
-const CACHE_NAME = "vocaweb-v1";
+const CACHE_NAME = "vocaweb-v2";
 
 self.addEventListener("install", (event) => {
     event.waitUntil(
@@ -28,6 +28,7 @@ self.addEventListener("install", (event) => {
                 "./src/components/aboutSection.js",
                 "./src/components/errorSection.js",
                 "./src/components/welcomeDots.js",
+                "./src/components/shareModal.js",
                 "./src/components/vocalistGrid.js",
                 "./src/js/musicHandler.js",
                 "./src/js/musicSearchHandler.js",
@@ -36,6 +37,7 @@ self.addEventListener("install", (event) => {
                 "./src/js/themeHandler.js",
                 "./src/js/welcomeDotsRenderer.js",
                 "./src/js/pageRenderer.js",
+                "./src/assets/img/icons/icon.svg",
             ]);
         }),
     );
