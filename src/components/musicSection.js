@@ -19,6 +19,8 @@ class CMusicSection extends HTMLElement {
                     </div>
                     <div class="sort-container">
                         <select id="sortSelect">
+                            <option value="newest-desc">Newly Added</option>
+                            <option value="newest-asc">Oldest First</option>
                             <option value="title-asc">Title A-Z</option>
                             <option value="title-desc">Title Z-A</option>
                             <option value="artist-asc">Artist A-Z</option>

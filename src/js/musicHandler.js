@@ -37,12 +37,12 @@ let currentSongs = [];
 
 /* §2 Sort state ─────────────────────────────────────────────── */
 
-let currentSortKey = "title";
-let currentSortOrder = "asc";
+let currentSortKey = "newest";
+let currentSortOrder = "desc";
 
 function parseSortValue(value) {
     const parts = value.split("-");
-    return { key: parts[0] || "title", order: parts[1] || "asc" };
+    return { key: parts[0] || "newest", order: parts[1] || "desc" };
 }
 
 /* §3 getMusicJsonPath ───────────────────────────────────────── */
@@ -120,10 +120,18 @@ function updateCount(visible) {
  * @returns {Object[]} A new sorted array
  */
 function sortSongs(songs) {
+    const KEY = currentSortKey === "newest" ? "id" : currentSortKey;
     const SORTED = [...songs];
     SORTED.sort((a, b) => {
-        const A_VAL = (a[currentSortKey] || "").toLowerCase();
-        const B_VAL = (b[currentSortKey] || "").toLowerCase();
+        let A_VAL = a[KEY] || "";
+        let B_VAL = b[KEY] || "";
+        if (KEY === "id") {
+            A_VAL = Number(A_VAL);
+            B_VAL = Number(B_VAL);
+            return currentSortOrder === "asc" ? A_VAL - B_VAL : B_VAL - A_VAL;
+        }
+        A_VAL = String(A_VAL).toLowerCase();
+        B_VAL = String(B_VAL).toLowerCase();
         const COMP = A_VAL.localeCompare(B_VAL);
         return currentSortOrder === "asc" ? COMP : -COMP;
     });
