@@ -18,7 +18,7 @@
     gap: 0.75rem;
     margin-top: 2rem;
     width: 100%;
-    max-width: 600px;
+    max-width: 720px;
 }
 
 .search-container {
@@ -103,7 +103,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    width: 320px;
+    width: 360px;
     max-width: 100%;
     flex-shrink: 0;
     padding: 1rem;
@@ -129,4 +129,38 @@
 .music-video iframe {
     width: 100%;
     min-height: 200px;
+}
+
+/* ── Skeleton Loading ── */
+
+.music-skeleton-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.music-skeleton-item {
+    width: 320px;
+    max-width: 100%;
+    flex-shrink: 0;
+    padding: 1rem;
+}
+
+.music-skeleton-video {
+    width: 100%;
+    min-height: 200px;
+}
+
+.music-skeleton-line {
+    height: 1rem;
+    margin-top: 0.75rem;
+    border: none;
+}
+
+.music-skeleton-line.short {
+    width: 50%;
 }

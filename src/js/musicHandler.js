@@ -203,6 +203,30 @@ function renderSongs(songs, emptyMessage = "No songs found.") {
 /* §9 readMusicJSONFile ──────────────────────────────────────── */
 
 /**
+ * Renders skeleton music card placeholders while data loads.
+ */
+function renderMusicSkeleton() {
+    const MUSIC_OUTPUT = document.getElementById("musicOutputContainer");
+    if (!MUSIC_OUTPUT) return;
+
+    MUSIC_OUTPUT.innerHTML = `
+        <div class="music-skeleton-list">
+            ${Array.from({ length: 4 })
+                .map(
+                    () => `
+                <div class="music-skeleton-item">
+                    <div class="music-skeleton-video skeleton"></div>
+                    <div class="music-skeleton-line skeleton"></div>
+                    <div class="music-skeleton-line skeleton short"></div>
+                </div>
+            `,
+                )
+                .join("")}
+        </div>
+    `;
+}
+
+/**
  * Fetches the music JSON for a vocalist and renders the song grid into
  * #musicOutputContainer. Shows loading/error states as needed.
  *
@@ -213,7 +237,7 @@ function readMusicJSONFile(page) {
     if (!MUSIC_OUTPUT) return;
 
     const JSON_PATH = getMusicJsonPath(page);
-    MUSIC_OUTPUT.innerHTML = `<p>Loading music for ${page}...</p>`;
+    renderMusicSkeleton();
 
     // reset the shared songs array so search doesn't show stale results
     currentSongs = [];

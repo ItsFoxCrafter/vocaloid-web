@@ -7,6 +7,7 @@ class CVocalistGrid extends HTMLElement {
     }
 
     async render() {
+        this.renderSkeleton();
         try {
             const names = await this.fetchNames();
             this.allVocalists = await this.fetchAllVocalistData(names);
@@ -19,6 +20,32 @@ class CVocalistGrid extends HTMLElement {
             this.innerHTML = "";
             if (typeof generateError === "function") generateError(this.category, err);
         }
+    }
+
+    renderSkeleton() {
+        this.innerHTML = `
+            <div class="vocalist-grid-container skeleton-grid">
+                <div class="vocalist-search">
+                    <input class="vocalist-search-input" type="text" placeholder="Search vocalists..." disabled />
+                </div>
+                <div class="vocalist-mode-toggle">
+                    <button class="mode-btn mode-btn-square active">SQUARE</button>
+                    <button class="mode-btn mode-btn-list">LIST</button>
+                </div>
+                <div class="vocalist-grid mode-square">
+                    ${Array.from({ length: 8 })
+                        .map(
+                            () => `
+                        <div class="vocalist-card skeleton-card">
+                            <div class="skeleton skeleton-img"></div>
+                            <div class="skeleton skeleton-name"></div>
+                        </div>
+                    `,
+                        )
+                        .join("")}
+                </div>
+            </div>
+        `;
     }
 
     async fetchNames() {

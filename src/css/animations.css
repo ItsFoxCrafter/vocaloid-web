@@ -112,3 +112,13 @@ body {
         background-position: 25px 25px;
     }
 }
+
+/* shimmer for skeleton loading placeholders */
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}

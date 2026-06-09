@@ -166,3 +166,47 @@
     width: auto;
     pointer-events: none;
 }
+
+/* ── Skeleton Loading ── */
+
+.skeleton-grid .vocalist-search-input {
+    pointer-events: none;
+}
+
+.skeleton-grid .mode-btn {
+    pointer-events: none;
+}
+
+.skeleton-card {
+    border-color: transparent !important;
+    pointer-events: none;
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--secondary-color) 0%,
+        var(--neutral-color) 50%,
+        var(--secondary-color) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-card .skeleton-img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    aspect-ratio: auto;
+}
+
+.skeleton-card .skeleton-name {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    width: 5rem;
+    height: 1.8rem;
+}
