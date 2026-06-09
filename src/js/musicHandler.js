@@ -1,16 +1,19 @@
 /**
  * @file musicHandler.js
  * @description Fetches and renders the music list for a given vocalist page.
- *              Handles YouTube URL normalization so both youtu.be short links
- *              and full youtube.com/watch?v= links produce valid embed URLs.
+ *              Handles YouTube URL normalization, sorting, and count badge display.
  *
  * TABLE OF CONTENTS
  * -----------------
  *  1. currentSongs        — shared songs array, read by musicSearchHandler.js
- *  2. getMusicJsonPath    — builds the path to a vocalist's music JSON file
- *  3. getYoutubeEmbedUrl  — normalizes any YouTube URL to an embed URL
- *  4. renderSongs         — renders any songs array into #musicOutputContainer
- *  5. readMusicJSONFile   — fetches the JSON and renders the music list HTML
+ *  2. Sort state          — current sort key, order, and helpers
+ *  3. getMusicJsonPath    — builds the path to a vocalist's music JSON file
+ *  4. getYoutubeEmbedUrl  — normalizes any YouTube URL to an embed URL
+ *  5. updateCount         — updates the song count badge
+ *  6. sortSongs           — sorts a songs array by the current sort state
+ *  7. refreshMusic        — re-filters + re-sorts + re-renders
+ *  8. renderSongs         — renders any songs array into #musicOutputContainer
+ *  9. readMusicJSONFile   — fetches the JSON and renders the music list HTML
  *
  * Dependencies
  * ------------
@@ -32,7 +35,17 @@
  */
 let currentSongs = [];
 
-/* §2 getMusicJsonPath ───────────────────────────────────────── */
+/* §2 Sort state ─────────────────────────────────────────────── */
+
+let currentSortKey = "title";
+let currentSortOrder = "asc";
+
+function parseSortValue(value) {
+    const parts = value.split("-");
+    return { key: parts[0] || "title", order: parts[1] || "asc" };
+}
+
+/* §3 getMusicJsonPath ───────────────────────────────────────── */
 
 /**
  * Returns the path to a vocalist's YouTube music JSON file.
@@ -44,7 +57,7 @@ function getMusicJsonPath(page) {
     return `./src/json/ytmusic/${NORMALIZED_PAGE}Music.json`;
 }
 
-/* §3 getYoutubeEmbedUrl ─────────────────────────────────────── */
+/* §4 getYoutubeEmbedUrl ─────────────────────────────────────── */
 
 /**
  * Converts any YouTube URL format into a /embed/ URL.
@@ -79,11 +92,63 @@ function getYoutubeEmbedUrl(link) {
     return link;
 }
 
-/* §4 renderSongs ────────────────────────────────────────────── */
+/* §5 updateCount ────────────────────────────────────────────── */
+
+/**
+ * Updates the .music-count badge with the number of visible songs
+ * out of the total.
+ *
+ * @param {number} visible - Number of songs currently shown
+ */
+function updateCount(visible) {
+    const COUNT = document.querySelector(".music-count");
+    if (!COUNT) return;
+    const TOTAL = currentSongs.length;
+    if (visible === TOTAL) {
+        COUNT.textContent = `${TOTAL} song${TOTAL === 1 ? "" : "s"}`;
+    } else {
+        COUNT.textContent = `${visible} of ${TOTAL} song${TOTAL === 1 ? "" : "s"}`;
+    }
+}
+
+/* §6 sortSongs ──────────────────────────────────────────────── */
+
+/**
+ * Sorts a songs array by the current sort key and order.
+ *
+ * @param {Object[]} songs - Array of song objects to sort
+ * @returns {Object[]} A new sorted array
+ */
+function sortSongs(songs) {
+    const SORTED = [...songs];
+    SORTED.sort((a, b) => {
+        const A_VAL = (a[currentSortKey] || "").toLowerCase();
+        const B_VAL = (b[currentSortKey] || "").toLowerCase();
+        const COMP = A_VAL.localeCompare(B_VAL);
+        return currentSortOrder === "asc" ? COMP : -COMP;
+    });
+    return SORTED;
+}
+
+/* §7 refreshMusic ───────────────────────────────────────────── */
+
+/**
+ * Re-filters currentSongs by the current search term,
+ * re-sorts, and re-renders. Called on search input and sort change.
+ */
+function refreshMusic() {
+    const SEARCH_BAR = document.getElementById("searchBar");
+    const TERM = SEARCH_BAR ? SEARCH_BAR.value : "";
+    const FILTERED = typeof filterSongs === "function" ? filterSongs(TERM) : currentSongs;
+    renderSongs(sortSongs(FILTERED));
+}
+
+/* §8 renderSongs ────────────────────────────────────────────── */
 
 /**
  * Renders an array of song objects into #musicOutputContainer.
- * Used by both readMusicJSONFile (full load) and musicSearchHandler (filtered).
+ * Used by readMusicJSONFile (full load), refreshMusic, and musicSearchHandler.
+ * Updates the count badge automatically.
  *
  * @param {Object[]} songs        - Array of song objects to render
  * @param {string}   emptyMessage - Text shown when the songs array is empty
@@ -91,6 +156,8 @@ function getYoutubeEmbedUrl(link) {
 function renderSongs(songs, emptyMessage = "No songs found.") {
     const MUSIC_OUTPUT = document.getElementById("musicOutputContainer");
     if (!MUSIC_OUTPUT) return;
+
+    updateCount(songs.length);
 
     if (!songs.length) {
         MUSIC_OUTPUT.innerHTML = `<p>${emptyMessage}</p>`;
@@ -125,7 +192,7 @@ function renderSongs(songs, emptyMessage = "No songs found.") {
     `;
 }
 
-/* §5 readMusicJSONFile ──────────────────────────────────────── */
+/* §9 readMusicJSONFile ──────────────────────────────────────── */
 
 /**
  * Fetches the music JSON for a vocalist and renders the song grid into
@@ -159,7 +226,7 @@ function readMusicJSONFile(page) {
 
             // store songs globally so musicSearchHandler.js can filter them
             currentSongs = DATA.songs;
-            renderSongs(currentSongs);
+            renderSongs(sortSongs(currentSongs));
         })
         .catch((ERR) => {
             MUSIC_OUTPUT.innerHTML = `<p class="music-error">Unable to load music for ${page}. ${ERR.message}</p>`;
