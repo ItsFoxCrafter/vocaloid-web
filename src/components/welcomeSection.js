@@ -23,10 +23,22 @@ class CWelcomeSection extends HTMLElement {
                 <p class="welcome-disclaimer">
                     WARNING SOUNDS MAY PLAY AUTOMATICALLY ON SOME PAGES
                 </p>
+                <button class="welcome-surprise-btn">SURPRISE ME</button>
                 <div class="welcome-dots">
                 </div>
             </div>
         `;
+
+        this.querySelector(".welcome-surprise-btn").addEventListener("click", async () => {
+            try {
+                const res = await fetch("./src/json/vocaloidNames.json");
+                const names = await res.json();
+                const randomSlug = names[Math.floor(Math.random() * names.length)];
+                window.location.hash = randomSlug;
+            } catch (err) {
+                console.error(err);
+            }
+        });
     }
 }
 

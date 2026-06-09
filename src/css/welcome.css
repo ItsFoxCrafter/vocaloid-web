@@ -33,6 +33,28 @@
     margin-top: 1rem;
 }
 
+.welcome-surprise-btn {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.6rem 1.8rem;
+    border: 2px solid var(--text-color);
+    background: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.welcome-surprise-btn:hover,
+.welcome-surprise-btn:active {
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
+
 .dot {
     display: inline-block;
     width: 10px;
