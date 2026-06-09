@@ -39,9 +39,12 @@ body {
     background: var(--text-color);
 }
 
+::-webkit-scrollbar-thumb:active {
+    background: var(--selection-color, var(--text-color));
+}
+
 .welcome-section,
-.error-section,
-.about-section {
+.error-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,4 +55,42 @@ body {
 
 .welcome-section {
     gap: 1rem;
+}
+
+/* ── About Section ── */
+
+.about-section {
+    max-width: 720px;
+    margin: 3rem auto;
+    padding: 0 2rem 4rem;
+}
+
+.about-section .about-block {
+    margin-bottom: 2.5rem;
+    border-left: 3px solid var(--neutral-color);
+    padding-left: 1.5rem;
+}
+
+.about-section .about-block h1 {
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.about-section .about-block p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--neutral-color);
+    margin: 0 0 0.5rem;
+}
+
+.about-section .about-block a {
+    color: var(--text-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.about-section .about-block a:hover {
+    opacity: 0.7;
 }

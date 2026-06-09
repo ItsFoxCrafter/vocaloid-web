@@ -24,24 +24,31 @@ class CAboutSection extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <section class="about-section">
-            <h1>About This Site</h1>
-            <p>This website is a open-source, community-driven project dedicated to showcasing the music and information about various vocaloid characters. and having a one place to share your favorite vocaloids and their music.</p>
-            <p>The site was created using HTML, CSS, and JavaScript, and it features a custom design inspired by the aesthetics of vocaloid culture. The content is sourced from publicly available information and fan contributions.</p>
-            <p>This project was created by NeoVoid and is maintained by a community of volunteers.</p>
-            <p>We hope you enjoy exploring the world of vocaloids through this site!</p>
+            <div class="about-block">
+                <h1>ABOUT THIS SITE</h1>
+                <p>An open-source, community-driven project dedicated to Vocaloid music and virtual singers — a single place to discover, share, and explore your favorites.</p>
+                <p>Built with plain HTML, CSS, and JavaScript. Designed with the aesthetics of Vocaloid culture in mind. Content sourced from publicly available information and fan contributions.</p>
+                <p>Created by NeoVoid and maintained by a community of volunteers.</p>
+            </div>
 
-            <h1>CREDITS</h1>
-            <p>VOCALOID WIKI: FOR THE METADATA: <a href="https://vocaloid.fandom.com/">Vocaloid Wiki</a></p>
-            <p>VIAMLION: FOR YI XI's DATA: <a href="https://vimalion.pro/">vimalion</a></p>
-            <p>YOUTUBE: FOR THE MUSIC: <a href="https://www.youtube.com/">YouTube</a></p>
-            <p>LUCIDE: FOR THE ICONS: <a href="https://lucide.dev/">Lucide</a></p>
+            <div class="about-block">
+                <h1>CREDITS</h1>
+                <p>VOCALOID WIKI — <a href="https://vocaloid.fandom.com/">Metadata &amp; references</a></p>
+                <p>VIAMLION — <a href="https://vimalion.pro/">Yi Xi data</a></p>
+                <p>YOUTUBE — <a href="https://www.youtube.com/">Music hosting</a></p>
+                <p>LUCIDE — <a href="https://lucide.dev/">Open-source icons</a></p>
+            </div>
 
-            <h1>DISCLAIMER</h1>
-            <p>All content on this site is for informational and entertainment purposes only. We do not claim ownership of any of the music, images, or information presented here. All rights belong to their respective creators and copyright holders.</p>
-            <p>We do not host any of the music only the images; we simply provide links to publicly available content. If you are a copyright holder and have any concerns about the content on this site, please contact us and we will address the issue promptly.</p>
+            <div class="about-block">
+                <h1>DISCLAIMER</h1>
+                <p>All content is for informational and entertainment purposes only. We do not claim ownership of any music, images, or information presented. All rights belong to their respective creators and copyright holders.</p>
+                <p>We do not host any media files — only links to publicly available content. If you are a copyright holder with concerns, please reach out and we will address them promptly.</p>
+            </div>
 
-            <h1>CONTACTS</h1>
-            <p>MY GITHUB: <a href="https://github.com/ItsFoxCrafter">NeoVoid(aka. ItsFoxCrafter)</a></p>
+            <div class="about-block">
+                <h1>CONTACT</h1>
+                <p>GitHub — <a href="https://github.com/ItsFoxCrafter">NeoVoid (ItsFoxCrafter)</a></p>
+            </div>
         </section>
         `;
     }
