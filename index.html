@@ -27,6 +27,25 @@
             content="-YtpJUtUNFnZS4LRh-D-2r5un_UDGXJPE0GAH5zdDLQ"
         />
         <title>VocaWeb</title>
+        <meta name="theme-color" content="#121212" />
+
+        <link rel="manifest" href="./manifest.json" />
+        <link rel="icon" type="image/svg+xml" href="./src/assets/icons/icon.svg" />
+        <link rel="apple-touch-icon" href="./src/assets/icons/icon.svg" />
+
+        <meta property="og:site_name" content="VocaWeb" />
+        <meta property="og:image" content="https://itsfoxcrafter.github.io/vocaloid-web/src/assets/icons/icon.svg" />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="VocaWeb" />
+        <meta
+            name="twitter:description"
+            content="Explore your favorite Vocaloid virtual singers — Miku, Teto, Neru, Gumi, Luka and more."
+        />
+        <meta
+            name="twitter:image"
+            content="https://itsfoxcrafter.github.io/vocaloid-web/src/assets/icons/icon.svg"
+        />
 
         <link rel="stylesheet" href="./src/css/global.css" />
     </head>
@@ -52,5 +71,10 @@
         <script src="./src/js/themeHandler.js"></script>
         <script src="./src/js/welcomeDotsRenderer.js"></script>
         <script src="./src/js/pageRenderer.js"></script>
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("./sw.js");
+            }
+        </script>
     </body>
 </html>

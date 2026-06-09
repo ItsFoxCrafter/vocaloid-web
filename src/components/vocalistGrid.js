@@ -1,3 +1,5 @@
+const vocalistCache = { names: null, vocalists: null };
+
 class CVocalistGrid extends HTMLElement {
     set data(category) {
         this.category = category;
@@ -49,12 +51,15 @@ class CVocalistGrid extends HTMLElement {
     }
 
     async fetchNames() {
+        if (vocalistCache.names) return vocalistCache.names;
         const res = await fetch("./src/json/vocaloidNames.json");
         if (!res.ok) throw new Error("Failed to load vocaloidNames.json");
-        return res.json();
+        vocalistCache.names = await res.json();
+        return vocalistCache.names;
     }
 
     async fetchAllVocalistData(names) {
+        if (vocalistCache.vocalists) return vocalistCache.vocalists;
         const results = await Promise.allSettled(
             names.map(async (slug) => {
                 const res = await fetch(`./src/json/vocals/${slug}.json`);
@@ -68,9 +73,10 @@ class CVocalistGrid extends HTMLElement {
                 };
             }),
         );
-        return results
+        vocalistCache.vocalists = results
             .filter((r) => r.status === "fulfilled" && r.value)
             .map((r) => r.value);
+        return vocalistCache.vocalists;
     }
 
     filterByCategory(vocalists) {

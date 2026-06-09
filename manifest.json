@@ -1,0 +1,17 @@
+{
+    "name": "VocaWeb",
+    "short_name": "VocaWeb",
+    "description": "Explore your favorite Vocaloid virtual singers — Miku, Teto, Neru, Gumi, Luka and more.",
+    "start_url": "/vocaloid-web/",
+    "scope": "/vocaloid-web/",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#121212",
+    "icons": [
+        {
+            "src": "./src/assets/icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}

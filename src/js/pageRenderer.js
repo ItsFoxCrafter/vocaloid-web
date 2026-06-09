@@ -1,12 +1,33 @@
 const CONTENT = document.getElementById("content");
 
+function setMeta(name, content) {
+    let el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+    if (el) { el.content = content; return; }
+    el = document.createElement("meta");
+    if (name.startsWith("og:")) el.setAttribute("property", name);
+    else el.setAttribute("name", name);
+    el.content = content;
+    document.head.appendChild(el);
+}
+
+function updateSocialMeta(title, description) {
+    setMeta("og:title", title);
+    setMeta("twitter:title", title);
+    setMeta("og:description", description);
+    setMeta("twitter:description", description);
+    document.title = `${title} — VocaWeb`;
+}
+
 function loadPage(page) {
     if (page === "about") {
         const ABOUT_SECTION = document.createElement("c-about-section");
         CONTENT.innerHTML = "";
         CONTENT.appendChild(ABOUT_SECTION);
+        updateSocialMeta("About — VocaWeb", "About VocaWeb — a community-driven Vocaloid fan site.");
     } else if (["all", "vocaloid", "utau", "vsynth", "other"].includes(page)) {
         renderGrid(page);
+        const CATEGORY = page.toUpperCase();
+        updateSocialMeta(`${CATEGORY} — VocaWeb`, `Browse ${CATEGORY} virtual singers.`);
     } else if (page) {
         renderPage(page);
     } else {
@@ -14,6 +35,7 @@ function loadPage(page) {
         const WELCOME = document.createElement("c-welcome-section");
         CONTENT.appendChild(WELCOME);
         if (typeof renderWelcomeDots === "function") renderWelcomeDots();
+        updateSocialMeta("VocaWeb", "Explore your favorite Vocaloid virtual singers — Miku, Teto, Neru, Gumi, Luka and more.");
     }
 
     const NAVBAR = document.querySelector("c-navbar");
@@ -65,6 +87,8 @@ function renderPage(page) {
                 imageDividerUrl: data.imageDividerUrl,
             };
             CONTENT.appendChild(HERO_SECTION);
+
+            updateSocialMeta(`${data.title} — VocaWeb`, data.description || data.subtitle || `Explore ${data.title} on VocaWeb.`);
 
             renderMusicSection(page);
         })
