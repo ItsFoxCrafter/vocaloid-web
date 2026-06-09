@@ -21,8 +21,7 @@
 
 /**
  * Flips the current theme and saves the new value to localStorage.
- * Called by checkClickedButton() in pageRenderer.js when the theme
- * toggle button is clicked.
+ * Called by the navbar theme-toggle button via data-action attribute.
  */
 function changeTheme() {
     const ROOT = document.documentElement;

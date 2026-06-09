@@ -128,9 +128,7 @@ class CVocalistGrid extends HTMLElement {
                 const page = card.dataset.page;
                 if (!page) return;
 
-                if (typeof checkClickedButton === "function") {
-                    checkClickedButton(page);
-                }
+                window.location.hash = page;
             });
         });
     }

@@ -20,7 +20,7 @@ class CWelcomeSection extends HTMLElement {
                 <p class="welcome-subtitle">
                     Select a type from the nav to explore their world
                 </p>
-                <p class="welcome-disclaimer"></p>
+                <p class="welcome-disclaimer">
                     WARNING SOUNDS MAY PLAY AUTOMATICALLY ON SOME PAGES
                 </p>
                 <div class="welcome-dots">

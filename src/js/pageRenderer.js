@@ -1,18 +1,35 @@
 const CONTENT = document.getElementById("content");
 
-function checkClickedButton(page) {
+function loadPage(page) {
     if (page === "about") {
         const ABOUT_SECTION = document.createElement("c-about-section");
         CONTENT.innerHTML = "";
         CONTENT.appendChild(ABOUT_SECTION);
-    } else if (page === "theme-changer") {
-        changeTheme();
     } else if (["all", "vocaloid", "utau", "vsynth", "other"].includes(page)) {
         renderGrid(page);
-    } else {
+    } else if (page) {
         renderPage(page);
+    } else {
+        CONTENT.innerHTML = "";
+        const WELCOME = document.createElement("c-welcome-section");
+        CONTENT.appendChild(WELCOME);
+        if (typeof renderWelcomeDots === "function") renderWelcomeDots();
+    }
+
+    const NAVBAR = document.querySelector("c-navbar");
+    if (NAVBAR) {
+        NAVBAR.querySelectorAll("button[data-page]").forEach((btn) => {
+            btn.classList.toggle("active-button", btn.dataset.page === page);
+        });
     }
 }
+
+window.addEventListener("hashchange", () => {
+    loadPage(window.location.hash.slice(1));
+});
+
+const INITIAL_PAGE = window.location.hash.slice(1);
+if (INITIAL_PAGE) loadPage(INITIAL_PAGE);
 
 function renderGrid(category) {
     CONTENT.innerHTML = "";
