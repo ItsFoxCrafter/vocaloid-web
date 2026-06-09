@@ -8,13 +8,23 @@ Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools, just 
 
 ## Features
 
-- Browse vocalists by category (VOCALOID, UTAU, VSYNTH, OTHER) with a dynamic grid
-- Square and list layout modes with real-time search
-- Individual vocalist pages with bios and embedded YouTube music
-- Light / dark theme toggle with localStorage persistence
-- Sound clips on category button click
-- Animated welcome screen and section transitions
-- Fully community-expandable — new vocalists only need a JSON entry and a color variable
+- **Hash routing** — back/forward navigation and shareable URLs for every page
+- **Category browsing** — filter vocalists by VOCALOID, UTAU, VSYNTH, or OTHER with a dynamic grid
+- **Square & list layout modes** with real-time search filtering
+- **Individual vocalist pages** with bios, embedded YouTube music, and shareable links
+- **SURPRISE ME button** — jumps to a random vocalist
+- **Clickable welcome dots** — navigate directly to any vocalist from the home screen
+- **Music section** — sortable by title, artist, album, or date (newest / oldest first) with song count badge
+- **Skeleton loading** — shimmer placeholders while data loads
+- **Light / dark theme toggle** with localStorage persistence
+- **Sound clips** on category button clicks
+- **Share modal** — native Web Share API with clipboard fallback, social preview card
+- **Social meta tags** — OG and Twitter cards update dynamically per page
+- **PWA support** — installable as a standalone app with service worker caching
+- **Custom scrollbar** — theme-aware with vocalist accent color on active drag
+- **Per-vocalist selection highlight** — `::selection` color matches the current vocalist
+- **Animated welcome screen**, section transitions, and staggered card entrance
+- **Fully community-expandable** — new vocalists only need a JSON entry and a color variable
 
 ---
 
@@ -26,25 +36,27 @@ vocaloid-web/
 ├── README.md
 ├── CONTRIBUTING.md
 ├── LICENSE
+├── manifest.json                    # PWA manifest
+├── sw.js                            # Service worker (cache-first)
 └── src/
     ├── assets/
     │   ├── img/
     │   │   ├── <vocalist>.webp          # vocalist portrait images
     │   │   ├── dividers/
     │   │   │   └── divider-<vocalist>.png  # animated divider strip per vocalist
-    │   │   ├── icons/
-    │   │   │   ├── search.svg
-    │   │   │   └── sun-moon.svg
-    │   │   └── signs/
-    │   │       └── sign-<vocalist>.png     # vocalist sign images used in error screen
+    │   │   └── icons/
+    │   │       ├── icon.svg              # PWA icon, favicon, OG image
+    │   │       ├── search.svg
+    │   │       └── sun-moon.svg
     │   └── sound/
-    │       └── <vocalist>/                 # vocalist audio clips
-    ├── components/                        # custom HTML elements
+    │       └── <vocalist>/               # vocalist audio clips
+    ├── components/                       # custom HTML elements
     │   ├── aboutSection.js
     │   ├── errorSection.js
     │   ├── heroSection.js
     │   ├── musicSection.js
     │   ├── navbar.js
+    │   ├── shareModal.js
     │   ├── vocalistGrid.js
     │   ├── welcomeDots.js
     │   └── welcomeSection.js
@@ -52,22 +64,22 @@ vocaloid-web/
     │   ├── global.css           # manifest — imports all partial CSS files below
     │   ├── reset.css            # universal reset & box-sizing
     │   ├── variables.css        # light/dark theme CSS custom properties
-    │   ├── layout.css           # body background & shared section layout
+    │   ├── layout.css           # body background, about section, scrollbar, ::selection
     │   ├── welcome.css          # welcome section
     │   ├── navbar.css           # navbar, other/theme buttons
-    │   ├── hero.css             # hero section layout
+    │   ├── hero.css             # hero section layout, share button, share modal
     │   ├── vocalists.css        # vocalist-branded welcome dot rules
-    │   ├── singers.css          # vocalist grid (square/list) and search
+    │   ├── singers.css          # vocalist grid (square/list), search, skeleton
     │   ├── divider.css          # animated divider strip
     │   ├── error.css            # error page
-    │   ├── music.css            # music search & cards
+    │   ├── music.css            # music search, controls, cards, skeleton
     │   ├── responsive.css       # mobile/tablet breakpoints
-    │   └── animations.css       # keyframe animations
+    │   └── animations.css       # keyframe animations (staggered cards, modal, etc.)
     ├── js/
     │   ├── errorHandler.js      # error screen logic
-    │   ├── musicHandler.js      # music fetch and render
-    │   ├── musicSearchHandler.js  # search filtering logic
-    │   ├── pageRenderer.js      # main content router (categories & vocalist pages)
+    │   ├── musicHandler.js      # music fetch, sort, render, song count
+    │   ├── musicSearchHandler.js  # search filtering + init listeners
+    │   ├── pageRenderer.js      # hash-driven router, social meta, selection color
     │   ├── soundHandler.js      # audio clip playback
     │   ├── themeHandler.js      # dark/light theme toggle
     │   └── welcomeDotsRenderer.js  # welcome dot population
@@ -142,6 +154,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide. The short version:
 | Fonts     | [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue) via Google Fonts |
 | Icons     | [Lucide](https://lucide.dev/)                                               |
 | Data      | Local JSON files                                                            |
+| PWA       | Service worker with cache-first strategy, Web App Manifest                  |
 
 ---
 
