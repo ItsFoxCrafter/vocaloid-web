@@ -43,6 +43,13 @@ class CHeroSection extends HTMLElement {
         <section class="hero-section">
             <div class="hero-text">
                 <h1 class="hero-title" style="color: var(--${page}-color);">${title}</h1>
+                <button class="hero-share-btn" aria-label="Share ${title}">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                        <polyline points="16 6 12 2 8 6"/>
+                        <line x1="12" y1="2" x2="12" y2="15"/>
+                    </svg>
+                </button>
                 <h2 class="hero-description">${description}</h2>
                 <div class="hero-meta">
                     <h4 class="hero-codename">${codename}</h4>
@@ -50,10 +57,7 @@ class CHeroSection extends HTMLElement {
                     <h4 class="hero-date">${date}</h4>
                 </div>
             </div>
-            <div class="hero-media">
-                <img src="${imageUrl}" alt="${title}" class="hero-image" />
-                <button class="hero-share-btn" aria-label="Share ${title}">SHARE</button>
-            </div>
+            <img src="${imageUrl}" alt="${title}" class="hero-image" />
         </section>
         <div class="divider" style="background-image: url('${imageDividerUrl}')"></div>
         `;
