@@ -19,6 +19,7 @@ function updateSocialMeta(title, description) {
 }
 
 function loadPage(page) {
+    document.documentElement.style.removeProperty("--selection-color");
     if (page === "about") {
         const ABOUT_SECTION = document.createElement("c-about-section");
         CONTENT.innerHTML = "";
@@ -87,6 +88,8 @@ function renderPage(page) {
                 imageDividerUrl: data.imageDividerUrl,
             };
             CONTENT.appendChild(HERO_SECTION);
+
+            document.documentElement.style.setProperty("--selection-color", `var(--${page}-color)`);
 
             updateSocialMeta(`${data.title} — VocaWeb`, data.description || data.subtitle || `Explore ${data.title} on VocaWeb.`);
 
