@@ -236,6 +236,8 @@ function readMusicJSONFile(page) {
     const MUSIC_OUTPUT = document.getElementById("musicOutputContainer");
     if (!MUSIC_OUTPUT) return;
 
+    MUSIC_OUTPUT.style.setProperty("--accent", `var(--${page}-color)`);
+
     const JSON_PATH = getMusicJsonPath(page);
     renderMusicSkeleton();
 

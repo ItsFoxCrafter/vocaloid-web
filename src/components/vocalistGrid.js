@@ -71,7 +71,7 @@ class CVocalistGrid extends HTMLElement {
                 let songCount = 0;
                 if (musicRes.ok) {
                     const music = await musicRes.json();
-                    songCount = music.length || 0;
+                    songCount = (music.songs && music.songs.length) || 0;
                 }
                 return {
                     slug,
