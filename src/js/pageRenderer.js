@@ -103,6 +103,7 @@ function renderPage(page) {
                 imageUrl: data.imageUrl,
                 page,
                 imageDividerUrl: data.imageDividerUrl,
+                dykContent: data.dyk,
             };
             CONTENT.appendChild(HERO_SECTION);
 

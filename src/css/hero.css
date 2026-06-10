@@ -68,6 +68,8 @@
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px); /* Blurs the content behind the card */
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .share-modal {
@@ -193,4 +195,25 @@
 .share-action-btn:active {
     background-color: var(--text-color);
     color: var(--background-color);
+}
+
+/* ── Did You Know ── */
+
+.did-you-know {
+    padding: 0.75rem 1rem;
+    max-width: 400px;
+}
+
+.did-you-know h3 {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    margin: 0 0 0.35rem 0;
+    opacity: 0.8;
+}
+
+.did-you-know p {
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.5;
+    color: inherit;
 }

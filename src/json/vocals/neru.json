@@ -6,5 +6,6 @@
     "date": "November 1, 2007",
     "description": "Akita Neru (亞北ネル) is an officially recognized derivative. The term Derivative is used here to describe a fanmade VOCALOID character that is based on an already existing character.",
     "imageUrl": "./src/assets/img/neru.webp",
-    "imageDividerUrl": "./src/assets/img/dividers/divider-neru.png"
+    "imageDividerUrl": "./src/assets/img/dividers/divider-neru.png",
+    "dyk": "Neru is an officially recognized fan-made derivative character. Her name comes from \"akita neru\" (飽きた寝る), meaning \"bored, sleep\"."
 }

@@ -38,6 +38,7 @@ class CHeroSection extends HTMLElement {
         imageUrl,
         page,
         imageDividerUrl,
+        dykContent,
     }) {
         this.innerHTML = `
         <section class="hero-section">
@@ -55,6 +56,10 @@ class CHeroSection extends HTMLElement {
                     <h4 class="hero-codename">${codename}</h4>
                     <h4 class="hero-subtitle">${subtitle}</h4>
                     <h4 class="hero-date">${date}</h4>
+                </div>
+                <div class="did-you-know" style="background: var(--${page}-color);">
+                    <h3>Did you know?</h3>
+                    <p>${dykContent}</p>
                 </div>
             </div>
             <img src="${imageUrl}" alt="${title}" class="hero-image" />
