@@ -61,10 +61,12 @@
 }
 
 .profile-recent-img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
+    object-position: top;
     flex-shrink: 0;
+    image-rendering: auto;
 }
 
 .profile-recent-name {
