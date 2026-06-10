@@ -1,0 +1,83 @@
+.profile-section {
+    max-width: 720px;
+    margin: 3rem auto;
+    padding: 0 2rem 4rem;
+    text-align: center;
+}
+
+.profile-title {
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.profile-empty {
+    font-size: 1rem;
+    color: var(--neutral-color);
+    letter-spacing: 0.05em;
+}
+
+.profile-recent-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    color: var(--neutral-color);
+    margin-bottom: 1.5rem;
+}
+
+.profile-recent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.profile-recent-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 480px;
+    padding: 1rem;
+    border: 2px solid var(--neutral-color);
+    text-decoration: none;
+    transition:
+        border-color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.profile-recent-card:hover {
+    border-color: var(--accent);
+    background-color: var(--accent);
+}
+
+.profile-recent-card:hover .profile-recent-name {
+    color: var(--background-color);
+}
+
+.profile-recent-card:hover .profile-recent-slug {
+    color: var(--background-color);
+    opacity: 0.7;
+}
+
+.profile-recent-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.profile-recent-name {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+    transition: color 0.15s ease;
+}
+
+.profile-recent-slug {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--neutral-color);
+    margin-left: auto;
+    transition: color 0.15s ease;
+}

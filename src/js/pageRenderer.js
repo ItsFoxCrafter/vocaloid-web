@@ -36,7 +36,12 @@ function trackRecentlyViewed(slug) {
 
 function loadPage(page) {
     document.documentElement.style.removeProperty("--selection-color");
-    if (!page || page === "welcome") {
+    if (page === "profile") {
+        CONTENT.innerHTML = "";
+        const PROFILE = document.createElement("c-profile-section");
+        CONTENT.appendChild(PROFILE);
+        updateSocialMeta("Profile — VocaWeb", "Your recently viewed vocalists.");
+    } else if (!page || page === "welcome") {
         renderWelcome();
     } else if (page === "about") {
         const ABOUT_SECTION = document.createElement("c-about-section");

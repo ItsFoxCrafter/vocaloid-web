@@ -26,7 +26,6 @@ class CWelcomeSection extends HTMLElement {
                 <div class="welcome-votd"></div>
                 <button class="welcome-surprise-btn">SURPRISE ME</button>
                 <div class="welcome-dots"></div>
-                <div class="welcome-recent"></div>
             </div>
         `;
 
