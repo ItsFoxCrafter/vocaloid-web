@@ -41,9 +41,8 @@ class CProfileSection extends HTMLElement {
                     .map(
                         (v) => `
                     <a class="profile-recent-card" href="#${v.slug}" style="--accent: var(--${v.slug}-color);">
-                        <img class="profile-recent-img" src="${v.imageUrl}" alt="${v.title}" loading="lazy" />
                         <span class="profile-recent-name">${v.title}</span>
-                        <span class="profile-recent-slug">${v.slug}</span>
+                        <img class="profile-recent-img" src="${v.imageUrl}" alt="${v.title}" loading="lazy" />
                     </a>
                 `,
                     )

@@ -1,5 +1,5 @@
 .profile-section {
-    max-width: 720px;
+    max-width: 800px;
     margin: 3rem auto;
     padding: 0 2rem 4rem;
     text-align: center;
@@ -30,56 +30,66 @@
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+    width: 100%;
+    max-width: 800px;
 }
 
 .profile-recent-card {
+    position: relative;
     display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    width: 100%;
-    max-width: 480px;
-    padding: 1rem;
-    border: 2px solid var(--neutral-color);
+    align-items: stretch;
+    height: 120px;
+    border: 3px solid var(--accent);
     text-decoration: none;
+    overflow: hidden;
+    width: 100%;
     transition:
-        border-color 0.15s ease,
+        border-width 0.15s ease,
         background-color 0.15s ease;
 }
 
-.profile-recent-card:hover {
-    border-color: var(--accent);
+.profile-recent-card:hover,
+.profile-recent-card:active {
+    border-width: 6px;
     background-color: var(--accent);
 }
 
-.profile-recent-card:hover .profile-recent-name {
-    color: var(--background-color);
+.profile-recent-card:hover .profile-recent-name,
+.profile-recent-card:active .profile-recent-name {
+    color: var(--text-color);
 }
 
-.profile-recent-card:hover .profile-recent-slug {
-    color: var(--background-color);
-    opacity: 0.7;
-}
-
-.profile-recent-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    object-position: top;
-    flex-shrink: 0;
-    image-rendering: auto;
+.profile-recent-card:hover .profile-recent-slug,
+.profile-recent-card:active .profile-recent-slug {
+    color: var(--text-color);
 }
 
 .profile-recent-name {
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
-    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    padding-left: 1.5rem;
+    font-size: 2rem;
+    color: var(--accent);
+    flex: 1;
     transition: color 0.15s ease;
 }
 
 .profile-recent-slug {
-    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    padding-right: 1.5rem;
+    font-size: 0.85rem;
     letter-spacing: 0.1em;
     color: var(--neutral-color);
-    margin-left: auto;
+    z-index: 1;
     transition: color 0.15s ease;
+}
+
+.profile-recent-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200%;
+    width: auto;
+    pointer-events: none;
 }
