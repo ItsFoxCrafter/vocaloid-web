@@ -27,6 +27,13 @@
     margin-top: 0.5rem;
 }
 
+.welcome-disclaimer {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--neutral-color);
+    margin-top: 0.5rem;
+}
+
 .welcome-dots {
     display: flex;
     gap: 0.6rem;
@@ -62,4 +69,84 @@
     border-radius: 50%;
     cursor: pointer;
     animation: dot-pulse 2.4s ease-in-out infinite;
+}
+
+/* ── Vocalist of the Day ── */
+
+.welcome-votd {
+    margin-top: 1.5rem;
+}
+
+.votd-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.votd-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--neutral-color);
+}
+
+.votd-name {
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    transition: opacity 0.15s ease;
+}
+
+.votd-link:hover .votd-name {
+    opacity: 0.7;
+}
+
+/* ── Recently Viewed ── */
+
+.welcome-recent {
+    margin-top: 1.5rem;
+}
+
+.recent-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--neutral-color);
+    margin-bottom: 0.5rem;
+}
+
+.recent-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.recent-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--neutral-color);
+    transition:
+        border-color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.recent-link:hover {
+    border-color: var(--text-color);
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}
+
+.recent-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }

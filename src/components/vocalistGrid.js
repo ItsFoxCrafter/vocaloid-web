@@ -62,14 +62,23 @@ class CVocalistGrid extends HTMLElement {
         if (vocalistCache.vocalists) return vocalistCache.vocalists;
         const results = await Promise.allSettled(
             names.map(async (slug) => {
-                const res = await fetch(`./src/json/vocals/${slug}.json`);
-                if (!res.ok) return null;
-                const data = await res.json();
+                const [vocRes, musicRes] = await Promise.all([
+                    fetch(`./src/json/vocals/${slug}.json`),
+                    fetch(`./src/json/ytmusic/${slug}Music.json`),
+                ]);
+                if (!vocRes.ok) return null;
+                const data = await vocRes.json();
+                let songCount = 0;
+                if (musicRes.ok) {
+                    const music = await musicRes.json();
+                    songCount = music.length || 0;
+                }
                 return {
                     slug,
                     title: data.title,
                     type: data.type,
                     imageUrl: data.imageUrl,
+                    songCount,
                 };
             }),
         );
@@ -103,6 +112,7 @@ class CVocalistGrid extends HTMLElement {
                         <div class="vocalist-card" data-page="${v.slug}" style="--accent: var(--${v.slug}-color);">
                             <img class="vocalist-card-img" src="${v.imageUrl}" alt="${v.title}" loading="lazy" />
                             <span class="vocalist-card-name">${v.slug.toUpperCase()}</span>
+                            <span class="vocalist-card-count">${v.songCount} songs</span>
                         </div>
                     `,
                         )
@@ -146,6 +156,7 @@ class CVocalistGrid extends HTMLElement {
                 <div class="vocalist-card" data-page="${v.slug}" style="--accent: var(--${v.slug}-color);">
                     <img class="vocalist-card-img" src="${v.imageUrl}" alt="${v.title}" loading="lazy" />
                     <span class="vocalist-card-name">${v.slug.toUpperCase()}</span>
+                    <span class="vocalist-card-count">${v.songCount} songs</span>
                 </div>
             `,
                 )

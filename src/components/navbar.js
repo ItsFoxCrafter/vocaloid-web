@@ -2,7 +2,8 @@ class CNavbar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <nav class="navbar">
-            <div class="category-buttons-container">
+        <div class="category-buttons-container">
+                <button class="other-button" data-page="welcome">HOME</button>
                 <button class="other-button" data-page="all">ALL</button>
                 <button class="other-button" data-page="vocaloid">VOCALOID</button>
                 <button class="other-button" data-page="utau">UTAU</button>

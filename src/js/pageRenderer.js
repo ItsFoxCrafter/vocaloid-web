@@ -18,9 +18,27 @@ function updateSocialMeta(title, description) {
     document.title = title;
 }
 
+function renderWelcome() {
+    CONTENT.innerHTML = "";
+    const WELCOME = document.createElement("c-welcome-section");
+    CONTENT.appendChild(WELCOME);
+    if (typeof renderWelcomeDots === "function") renderWelcomeDots();
+    updateSocialMeta("VocaWeb", "Explore your favorite Vocaloid virtual singers — Miku, Teto, Neru, Gumi, Luka and more.");
+}
+
+function trackRecentlyViewed(slug) {
+    let recent = JSON.parse(localStorage.getItem("recentVocalists") || "[]");
+    recent = recent.filter((s) => s !== slug);
+    recent.unshift(slug);
+    if (recent.length > 5) recent.length = 5;
+    localStorage.setItem("recentVocalists", JSON.stringify(recent));
+}
+
 function loadPage(page) {
     document.documentElement.style.removeProperty("--selection-color");
-    if (page === "about") {
+    if (!page || page === "welcome") {
+        renderWelcome();
+    } else if (page === "about") {
         const ABOUT_SECTION = document.createElement("c-about-section");
         CONTENT.innerHTML = "";
         CONTENT.appendChild(ABOUT_SECTION);
@@ -31,12 +49,6 @@ function loadPage(page) {
         updateSocialMeta(`${CATEGORY} — VocaWeb`, `Browse ${CATEGORY} virtual singers.`);
     } else if (page) {
         renderPage(page);
-    } else {
-        CONTENT.innerHTML = "";
-        const WELCOME = document.createElement("c-welcome-section");
-        CONTENT.appendChild(WELCOME);
-        if (typeof renderWelcomeDots === "function") renderWelcomeDots();
-        updateSocialMeta("VocaWeb", "Explore your favorite Vocaloid virtual singers — Miku, Teto, Neru, Gumi, Luka and more.");
     }
 
     const NAVBAR = document.querySelector("c-navbar");
@@ -90,6 +102,7 @@ function renderPage(page) {
             CONTENT.appendChild(HERO_SECTION);
 
             document.documentElement.style.setProperty("--selection-color", `var(--${page}-color)`);
+            trackRecentlyViewed(page);
 
             updateSocialMeta(`${data.title} — VocaWeb`, data.description || data.subtitle || `Explore ${data.title} on VocaWeb.`);
 

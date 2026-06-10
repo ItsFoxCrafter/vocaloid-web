@@ -92,6 +92,23 @@
     color: var(--text-color);
 }
 
+.vocalist-card-count {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--neutral-color);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.mode-square .vocalist-card:hover .vocalist-card-count,
+.mode-square .vocalist-card:active .vocalist-card-count,
+.mode-square .vocalist-card.active .vocalist-card-count {
+    color: var(--text-color);
+}
+
 .mode-square .vocalist-card-name {
     position: absolute;
     top: 0.75rem;
@@ -165,6 +182,23 @@
     height: 200%;
     width: auto;
     pointer-events: none;
+}
+
+.mode-list .vocalist-card-count {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--neutral-color);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.mode-list .vocalist-card:hover .vocalist-card-count,
+.mode-list .vocalist-card:active .vocalist-card-count,
+.mode-list .vocalist-card.active .vocalist-card-count {
+    color: var(--text-color);
 }
 
 /* ── Skeleton Loading ── */
