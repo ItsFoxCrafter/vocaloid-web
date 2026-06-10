@@ -12,6 +12,8 @@
  *     - card-fade-in          (grid / music cards staggered entrance)
  *     - modal-overlay-in      (share overlay fade-in)
  *     - modal-in              (share modal scale + fade-in)
+ *     - modal-overlay-out     (share overlay fade-out)
+ *     - modal-out             (share modal scale-out + fade-out)
  *     - divider-background    (scrolling divider strip)
  *     - dot-pulse             (welcome screen color dots)
  *     - background-animation  (scrolling body dot grid)
@@ -29,6 +31,7 @@ body {
 .music-section,
 .welcome-section,
 .about-section,
+.profile-section,
 .vocalist-grid-container {
     animation: up-fade-in-animation 0.5s ease-out;
 }
@@ -122,8 +125,16 @@ body {
     animation: modal-overlay-in 0.2s ease-out;
 }
 
+.share-overlay.closing {
+    animation: modal-overlay-out 0.15s ease-in forwards;
+}
+
 .share-modal {
     animation: modal-in 0.25s ease-out;
+}
+
+.share-modal.closing {
+    animation: modal-out 0.15s ease-in forwards;
 }
 
 /* §2 Keyframes ──────────────────────────────────────────────── */
@@ -167,6 +178,24 @@ body {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* overlay fades out */
+@keyframes modal-overlay-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* modal scales down with a fade */
+@keyframes modal-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
     }
 }
 

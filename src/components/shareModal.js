@@ -28,9 +28,17 @@ class CShareModal extends HTMLElement {
             </div>
         `;
 
-        this.querySelector(".share-close-btn").addEventListener("click", () => this.remove());
+        const close = () => {
+            const overlay = this.querySelector(".share-overlay");
+            const modal = this.querySelector(".share-modal");
+            overlay.classList.add("closing");
+            modal.classList.add("closing");
+            setTimeout(() => this.remove(), 150);
+        };
+
+        this.querySelector(".share-close-btn").addEventListener("click", close);
         this.querySelector(".share-overlay").addEventListener("click", (e) => {
-            if (e.target === e.currentTarget) this.remove();
+            if (e.target === e.currentTarget) close();
         });
 
         this.querySelector(".share-copy-btn").addEventListener("click", async () => {
