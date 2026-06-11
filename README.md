@@ -11,19 +11,22 @@ Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools, just 
 - **Hash routing** — back/forward navigation and shareable URLs for every page
 - **Category browsing** — filter vocalists by VOCALOID, UTAU, VSYNTH, or OTHER with a dynamic grid
 - **Square & list layout modes** with real-time search filtering
-- **Individual vocalist pages** with bios, embedded YouTube music, and shareable links
+- **Individual vocalist pages** with bios, embedded YouTube music, shareable links, and trivia
+- **Profile page** — recently viewed vocalists shown as quick-access cards
+- **Vocalist of the Day** — a daily featured vocalist on the welcome screen with animated bursting stars
+- **Did You Know** — per-vocalist trivia box with accent branding
 - **SURPRISE ME button** — jumps to a random vocalist
 - **Clickable welcome dots** — navigate directly to any vocalist from the home screen
 - **Music section** — sortable by title, artist, album, or date (newest / oldest first) with song count badge
 - **Skeleton loading** — shimmer placeholders while data loads
 - **Light / dark theme toggle** with localStorage persistence
 - **Sound clips** on category button clicks
-- **Share modal** — native Web Share API with clipboard fallback, social preview card
+- **Share modal** — native Web Share API with clipboard fallback, social preview card, animated close
 - **Social meta tags** — OG and Twitter cards update dynamically per page
 - **PWA support** — installable as a standalone app with service worker caching
 - **Custom scrollbar** — theme-aware with vocalist accent color on active drag
 - **Per-vocalist selection highlight** — `::selection` color matches the current vocalist
-- **Animated welcome screen**, section transitions, and staggered card entrance
+- **Animated welcome screen**, section transitions, staggered card entrance, and modal close
 - **Fully community-expandable** — new vocalists only need a JSON entry and a color variable
 
 ---
@@ -56,6 +59,7 @@ vocaloid-web/
     │   ├── heroSection.js
     │   ├── musicSection.js
     │   ├── navbar.js
+    │   ├── profileSection.js
     │   ├── shareModal.js
     │   ├── vocalistGrid.js
     │   ├── welcomeDots.js
@@ -65,11 +69,12 @@ vocaloid-web/
     │   ├── reset.css            # universal reset & box-sizing
     │   ├── variables.css        # light/dark theme CSS custom properties
     │   ├── layout.css           # body background, about section, scrollbar, ::selection
-    │   ├── welcome.css          # welcome section
+    │   ├── welcome.css          # welcome section, Vocalist of the Day with animated stars
     │   ├── navbar.css           # navbar, other/theme buttons
-    │   ├── hero.css             # hero section layout, share button, share modal
+    │   ├── hero.css             # hero section, share button, share modal, Did You Know
     │   ├── vocalists.css        # vocalist-branded welcome dot rules
-    │   ├── singers.css          # vocalist grid (square/list), search, skeleton
+    │   ├── singers.css          # vocalist grid (square/list), search, skeleton, song count
+    │   ├── profile.css          # profile page recently-viewed cards
     │   ├── divider.css          # animated divider strip
     │   ├── error.css            # error page
     │   ├── music.css            # music search, controls, cards, skeleton
@@ -79,9 +84,10 @@ vocaloid-web/
     │   ├── errorHandler.js      # error screen logic
     │   ├── musicHandler.js      # music fetch, sort, render, song count
     │   ├── musicSearchHandler.js  # search filtering + init listeners
-    │   ├── pageRenderer.js      # hash-driven router, social meta, selection color
+    │   ├── pageRenderer.js      # hash-driven router, social meta, selection color, recently-viewed tracking
     │   ├── soundHandler.js      # audio clip playback
     │   ├── themeHandler.js      # dark/light theme toggle
+    │   ├── vocalistOfTheDay.js  # deterministic daily vocalist picker + renderer
     │   └── welcomeDotsRenderer.js  # welcome dot population
     └── json/
         ├── vocaloidNames.json   # list of active vocalist slugs
@@ -137,10 +143,11 @@ Then open `http://localhost:<port>` in your browser.
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide. The short version:
 
 1. Add the slug to `src/json/vocaloidNames.json`
-2. Create `src/json/vocals/<slug>.json` (include a `"type"` field: `"vocaloid"`, `"utau"`, `"vsynth"`, or `"other"`)
+2. Create `src/json/vocals/<slug>.json` (include `"type"`: `"vocaloid"`, `"utau"`, `"vsynth"`, or `"other"`; optionally add `"dyk"` trivia text)
 3. Create `src/json/ytmusic/<slug>Music.json`
 4. Add the vocalist's image to `src/assets/img/`
-5. Add a CSS color variable in `src/css/variables.css` (both light and dark themes)
+5. Add the divider image to `src/assets/img/dividers/`
+6. Add a CSS color variable in `src/css/variables.css` (both light and dark themes)
 
 ---
 
