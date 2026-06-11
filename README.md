@@ -41,6 +41,7 @@ vocaloid-web/
 ├── LICENSE
 ├── manifest.json                    # PWA manifest
 ├── sw.js                            # Service worker (cache-first)
+├── sitemap.xml                      # SEO sitemap
 └── src/
     ├── assets/
     │   ├── img/

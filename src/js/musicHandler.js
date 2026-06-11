@@ -26,6 +26,12 @@
  *  { "songs": [{ "title": "", "artist": "", "album": "", "ytlink": "" }] }
  */
 
+/* §0 Pagination state ─────────────────────────────────────────── */
+
+const PAGE_SIZE = 6;
+let currentPage = 1;
+let pagedSongs = [];
+
 /* §1 currentSongs ───────────────────────────────────────────── */
 
 /**
@@ -145,10 +151,12 @@ function sortSongs(songs) {
  * re-sorts, and re-renders. Called on search input and sort change.
  */
 function refreshMusic() {
+    currentPage = 1;
     const SEARCH_BAR = document.getElementById("searchBar");
     const TERM = SEARCH_BAR ? SEARCH_BAR.value : "";
     const FILTERED = typeof filterSongs === "function" ? filterSongs(TERM) : currentSongs;
-    renderSongs(sortSongs(FILTERED));
+    pagedSongs = sortSongs(FILTERED);
+    renderSongs(pagedSongs);
 }
 
 /* §8 renderSongs ────────────────────────────────────────────── */
@@ -172,21 +180,21 @@ function renderSongs(songs, emptyMessage = "No songs found.") {
         return;
     }
 
+    const END = currentPage * PAGE_SIZE;
+    const PAGE_SONGS = songs.slice(0, END);
+    const HAS_MORE = songs.length > END;
+
     MUSIC_OUTPUT.innerHTML = `
         <div class="music-list">
-            ${songs
+            ${PAGE_SONGS
                 .map((SONG) => {
                     const EMBED_URL = getYoutubeEmbedUrl(SONG.ytlink);
                     return `
                 <div class="music-item">
                     <div class="music-video">
-                        <iframe
-                            src="${EMBED_URL}"
-                            title="${SONG.title} video"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                        ></iframe>
+                        <div class="music-embed-placeholder" data-src="${EMBED_URL}">
+                            <div class="music-embed-loader"></div>
+                        </div>
                     </div>
                     <div class="music-item-meta">
                         <h3>${SONG.title}</h3>
@@ -197,7 +205,55 @@ function renderSongs(songs, emptyMessage = "No songs found.") {
                 })
                 .join("")}
         </div>
+        ${HAS_MORE ? `<button class="music-load-more">Show ${Math.min(PAGE_SIZE, songs.length - END)} more</button>` : ""}
     `;
+
+    lazyLoadEmbeds(MUSIC_OUTPUT);
+
+    if (HAS_MORE) {
+        const LOAD_MORE = MUSIC_OUTPUT.querySelector(".music-load-more");
+        LOAD_MORE.addEventListener("click", () => {
+            currentPage++;
+            renderSongs(songs);
+        });
+    }
+}
+
+function lazyLoadEmbeds(container) {
+    if (!("IntersectionObserver" in window)) {
+        container.querySelectorAll(".music-embed-placeholder").forEach((pl) => {
+            const IFRAME = document.createElement("iframe");
+            IFRAME.src = pl.dataset.src;
+            IFRAME.title = "YouTube video";
+            IFRAME.frameborder = "0";
+            IFRAME.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            IFRAME.allowfullscreen = true;
+            IFRAME.loading = "lazy";
+            pl.replaceWith(IFRAME);
+        });
+        return;
+    }
+
+    const OBSERVER = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const PLACEHOLDER = entry.target;
+                OBSERVER.unobserve(PLACEHOLDER);
+                const IFRAME = document.createElement("iframe");
+                IFRAME.src = PLACEHOLDER.dataset.src;
+                IFRAME.title = "YouTube video";
+                IFRAME.frameborder = "0";
+                IFRAME.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                IFRAME.allowfullscreen = true;
+                IFRAME.loading = "lazy";
+                PLACEHOLDER.replaceWith(IFRAME);
+            });
+        },
+        { rootMargin: "200px" },
+    );
+
+    container.querySelectorAll(".music-embed-placeholder").forEach((pl) => OBSERVER.observe(pl));
 }
 
 /* §9 readMusicJSONFile ──────────────────────────────────────── */
@@ -232,7 +288,7 @@ function renderMusicSkeleton() {
  *
  * @param {string} page - Vocalist slug (e.g. "miku", "teto")
  */
-function readMusicJSONFile(page) {
+function readMusicJSONFile(page, signal) {
     const MUSIC_OUTPUT = document.getElementById("musicOutputContainer");
     if (!MUSIC_OUTPUT) return;
 
@@ -244,7 +300,7 @@ function readMusicJSONFile(page) {
     // reset the shared songs array so search doesn't show stale results
     currentSongs = [];
 
-    fetch(JSON_PATH)
+    fetch(JSON_PATH, { signal })
         .then((RESPONSE) => {
             if (!RESPONSE.ok)
                 throw new Error(
@@ -260,9 +316,12 @@ function readMusicJSONFile(page) {
 
             // store songs globally so musicSearchHandler.js can filter them
             currentSongs = DATA.songs;
-            renderSongs(sortSongs(currentSongs));
+            currentPage = 1;
+            pagedSongs = sortSongs(currentSongs);
+            renderSongs(pagedSongs);
         })
         .catch((ERR) => {
+            if (ERR.name === "AbortError") return;
             MUSIC_OUTPUT.innerHTML = `<p class="music-error">Unable to load music for ${page}. ${ERR.message}</p>`;
         });
 }

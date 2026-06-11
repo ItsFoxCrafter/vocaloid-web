@@ -23,6 +23,7 @@
  */
 
 const CONTENT = document.getElementById("content");
+let pageAbortController = null;
 
 /* §1 setMeta ─────────────────────────────────────────────────── */
 
@@ -69,6 +70,10 @@ function trackRecentlyViewed(slug) {
 /* §5 loadPage ────────────────────────────────────────────────── */
 
 function loadPage(page) {
+    if (pageAbortController) pageAbortController.abort();
+    pageAbortController = new AbortController();
+    const SIGNAL = pageAbortController.signal;
+
     document.documentElement.style.removeProperty("--selection-color");
     if (page === "profile") {
         CONTENT.innerHTML = "";
@@ -117,9 +122,10 @@ function renderGrid(category) {
 /* §7 renderPage ──────────────────────────────────────────────── */
 
 function renderPage(page) {
+    const SIGNAL = pageAbortController ? pageAbortController.signal : null;
     const JSON_PATH = `./src/json/vocals/${page}.json`;
 
-    fetch(JSON_PATH)
+    fetch(JSON_PATH, { signal: SIGNAL })
         .then((response) => {
             if (!response.ok)
                 throw new Error(
@@ -150,19 +156,20 @@ function renderPage(page) {
 
             updateSocialMeta(`${data.title} — VocaWeb`, data.description || data.subtitle || `Explore ${data.title} on VocaWeb.`);
 
-            renderMusicSection(page);
+            renderMusicSection(page, SIGNAL);
         })
         .catch((err) => {
+            if (err.name === "AbortError") return;
             console.error(err);
             CONTENT.innerHTML = "";
-            generateError(page, err);
+            generateError(page, err, SIGNAL);
         });
 }
 
 /* §8 renderMusicSection ─────────────────────────────────────── */
 
-function renderMusicSection(page) {
+function renderMusicSection(page, signal) {
     const MUSIC_SECTION = document.createElement("c-music-section");
     CONTENT.appendChild(MUSIC_SECTION);
-    readMusicJSONFile(page);
+    readMusicJSONFile(page, signal);
 }

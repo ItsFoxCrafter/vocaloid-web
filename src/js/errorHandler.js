@@ -23,9 +23,9 @@
  * Fetches the list of vocalist name strings from vocaloidNames.json.
  * @returns {Promise<string[]>} Array of vocalist name slugs (e.g. "miku", "teto")
  */
-async function fetchVocalNames() {
+async function fetchVocalNames(signal) {
     const VOCALS_NAMES_JSON_PATH = "./src/json/vocaloidNames.json";
-    const response = await fetch(VOCALS_NAMES_JSON_PATH);
+    const response = await fetch(VOCALS_NAMES_JSON_PATH, { signal });
 
     if (!response.ok)
         throw new Error(
@@ -45,14 +45,14 @@ async function fetchVocalNames() {
  * @param {string} page  - The page slug that failed to load (e.g. "miku")
  * @param {Error}  error - The original error thrown by the failed fetch
  */
-async function generateError(page, error) {
+async function generateError(page, error, signal) {
     const ERROR_JSON_PATH = `./src/json/error/error.json`;
 
     try {
         // fetch both data sources at the same time for speed
         const [VOCALS, errorData] = await Promise.all([
-            fetchVocalNames(),
-            fetch(ERROR_JSON_PATH).then((res) => {
+            fetchVocalNames(signal),
+            fetch(ERROR_JSON_PATH, { signal }).then((res) => {
                 if (!res.ok)
                     throw new Error(
                         `Failed to load ${ERROR_JSON_PATH} (status ${res.status})`,
@@ -75,6 +75,7 @@ async function generateError(page, error) {
         };
         CONTENT.appendChild(ERROR_SECTION);
     } catch (err) {
+        if (err.name === "AbortError") return;
         // last-resort fallback if even the error page assets fail to load
         console.error(err);
         CONTENT.innerHTML = `<p class="error-fallback">An unexpected error occurred while loading the error page.</p>`;
