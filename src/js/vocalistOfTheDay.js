@@ -25,7 +25,9 @@ function renderVocalistOfTheDay(names) {
                         <span class="votd-star votd-star-4"></span>
                         <span class="votd-name">${data.title}</span>
                     </div>
-                    <img class="votd-img" src="${data.imageUrl}" alt="${data.title}" loading="lazy" />
+                    <div class="votd-img-wrap">
+                        <img class="votd-img" src="${data.imageUrl}" alt="${data.title}" loading="lazy" />
+                    </div>
                 </a>
             `;
         })
