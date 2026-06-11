@@ -74,14 +74,16 @@
 /* ── Vocalist of the Day ── */
 
 .welcome-votd {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 
 .votd-link {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    gap: 1rem;
     text-decoration: none;
     cursor: pointer;
 }
@@ -92,14 +94,88 @@
     color: var(--neutral-color);
 }
 
+.votd-name-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .votd-name {
-    font-size: 1.1rem;
-    letter-spacing: 0.1em;
+    font-size: 3rem;
+    letter-spacing: 0.08em;
     transition: opacity 0.15s ease;
+    font-weight: 700;
+    line-height: 1;
 }
 
 .votd-link:hover .votd-name {
     opacity: 0.7;
+}
+
+.votd-img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+/* ── 4-Point Stars ── */
+
+.votd-star {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: currentColor;
+    clip-path: polygon(50% 0%, 61% 35%, 100% 50%, 61% 65%, 50% 100%, 39% 65%, 0% 50%, 39% 35%);
+    animation: votd-star-spin 3s linear infinite;
+    pointer-events: none;
+}
+
+.votd-star-1 {
+    top: -14px;
+    left: -32px;
+    width: 14px;
+    height: 14px;
+    animation-delay: 0s;
+}
+
+.votd-star-2 {
+    top: -18px;
+    right: -36px;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0.75s;
+}
+
+.votd-star-3 {
+    bottom: -6px;
+    left: -40px;
+    width: 10px;
+    height: 10px;
+    animation-delay: 1.5s;
+}
+
+.votd-star-4 {
+    bottom: -10px;
+    right: -28px;
+    width: 16px;
+    height: 16px;
+    animation-delay: 2.25s;
+}
+
+@keyframes votd-star-spin {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.3);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 0.6;
+    }
 }
 
 

@@ -18,7 +18,14 @@ function renderVocalistOfTheDay(names) {
             container.innerHTML = `
                 <a class="votd-link" href="#${slug}">
                     <span class="votd-label">VOCALIST OF THE DAY</span>
-                    <span class="votd-name" style="color: var(--${slug}-color);">${data.title}</span>
+                    <div class="votd-name-wrap" style="color: var(--${slug}-color);">
+                        <span class="votd-star votd-star-1"></span>
+                        <span class="votd-star votd-star-2"></span>
+                        <span class="votd-star votd-star-3"></span>
+                        <span class="votd-star votd-star-4"></span>
+                        <span class="votd-name">${data.title}</span>
+                    </div>
+                    <img class="votd-img" src="${data.imageUrl}" alt="${data.title}" loading="lazy" />
                 </a>
             `;
         })

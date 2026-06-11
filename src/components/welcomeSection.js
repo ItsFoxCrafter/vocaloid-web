@@ -23,9 +23,9 @@ class CWelcomeSection extends HTMLElement {
                 <p class="welcome-disclaimer">
                     WARNING SOUNDS MAY PLAY AUTOMATICALLY ON SOME PAGES
                 </p>
-                <div class="welcome-votd"></div>
-                <button class="welcome-surprise-btn">SURPRISE ME</button>
                 <div class="welcome-dots"></div>
+                <button class="welcome-surprise-btn">SURPRISE ME</button>
+                <div class="welcome-votd"></div>
             </div>
         `;
 
