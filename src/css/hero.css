@@ -61,7 +61,7 @@
     color: var(--neutral-color);
     font-weight: 400;
     letter-spacing: 0.02em;
-    max-width: 65ch;
+    max-width: 90ch;
 }
 
 .hero-meta {
@@ -95,7 +95,6 @@
 .hero-image-wrap {
     width: 35%;
     flex-shrink: 0;
-    border: 2px solid;
     overflow: hidden;
     align-self: flex-start;
 }
