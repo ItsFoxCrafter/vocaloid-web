@@ -124,7 +124,11 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 40%, var(--background-color));
+    background: linear-gradient(
+        to bottom,
+        transparent 40%,
+        var(--background-color)
+    );
     pointer-events: none;
 }
 
@@ -142,79 +146,61 @@
 
 .votd-star {
     position: absolute;
-    top: 50%;
-    left: 50%;
     background: currentColor;
-    clip-path: polygon(50% 0%, 61% 35%, 100% 50%, 61% 65%, 50% 100%, 39% 65%, 0% 50%, 39% 35%);
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        100% 50%,
+        61% 65%,
+        50% 100%,
+        39% 65%,
+        0% 50%,
+        39% 35%
+    );
     filter: blur(2px) drop-shadow(0 0 6px currentColor);
     pointer-events: none;
 }
 
 .votd-star-1 {
+    top: calc(50% - 16px - 38px);
+    left: calc(50% - 16px + 50px);
     width: 32px;
     height: 32px;
-    margin-left: -16px;
-    margin-top: -16px;
-    animation: votd-star-1 2.5s ease-in-out infinite;
+    animation: votd-star-slow 5s linear infinite;
 }
 
 .votd-star-2 {
+    top: calc(50% - 12px + 40px);
+    left: calc(50% - 12px + 38px);
     width: 24px;
     height: 24px;
-    margin-left: -12px;
-    margin-top: -12px;
-    animation: votd-star-2 3.2s ease-in-out infinite;
-    animation-delay: 0.65s;
+    animation: votd-star-slow 6s linear infinite;
+    animation-delay: -1.5s;
 }
 
 .votd-star-3 {
+    top: calc(50% - 10px + 38px);
+    left: calc(50% - 10px - 42px);
     width: 20px;
     height: 20px;
-    margin-left: -10px;
-    margin-top: -10px;
-    animation: votd-star-3 2.8s ease-in-out infinite;
-    animation-delay: 1.3s;
+    animation: votd-star-slow 5.5s linear infinite;
+    animation-delay: -3s;
 }
 
 .votd-star-4 {
+    top: calc(50% - 14px - 32px);
+    left: calc(50% - 14px - 48px);
     width: 28px;
     height: 28px;
-    margin-left: -14px;
-    margin-top: -14px;
-    animation: votd-star-4 3s ease-in-out infinite;
-    animation-delay: 1.95s;
+    animation: votd-star-slow 4.5s linear infinite;
+    animation-delay: -1s;
 }
 
-@keyframes votd-star-1 {
-    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
-    15%  { opacity: 1; }
-    40%  { transform: translate(50px, -35px) rotate(180deg) scale(1.1); opacity: 1; }
-    70%  { transform: translate(50px, -35px) rotate(360deg) scale(1.1); opacity: 0.8; }
-    100% { transform: translate(0, 0) rotate(720deg) scale(0.3); opacity: 0; }
+@keyframes votd-star-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
-
-@keyframes votd-star-2 {
-    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
-    15%  { opacity: 1; }
-    40%  { transform: translate(40px, 40px) rotate(180deg) scale(1.1); opacity: 1; }
-    70%  { transform: translate(40px, 40px) rotate(360deg) scale(1.1); opacity: 0.8; }
-    100% { transform: translate(0, 0) rotate(720deg) scale(0.3); opacity: 0; }
-}
-
-@keyframes votd-star-3 {
-    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
-    15%  { opacity: 1; }
-    40%  { transform: translate(-35px, 35px) rotate(180deg) scale(1.1); opacity: 1; }
-    70%  { transform: translate(-35px, 35px) rotate(360deg) scale(1.1); opacity: 0.8; }
-    100% { transform: translate(0, 0) rotate(720deg) scale(0.3); opacity: 0; }
-}
-
-@keyframes votd-star-4 {
-    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
-    15%  { opacity: 1; }
-    40%  { transform: translate(-45px, -30px) rotate(180deg) scale(1.1); opacity: 1; }
-    70%  { transform: translate(-45px, -30px) rotate(360deg) scale(1.1); opacity: 0.8; }
-    100% { transform: translate(0, 0) rotate(720deg) scale(0.3); opacity: 0; }
-}
-
-
