@@ -1,7 +1,16 @@
 /**
  * @file welcome.css
  * @description Welcome section. Vocalist dot colors live in vocalists.css.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Welcome Header & Dots
+ *  2. Vocalist of the Day
+ *  3. 4-Point Soft Stars
+ *  4. Star Keyframes
  */
+
+/* §1 Welcome Header & Dots ──────────────────────────────────── */
 
 .welcome-section {
     display: flex;
@@ -79,7 +88,7 @@
     animation: dot-pulse 2.4s ease-in-out infinite;
 }
 
-/* ── Vocalist of the Day ── */
+/* §2 Vocalist of the Day ────────────────────────────────────── */
 
 .welcome-votd {
     margin-top: 2rem;
@@ -150,7 +159,7 @@
     pointer-events: none;
 }
 
-/* ── 4-Point Soft Stars ── */
+/* §3 4-Point Soft Stars ─────────────────────────────────────── */
 
 .votd-star {
     position: absolute;
@@ -210,6 +219,8 @@
         votd-star-4 1.2s ease-out 0.45s forwards,
         votd-star-4-spin 4s linear 1.65s infinite;
 }
+
+/* §4 Star Keyframes ─────────────────────────────────────────── */
 
 @keyframes votd-star-1 {
     0% {

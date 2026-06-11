@@ -1,7 +1,16 @@
 /**
  * @file layout.css
  * @description Body and shared section layout.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Body & Scrollbar
+ *  2. ::Selection
+ *  3. Shared Section Layout
+ *  4. About Section
  */
+
+/* §1 Body & Scrollbar ───────────────────────────────────────── */
 
 body {
     background-color: var(--background-color);
@@ -16,6 +25,8 @@ body {
     scrollbar-width: thin;
     scrollbar-color: var(--neutral-color) var(--secondary-color);
 }
+
+/* §2 ::Selection ──────────────────────────────────────────────── */
 
 ::selection {
     background: var(--selection-color, var(--neutral-color));
@@ -43,6 +54,8 @@ body {
     background: var(--selection-color, var(--text-color));
 }
 
+/* §3 Shared Section Layout ──────────────────────────────────── */
+
 .welcome-section,
 .error-section {
     display: flex;
@@ -57,7 +70,7 @@ body {
     gap: 1rem;
 }
 
-/* ── About Section ── */
+/* §4 About Section ──────────────────────────────────────────── */
 
 .about-section {
     max-width: 720px;

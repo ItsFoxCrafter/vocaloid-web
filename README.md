@@ -2,7 +2,7 @@
 
 A community-driven, open-source fan site for exploring your favorite Vocaloid virtual singers — their bios, music, and more.
 
-Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools, just open it and go.
+Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools — just serve it over HTTP and go.
 
 ---
 
@@ -27,7 +27,7 @@ Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools, just 
 - **Custom scrollbar** — theme-aware with vocalist accent color on active drag
 - **Per-vocalist selection highlight** — `::selection` color matches the current vocalist
 - **Animated welcome screen**, section transitions, staggered card entrance, and modal close
-- **Fully community-expandable** — new vocalists only need a JSON entry and a color variable
+- **Fully community-expandable** — new vocalists need a JSON entry, portrait and sign images, a divider strip, a CSS color variable, and a welcome dot rule
 
 ---
 
@@ -44,15 +44,22 @@ vocaloid-web/
 └── src/
     ├── assets/
     │   ├── img/
-    │   │   ├── <vocalist>.webp          # vocalist portrait images
+    │   │   ├── <vocalist>.webp          # vocalist portrait images (yixi uses .png)
     │   │   ├── dividers/
-    │   │   │   └── divider-<vocalist>.png  # animated divider strip per vocalist
+    │   │   │   ├── divider-gumi.png
+    │   │   │   ├── divider-miku.png
+    │   │   │   ├── divider-neru.png
+    │   │   │   └── divider-teto.png
+    │   │   ├── signs/
+    │   │   │   └── sign-<vocalist>.png  # error screen images
     │   │   └── icons/
     │   │       ├── icon.svg              # PWA icon, favicon, OG image
     │   │       ├── search.svg
     │   │       └── sun-moon.svg
     │   └── sound/
-    │       └── <vocalist>/               # vocalist audio clips
+    │       ├── miku/                     # vocalist audio clips
+    │       ├── neru/
+    │       └── teto/
     ├── components/                       # custom HTML elements
     │   ├── aboutSection.js
     │   ├── errorSection.js
@@ -145,9 +152,10 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide. The short version:
 1. Add the slug to `src/json/vocaloidNames.json`
 2. Create `src/json/vocals/<slug>.json` (include `"type"`: `"vocaloid"`, `"utau"`, `"vsynth"`, or `"other"`; optionally add `"dyk"` trivia text)
 3. Create `src/json/ytmusic/<slug>Music.json`
-4. Add the vocalist's image to `src/assets/img/`
-5. Add the divider image to `src/assets/img/dividers/`
-6. Add a CSS color variable in `src/css/variables.css` (both light and dark themes)
+4. Add the vocalist's portrait image to `src/assets/img/`
+5. Add the divider strip image to `src/assets/img/dividers/`
+6. Add the error screen sign image to `src/assets/img/signs/`
+7. Add a CSS color variable in `src/css/variables.css` (both light and dark themes) and a welcome dot rule in `src/css/vocalists.css`
 
 ---
 

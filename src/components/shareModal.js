@@ -1,4 +1,20 @@
+/**
+ * @file shareModal.js
+ * @description Defines the <c-share-modal> custom element.
+ *              Displays a share dialog with a social preview card,
+ *              copy-to-clipboard, and native Web Share API support.
+ *              Handles animated close and click-outside dismissal.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. CShareModal class
+ *     1a. data setter  — builds the modal and attaches event handlers
+ *  2. customElements.define
+ */
+
 class CShareModal extends HTMLElement {
+    /* 1a. data setter ─────────────────────────────────────────── */
+
     set data({ title, description, imageUrl, page }) {
         const URL = `${window.location.origin}${window.location.pathname}#${page}`;
 
@@ -74,5 +90,7 @@ class CShareModal extends HTMLElement {
         });
     }
 }
+
+/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-share-modal", CShareModal);

@@ -1,7 +1,17 @@
 /**
  * @file singers.css
  * @description Vocalist grid page — category-based browsing.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Grid Container & Search
+ *  2. Mode Toggle
+ *  3. Square Mode
+ *  4. List Mode
+ *  5. Skeleton Loading
  */
+
+/* §1 Grid Container & Search ─────────────────────────────────── */
 
 .vocalist-grid-container {
     display: flex;
@@ -35,7 +45,7 @@
     border-color: var(--text-color);
 }
 
-/* ── Mode Toggle ── */
+/* §2 Mode Toggle ────────────────────────────────────────────── */
 
 .vocalist-mode-toggle {
     display: flex;
@@ -58,7 +68,7 @@
     color: var(--background-color);
 }
 
-/* ── Square Mode ── */
+/* §3 Square Mode ────────────────────────────────────────────── */
 
 .vocalist-grid.mode-square {
     display: grid;
@@ -129,7 +139,7 @@
     pointer-events: none;
 }
 
-/* ── List Mode ── */
+/* §4 List Mode ──────────────────────────────────────────────── */
 
 .vocalist-grid.mode-list {
     display: flex;
@@ -201,7 +211,7 @@
     color: var(--text-color);
 }
 
-/* ── Skeleton Loading ── */
+/* §5 Skeleton Loading ───────────────────────────────────────── */
 
 .skeleton-grid .vocalist-search-input {
     pointer-events: none;

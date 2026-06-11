@@ -1,7 +1,15 @@
 /**
  * @file music.css
  * @description Music search section and item cards.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Music Controls
+ *  2. Music List & Items
+ *  3. Skeleton Loading
  */
+
+/* §1 Music Controls ─────────────────────────────────────────── */
 
 .music-section {
     width: 100%;
@@ -82,6 +90,8 @@
     color: var(--text-color);
 }
 
+/* §2 Music List & Items ─────────────────────────────────────── */
+
 #musicOutputContainer {
     width: 100%;
     height: 100%;
@@ -156,7 +166,7 @@
     transition: color 0.15s ease;
 }
 
-/* ── Skeleton Loading ── */
+/* §3 Skeleton Loading ───────────────────────────────────────── */
 
 .music-skeleton-list {
     display: flex;

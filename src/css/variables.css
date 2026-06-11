@@ -1,7 +1,14 @@
 /**
  * @file variables.css
  * @description Theme CSS custom properties (light / dark).
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Light Theme Variables
+ *  2. Dark Theme Variables
  */
+
+/* §1 Light Theme ─────────────────────────────────────────────── */
 
 :root[data-theme="light"] {
     --neutral-color: #888;
@@ -17,6 +24,8 @@
     --secondary-color: #ebebeb;
     --text-color: #141414;
 }
+
+/* §2 Dark Theme ──────────────────────────────────────────────── */
 
 :root[data-theme="dark"] {
     --neutral-color: #888;

@@ -1,4 +1,20 @@
+/**
+ * @file navbar.js
+ * @description Defines the <c-navbar> custom element.
+ *              Renders the top navigation bar with category buttons,
+ *              theme toggle, sound toggle, and about link.
+ *              Handles click routing to pageRenderer.js.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. CNavbar class
+ *     1a. connectedCallback — renders HTML, attaches click handlers
+ *  2. customElements.define
+ */
+
 class CNavbar extends HTMLElement {
+    /* 1a. connectedCallback ───────────────────────────────────── */
+
     connectedCallback() {
         this.innerHTML = `
         <nav class="navbar">
@@ -65,5 +81,7 @@ class CNavbar extends HTMLElement {
         });
     }
 }
+
+/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-navbar", CNavbar);

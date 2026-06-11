@@ -26,7 +26,7 @@ This is the most common contribution and doesn't require touching any JS or CSS.
 Open `src/json/vocaloidNames.json` and append the new slug:
 
 ```json
-["miku", "teto", "neru", "gumi", "luka", "rin-len", "yixi", "your-vocalist"]
+["miku", "teto", "neru", "gumi", "luka", "rin-len", "yixi", "yuki", "your-vocalist"]
 ```
 
 Use lowercase with hyphens for multi-word names (e.g. `rin-len`, `flower`).
@@ -46,7 +46,8 @@ Create `src/json/vocals/<slug>.json` using this exact structure:
     "date": "Month DD, YYYY",
     "description": "A short bio paragraph here.",
     "imageUrl": "./src/assets/img/<slug>.webp",
-    "imageDividerUrl": "./src/assets/img/dividers/divider-<slug>.png"
+    "imageDividerUrl": "./src/assets/img/dividers/divider-<slug>.png",
+    "dyk": "An interesting trivia fact about the vocalist."
 }
 ```
 
@@ -252,7 +253,7 @@ Before opening a PR, make sure:
 - [ ] An issue was opened and linked in the PR description
 - [ ] The change is limited to what the issue describes
 - [ ] New vocalist JSON files follow the exact structure shown above
-- [ ] Images are in the correct folders with the correct naming convention
+- [ ] Images (portrait, divider, sign) are in the correct folders with the correct naming convention
 - [ ] CSS additions go in the correct partial file (`variables.css`, `vocalists.css`, or the relevant section CSS)
 - [ ] `animation-delay` in `vocalists.css` is incremented by `0.2s` from the last dot entry
 - [ ] Code matches the existing style (indentation, naming, comments)

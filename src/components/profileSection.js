@@ -1,7 +1,25 @@
+/**
+ * @file profileSection.js
+ * @description Defines the <c-profile-section> custom element.
+ *              Displays recently viewed vocalists from localStorage
+ *              as quick-access cards.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. CProfileSection class
+ *     1a. connectedCallback — triggers render on mount
+ *     1b. render            — builds the profile page HTML
+ *  2. customElements.define
+ */
+
 class CProfileSection extends HTMLElement {
+    /* 1a. connectedCallback ──────────────────────────────────── */
+
     connectedCallback() {
         this.render();
     }
+
+    /* 1b. render ─────────────────────────────────────────────── */
 
     async render() {
         this.innerHTML = `
@@ -51,5 +69,7 @@ class CProfileSection extends HTMLElement {
         `;
     }
 }
+
+/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-profile-section", CProfileSection);

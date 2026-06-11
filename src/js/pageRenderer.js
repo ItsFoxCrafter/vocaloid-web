@@ -1,4 +1,30 @@
+/**
+ * @file pageRenderer.js
+ * @description Hash-driven router and page renderer for VocaWeb.
+ *              Handles social meta tags, recently-viewed tracking,
+ *              and orchestrates the rendering of all page sections.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. setMeta          — updates or creates a meta tag
+ *  2. updateSocialMeta — sets OG and Twitter card meta tags
+ *  3. renderWelcome    — renders the welcome screen
+ *  4. trackRecentlyViewed — persists recently viewed vocalists
+ *  5. loadPage          — hash-driven router
+ *  6. renderGrid        — renders the category grid
+ *  7. renderPage        — fetches vocalist data and renders hero
+ *  8. renderMusicSection — renders the music section
+ *
+ * Dependencies
+ * ------------
+ *  - <div id="content"> root container in index.html
+ *  - Custom elements from components/ directory
+ *  - JS modules: errorHandler.js, musicHandler.js
+ */
+
 const CONTENT = document.getElementById("content");
+
+/* §1 setMeta ─────────────────────────────────────────────────── */
 
 function setMeta(name, content) {
     let el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
@@ -10,6 +36,8 @@ function setMeta(name, content) {
     document.head.appendChild(el);
 }
 
+/* §2 updateSocialMeta ───────────────────────────────────────── */
+
 function updateSocialMeta(title, description) {
     setMeta("og:title", title);
     setMeta("twitter:title", title);
@@ -17,6 +45,8 @@ function updateSocialMeta(title, description) {
     setMeta("twitter:description", description);
     document.title = title;
 }
+
+/* §3 renderWelcome ───────────────────────────────────────────── */
 
 function renderWelcome() {
     CONTENT.innerHTML = "";
@@ -26,6 +56,8 @@ function renderWelcome() {
     updateSocialMeta("VocaWeb", "Explore your favorite Vocaloid virtual singers — Miku, Teto, Neru, Gumi, Luka and more.");
 }
 
+/* §4 trackRecentlyViewed ─────────────────────────────────────── */
+
 function trackRecentlyViewed(slug) {
     let recent = JSON.parse(localStorage.getItem("recentVocalists") || "[]");
     recent = recent.filter((s) => s !== slug);
@@ -33,6 +65,8 @@ function trackRecentlyViewed(slug) {
     if (recent.length > 5) recent.length = 5;
     localStorage.setItem("recentVocalists", JSON.stringify(recent));
 }
+
+/* §5 loadPage ────────────────────────────────────────────────── */
 
 function loadPage(page) {
     document.documentElement.style.removeProperty("--selection-color");
@@ -71,12 +105,16 @@ window.addEventListener("hashchange", () => {
 const INITIAL_PAGE = window.location.hash.slice(1);
 if (INITIAL_PAGE) loadPage(INITIAL_PAGE);
 
+/* §6 renderGrid ──────────────────────────────────────────────── */
+
 function renderGrid(category) {
     CONTENT.innerHTML = "";
     const GRID = document.createElement("c-vocalist-grid");
     GRID.data = category;
     CONTENT.appendChild(GRID);
 }
+
+/* §7 renderPage ──────────────────────────────────────────────── */
 
 function renderPage(page) {
     const JSON_PATH = `./src/json/vocals/${page}.json`;
@@ -120,6 +158,8 @@ function renderPage(page) {
             generateError(page, err);
         });
 }
+
+/* §8 renderMusicSection ─────────────────────────────────────── */
 
 function renderMusicSection(page) {
     const MUSIC_SECTION = document.createElement("c-music-section");

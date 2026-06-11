@@ -1,3 +1,17 @@
+/**
+ * @file vocalistOfTheDay.js
+ * @description Determines and renders a daily featured vocalist.
+ *              Uses a date-based hash to pick consistently so the
+ *              same vocalist is shown all day for all visitors.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. getVocalistOfTheDay    — date-based deterministic pick
+ *  2. renderVocalistOfTheDay — fetches data and renders the VOTD card
+ */
+
+/* §1 getVocalistOfTheDay ────────────────────────────────────── */
+
 function getVocalistOfTheDay(names) {
     const today = new Date().toISOString().slice(0, 10);
     let hash = 0;
@@ -7,6 +21,8 @@ function getVocalistOfTheDay(names) {
     }
     return names[Math.abs(hash) % names.length];
 }
+
+/* §2 renderVocalistOfTheDay ──────────────────────────────────── */
 
 function renderVocalistOfTheDay(names) {
     const container = document.querySelector(".welcome-votd");

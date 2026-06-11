@@ -1,7 +1,16 @@
 /**
  * @file navbar.css
  * @description Navbar, category buttons, theme/sound buttons.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Navbar Layout
+ *  2. Category Buttons
+ *  3. Other Buttons (profile, about)
+ *  4. Theme & Sound Buttons
  */
+
+/* §1 Navbar Layout ──────────────────────────────────────────── */
 
 .navbar {
     border-bottom: 1px solid var(--neutral-color);
@@ -11,6 +20,8 @@
     justify-content: space-between;
     align-items: center;
 }
+
+/* §2 Category Buttons ───────────────────────────────────────── */
 
 .category-buttons-container {
     display: flex;
@@ -29,6 +40,8 @@
     transition: 0.1s ease;
     cursor: pointer;
 }
+
+/* §3 Other Buttons ──────────────────────────────────────────── */
 
 .other-buttons-container {
     display: flex;
@@ -56,6 +69,8 @@
 .other-button:hover {
     border-bottom: 3px solid var(--neutral-color);
 }
+
+/* §4 Theme & Sound Buttons ──────────────────────────────────── */
 
 .theme-button,
 .sound-button {

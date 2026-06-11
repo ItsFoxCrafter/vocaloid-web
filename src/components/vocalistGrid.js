@@ -1,3 +1,25 @@
+/**
+ * @file vocalistGrid.js
+ * @description Defines the <c-vocalist-grid> custom element.
+ *              Renders the category grid with search filtering,
+ *              square/list mode toggle, and skeleton loading.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. CVocalistGrid class
+ *     1a. data setter
+ *     1b. render           — orchestrates skeleton, fetch, and render
+ *     1c. renderSkeleton   — shows shimmer placeholders
+ *     1d. fetchNames       — loads vocaloidNames.json
+ *     1e. fetchAllVocalistData — loads all vocalist bios + song counts
+ *     1f. filterByCategory — filters by grid category
+ *     1g. renderGrid       — builds the grid HTML
+ *     1h. attachToggleHandler — square/list mode switching
+ *     1i. attachSearchHandler  — real-time search filtering
+ *     1j. attachCardHandlers   — click navigation
+ *  2. customElements.define
+ */
+
 const vocalistCache = { names: null, vocalists: null };
 
 class CVocalistGrid extends HTMLElement {
@@ -7,6 +29,8 @@ class CVocalistGrid extends HTMLElement {
         this.mode = "square";
         this.render();
     }
+
+    /* 1b. render ─────────────────────────────────────────────── */
 
     async render() {
         this.renderSkeleton();
@@ -23,6 +47,8 @@ class CVocalistGrid extends HTMLElement {
             if (typeof generateError === "function") generateError(this.category, err);
         }
     }
+
+    /* 1c. renderSkeleton ─────────────────────────────────────── */
 
     renderSkeleton() {
         this.innerHTML = `
@@ -50,6 +76,8 @@ class CVocalistGrid extends HTMLElement {
         `;
     }
 
+    /* 1d. fetchNames ─────────────────────────────────────────── */
+
     async fetchNames() {
         if (vocalistCache.names) return vocalistCache.names;
         const res = await fetch("./src/json/vocaloidNames.json");
@@ -57,6 +85,8 @@ class CVocalistGrid extends HTMLElement {
         vocalistCache.names = await res.json();
         return vocalistCache.names;
     }
+
+    /* 1e. fetchAllVocalistData ───────────────────────────────── */
 
     async fetchAllVocalistData(names) {
         if (vocalistCache.vocalists) return vocalistCache.vocalists;
@@ -88,10 +118,14 @@ class CVocalistGrid extends HTMLElement {
         return vocalistCache.vocalists;
     }
 
+    /* 1f. filterByCategory ───────────────────────────────────── */
+
     filterByCategory(vocalists) {
         if (this.category === "all") return vocalists;
         return vocalists.filter((v) => v.type === this.category);
     }
+
+    /* 1g. renderGrid ─────────────────────────────────────────── */
 
     renderGrid(vocalists) {
         const filtered = this.filterByCategory(vocalists);
@@ -122,6 +156,8 @@ class CVocalistGrid extends HTMLElement {
         `;
     }
 
+    /* 1h. attachToggleHandler ────────────────────────────────── */
+
     attachToggleHandler() {
         const btns = this.querySelectorAll(".mode-btn");
         btns.forEach((btn) => {
@@ -135,6 +171,8 @@ class CVocalistGrid extends HTMLElement {
             });
         });
     }
+
+    /* 1i. attachSearchHandler ────────────────────────────────── */
 
     attachSearchHandler() {
         const input = this.querySelector(".vocalist-search-input");
@@ -166,6 +204,8 @@ class CVocalistGrid extends HTMLElement {
         });
     }
 
+    /* 1j. attachCardHandlers ─────────────────────────────────── */
+
     attachCardHandlers() {
         this.querySelectorAll(".vocalist-card").forEach((card) => {
             card.addEventListener("click", () => {
@@ -177,5 +217,7 @@ class CVocalistGrid extends HTMLElement {
         });
     }
 }
+
+/* §2 customElements.define ──────────────────────────────────── */
 
 customElements.define("c-vocalist-grid", CVocalistGrid);

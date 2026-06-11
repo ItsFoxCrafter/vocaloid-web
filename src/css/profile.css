@@ -1,3 +1,15 @@
+/**
+ * @file profile.css
+ * @description Profile page — recently viewed vocalist cards.
+ *
+ * TABLE OF CONTENTS
+ * -----------------
+ *  1. Profile Section
+ *  2. Recent Card
+ */
+
+/* §1 Profile Section ────────────────────────────────────────── */
+
 .profile-section {
     max-width: 800px;
     margin: 3rem auto;
@@ -33,6 +45,8 @@
     width: 100%;
     max-width: 800px;
 }
+
+/* §2 Recent Card ────────────────────────────────────────────── */
 
 .profile-recent-card {
     position: relative;
