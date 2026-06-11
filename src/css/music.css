@@ -139,6 +139,7 @@
     width: 100%;
     aspect-ratio: 16 / 9;
     display: block;
+    border: none;
 }
 
 .music-embed-placeholder {
