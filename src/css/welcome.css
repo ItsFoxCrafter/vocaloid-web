@@ -3,6 +3,14 @@
  * @description Welcome section. Vocalist dot colors live in vocalists.css.
  */
 
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+}
+
 .welcome-eyebrow {
     font-size: 0.85rem;
     letter-spacing: 0.4em;
@@ -215,8 +223,12 @@
 }
 
 @keyframes votd-star-1-spin {
-    from { transform: translate(130px, -30px) rotate(0deg) scale(1); }
-    to   { transform: translate(130px, -30px) rotate(360deg) scale(1); }
+    from {
+        transform: translate(130px, -30px) rotate(0deg) scale(1);
+    }
+    to {
+        transform: translate(130px, -30px) rotate(360deg) scale(1);
+    }
 }
 
 @keyframes votd-star-2 {
@@ -231,8 +243,12 @@
 }
 
 @keyframes votd-star-2-spin {
-    from { transform: translate(120px, 30px) rotate(0deg) scale(1); }
-    to   { transform: translate(120px, 30px) rotate(360deg) scale(1); }
+    from {
+        transform: translate(120px, 30px) rotate(0deg) scale(1);
+    }
+    to {
+        transform: translate(120px, 30px) rotate(360deg) scale(1);
+    }
 }
 
 @keyframes votd-star-3 {
@@ -247,8 +263,12 @@
 }
 
 @keyframes votd-star-3-spin {
-    from { transform: translate(-50px, 50px) rotate(0deg) scale(1); }
-    to   { transform: translate(-50px, 50px) rotate(360deg) scale(1); }
+    from {
+        transform: translate(-50px, 50px) rotate(0deg) scale(1);
+    }
+    to {
+        transform: translate(-50px, 50px) rotate(360deg) scale(1);
+    }
 }
 
 @keyframes votd-star-4 {
@@ -263,6 +283,10 @@
 }
 
 @keyframes votd-star-4-spin {
-    from { transform: translate(-120px, -45px) rotate(0deg) scale(1.5); }
-    to   { transform: translate(-120px, -45px) rotate(360deg) scale(1.5); }
+    from {
+        transform: translate(-120px, -45px) rotate(0deg) scale(1.5);
+    }
+    to {
+        transform: translate(-120px, -45px) rotate(360deg) scale(1.5);
+    }
 }
