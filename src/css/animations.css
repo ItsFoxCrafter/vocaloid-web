@@ -80,45 +80,85 @@ body {
 }
 
 .vocalist-card:nth-child(1),
-.music-item:nth-child(1) { animation-delay: 0s; }
+.music-item:nth-child(1) {
+    animation-delay: 0s;
+}
 .vocalist-card:nth-child(2),
-.music-item:nth-child(2) { animation-delay: 0.05s; }
+.music-item:nth-child(2) {
+    animation-delay: 0.05s;
+}
 .vocalist-card:nth-child(3),
-.music-item:nth-child(3) { animation-delay: 0.1s; }
+.music-item:nth-child(3) {
+    animation-delay: 0.1s;
+}
 .vocalist-card:nth-child(4),
-.music-item:nth-child(4) { animation-delay: 0.15s; }
+.music-item:nth-child(4) {
+    animation-delay: 0.15s;
+}
 .vocalist-card:nth-child(5),
-.music-item:nth-child(5) { animation-delay: 0.2s; }
+.music-item:nth-child(5) {
+    animation-delay: 0.2s;
+}
 .vocalist-card:nth-child(6),
-.music-item:nth-child(6) { animation-delay: 0.25s; }
+.music-item:nth-child(6) {
+    animation-delay: 0.25s;
+}
 .vocalist-card:nth-child(7),
-.music-item:nth-child(7) { animation-delay: 0.3s; }
+.music-item:nth-child(7) {
+    animation-delay: 0.3s;
+}
 .vocalist-card:nth-child(8),
-.music-item:nth-child(8) { animation-delay: 0.35s; }
+.music-item:nth-child(8) {
+    animation-delay: 0.35s;
+}
 .vocalist-card:nth-child(9),
-.music-item:nth-child(9) { animation-delay: 0.4s; }
+.music-item:nth-child(9) {
+    animation-delay: 0.4s;
+}
 .vocalist-card:nth-child(10),
-.music-item:nth-child(10) { animation-delay: 0.45s; }
+.music-item:nth-child(10) {
+    animation-delay: 0.45s;
+}
 .vocalist-card:nth-child(11),
-.music-item:nth-child(11) { animation-delay: 0.5s; }
+.music-item:nth-child(11) {
+    animation-delay: 0.5s;
+}
 .vocalist-card:nth-child(12),
-.music-item:nth-child(12) { animation-delay: 0.55s; }
+.music-item:nth-child(12) {
+    animation-delay: 0.55s;
+}
 .vocalist-card:nth-child(13),
-.music-item:nth-child(13) { animation-delay: 0.6s; }
+.music-item:nth-child(13) {
+    animation-delay: 0.6s;
+}
 .vocalist-card:nth-child(14),
-.music-item:nth-child(14) { animation-delay: 0.65s; }
+.music-item:nth-child(14) {
+    animation-delay: 0.65s;
+}
 .vocalist-card:nth-child(15),
-.music-item:nth-child(15) { animation-delay: 0.7s; }
+.music-item:nth-child(15) {
+    animation-delay: 0.7s;
+}
 .vocalist-card:nth-child(16),
-.music-item:nth-child(16) { animation-delay: 0.75s; }
+.music-item:nth-child(16) {
+    animation-delay: 0.75s;
+}
 .vocalist-card:nth-child(17),
-.music-item:nth-child(17) { animation-delay: 0.8s; }
+.music-item:nth-child(17) {
+    animation-delay: 0.8s;
+}
 .vocalist-card:nth-child(18),
-.music-item:nth-child(18) { animation-delay: 0.85s; }
+.music-item:nth-child(18) {
+    animation-delay: 0.85s;
+}
 .vocalist-card:nth-child(19),
-.music-item:nth-child(19) { animation-delay: 0.9s; }
+.music-item:nth-child(19) {
+    animation-delay: 0.9s;
+}
 .vocalist-card:nth-child(20),
-.music-item:nth-child(20) { animation-delay: 0.95s; }
+.music-item:nth-child(20) {
+    animation-delay: 0.95s;
+}
 
 /* share modal entrance */
 .share-overlay {
@@ -165,8 +205,12 @@ body {
 
 /* overlay fades in */
 @keyframes modal-overlay-in {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* modal scales up from 0.95 with a fade */
@@ -183,8 +227,12 @@ body {
 
 /* overlay fades out */
 @keyframes modal-overlay-out {
-    from { opacity: 1; }
-    to   { opacity: 0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 /* modal scales down with a fade */
