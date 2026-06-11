@@ -146,6 +146,8 @@
 
 .votd-star {
     position: absolute;
+    top: 50%;
+    left: 50%;
     background: currentColor;
     clip-path: polygon(
         50% 0%,
@@ -162,45 +164,53 @@
 }
 
 .votd-star-1 {
-    top: calc(50% - 16px - 38px);
-    left: calc(50% - 16px + 50px);
     width: 32px;
     height: 32px;
-    animation: votd-star-slow 5s linear infinite;
+    margin-left: -16px;
+    margin-top: -16px;
+    animation: votd-star-1 1.2s ease-out forwards;
 }
 
 .votd-star-2 {
-    top: calc(50% - 12px + 40px);
-    left: calc(50% - 12px + 38px);
     width: 24px;
     height: 24px;
-    animation: votd-star-slow 6s linear infinite;
-    animation-delay: -1.5s;
+    margin-left: -12px;
+    margin-top: -12px;
+    animation: votd-star-2 1.2s ease-out 0.15s forwards;
 }
 
 .votd-star-3 {
-    top: calc(50% - 10px + 38px);
-    left: calc(50% - 10px - 42px);
     width: 20px;
     height: 20px;
-    animation: votd-star-slow 5.5s linear infinite;
-    animation-delay: -3s;
+    margin-left: -10px;
+    margin-top: -10px;
+    animation: votd-star-3 1.2s ease-out 0.3s forwards;
 }
 
 .votd-star-4 {
-    top: calc(50% - 14px - 32px);
-    left: calc(50% - 14px - 48px);
     width: 28px;
     height: 28px;
-    animation: votd-star-slow 4.5s linear infinite;
-    animation-delay: -1s;
+    margin-left: -14px;
+    margin-top: -14px;
+    animation: votd-star-4 1.2s ease-out 0.45s forwards;
 }
 
-@keyframes votd-star-slow {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes votd-star-1 {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
+    100% { transform: translate(70px, -50px) rotate(360deg) scale(1); opacity: 1; }
+}
+
+@keyframes votd-star-2 {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
+    100% { transform: translate(55px, 55px) rotate(360deg) scale(1); opacity: 1; }
+}
+
+@keyframes votd-star-3 {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
+    100% { transform: translate(-50px, 50px) rotate(360deg) scale(1); opacity: 1; }
+}
+
+@keyframes votd-star-4 {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(0.3); opacity: 0; }
+    100% { transform: translate(-65px, -45px) rotate(360deg) scale(1); opacity: 1; }
 }
