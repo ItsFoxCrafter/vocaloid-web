@@ -109,6 +109,9 @@ class CHeroSection extends HTMLElement {
                     const star = favBtn.querySelector("svg");
                     if (star) star.setAttribute("fill", nowFav ? "currentColor" : "none");
                     favBtn.setAttribute("aria-label", (nowFav ? "Remove from" : "Add to") + " favorites");
+                    favBtn.classList.remove("animate-fav");
+                    void favBtn.offsetWidth;
+                    favBtn.classList.add("animate-fav");
                 }
             });
         }

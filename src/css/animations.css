@@ -247,6 +247,24 @@ body {
     }
 }
 
+/* favorite star bounce */
+@keyframes fav-pop {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.35); }
+    60% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+/* favorite star sparkle ring */
+@keyframes fav-ring {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.5); }
+    100% { box-shadow: 0 0 0 8px rgba(255, 215, 0, 0); }
+}
+
+.hero-fav-btn.animate-fav {
+    animation: fav-pop 0.35s ease-out, fav-ring 0.4s ease-out;
+}
+
 /* shimmer for skeleton loading placeholders */
 @keyframes skeleton-shimmer {
     0% {
