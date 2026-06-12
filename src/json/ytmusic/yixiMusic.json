@@ -20,6 +20,55 @@
             "artist": "ROMA",
             "album": "INSOMNIA",
             "ytlink": "https://www.youtube.com/watch?v=9HDPGcRSRcA"
+        },
+        {
+            "id": "3",
+            "title": "Goodness and Beauty",
+            "artist": "rai1367",
+            "album": "Goodness and Beauty",
+            "ytlink": "https://www.youtube.com/watch?v=jk8_prm6IfQ"
+        },
+        {
+            "id": "4",
+            "title": "Spring Blues",
+            "artist": "nezu",
+            "album": "Spring Blues",
+            "ytlink": "https://www.youtube.com/watch?v=fOPnqKnnnrQ"
+        },
+        {
+            "id": "5",
+            "title": "Nectarine (Stone Heart)",
+            "artist": "ChulipP",
+            "album": "Nectarine (Stone Heart)",
+            "ytlink": "https://www.youtube.com/watch?v=DXesdeso8jo"
+        },
+        {
+            "id": "6",
+            "title": "Pendant on a String",
+            "artist": "Witches with Glitches",
+            "album": "Pendant on a String",
+            "ytlink": "https://www.youtube.com/watch?v=g5Nlc5iLqKg"
+        },
+        {
+            "id": "7",
+            "title": "Plastic Dinosaurs",
+            "artist": "soyupoyu",
+            "album": "Plastic Dinosaurs",
+            "ytlink": "https://www.youtube.com/watch?v=CKy0JTtUtE8"
+        },
+        {
+            "id": "8",
+            "title": "Word Game",
+            "artist": "d.j.",
+            "album": "Word Game",
+            "ytlink": "https://www.youtube.com/watch?v=eGS-IjCUEzA"
+        },
+        {
+            "id": "9",
+            "title": "What the ████",
+            "artist": "Netsubi",
+            "album": "What the ████",
+            "ytlink": "https://www.youtube.com/watch?v=T-eEeKcc3D4"
         }
     ]
 }

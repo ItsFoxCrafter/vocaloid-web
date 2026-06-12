@@ -2,9 +2,9 @@
     "songs": [
         {
             "id": "0",
-            "title": "ジィガ (JYGA)",
-            "artist": "雨良 Amala",
-            "album": "ジィガ",
+            "title": "JYGA",
+            "artist": "Amala",
+            "album": "JYGA",
             "ytlink": "https://www.youtube.com/watch?v=sFq0bIGgtOM"
         },
         {
@@ -20,6 +20,69 @@
             "artist": "Dasu and Stellar Paradigm",
             "album": "Antidisestablishmentarianism",
             "ytlink": "https://www.youtube.com/watch?v=AdgSIU05FPw"
+        },
+        {
+            "id": "3",
+            "title": "Trick and Treat",
+            "artist": "OSTER project",
+            "album": "Trick and Treat",
+            "ytlink": "https://www.youtube.com/watch?v=EEPdHJxJCrA"
+        },
+        {
+            "id": "4",
+            "title": "Suki Kirai",
+            "artist": "HoneyWorks",
+            "album": "Suki Kirai",
+            "ytlink": "https://www.youtube.com/watch?v=op3lPBDHEXs"
+        },
+        {
+            "id": "5",
+            "title": "Sister's ∞ mercY",
+            "artist": "Hitoshizuku×Yama△",
+            "album": "Sister's ∞ mercY",
+            "ytlink": "https://www.youtube.com/watch?v=6rlqEcgbbEI"
+        },
+        {
+            "id": "6",
+            "title": "Shindeshimautowa Nasakenai!",
+            "artist": "WONDERFUL★OPPORTUNITY!",
+            "album": "Shindeshimautowa Nasakenai!",
+            "ytlink": "https://www.youtube.com/watch?v=XZnmfDByGWU"
+        },
+        {
+            "id": "7",
+            "title": "Servant of Evil",
+            "artist": "mothy akuno",
+            "album": "Servant of Evil",
+            "ytlink": "https://www.youtube.com/watch?v=yzpNpaS0uLc"
+        },
+        {
+            "id": "8",
+            "title": "Remote Control",
+            "artist": "WONDERFUL★OPPORTUNITY!",
+            "album": "Remote Control",
+            "ytlink": "https://www.youtube.com/watch?v=XlECuwCumos"
+        },
+        {
+            "id": "9",
+            "title": "Positive Club vs Negative Club",
+            "artist": "WONDERFUL★OPPORTUNITY!",
+            "album": "Positive Club vs Negative Club",
+            "ytlink": "https://www.youtube.com/watch?v=ei7xF8hORQU"
+        },
+        {
+            "id": "10",
+            "title": "8HIT",
+            "artist": "WONDERFUL★OPPORTUNITY!",
+            "album": "8HIT",
+            "ytlink": "https://www.youtube.com/watch?v=UDskSD_F9KA"
+        },
+        {
+            "id": "11",
+            "title": "Meltdown",
+            "artist": "iroha(sasaki)",
+            "album": "Meltdown",
+            "ytlink": "https://www.youtube.com/watch?v=dSw8CucthGc"
         }
     ]
 }

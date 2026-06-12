@@ -20,6 +20,69 @@
             "artist": "KIRA",
             "album": "Burn Me Down",
             "ytlink": "https://www.youtube.com/watch?v=oTGJOVzMHPo"
+        },
+        {
+            "id": "3",
+            "title": "Matryoshka",
+            "artist": "Hachi",
+            "album": "Matryoshka",
+            "ytlink": "https://www.youtube.com/watch?v=HOz-9FzIDf0"
+        },
+        {
+            "id": "4",
+            "title": "Donut Hole",
+            "artist": "Hachi",
+            "album": "Donut Hole",
+            "ytlink": "https://www.youtube.com/watch?v=qnX2CdOBcDI"
+        },
+        {
+            "id": "5",
+            "title": "Coward Montblanc",
+            "artist": "DECO*27",
+            "album": "Coward Montblanc",
+            "ytlink": "https://www.youtube.com/watch?v=B-A2eYlbrwQ"
+        },
+        {
+            "id": "6",
+            "title": "Mozaik Role",
+            "artist": "DECO*27",
+            "album": "Mozaik Role",
+            "ytlink": "https://www.youtube.com/watch?v=DnLFVUi3oOU"
+        },
+        {
+            "id": "7",
+            "title": "Happy Synthesizer",
+            "artist": "EasyPop",
+            "album": "Happy Synthesizer",
+            "ytlink": "https://www.youtube.com/watch?v=xOKplMgHxxA"
+        },
+        {
+            "id": "8",
+            "title": "World Lampshade",
+            "artist": "buzzG",
+            "album": "World Lampshade",
+            "ytlink": "https://www.youtube.com/watch?v=028kKwwcJu8"
+        },
+        {
+            "id": "9",
+            "title": "Brain Fluid Explosion Girl",
+            "artist": "rerulili",
+            "album": "Brain Fluid Explosion Girl",
+            "ytlink": "https://www.youtube.com/watch?v=Ey_NHZNYTeE"
+        },
+        {
+            "id": "10",
+            "title": "Kimi Iro ni Somaru",
+            "artist": "TOKOTOKO",
+            "album": "Kimi Iro ni Somaru",
+            "ytlink": "https://www.youtube.com/watch?v=dDK8fk17MqQ"
+        },
+        {
+            "id": "11",
+            "title": "Kami no Manimani",
+            "artist": "rerulili",
+            "album": "Kami no Manimani",
+            "ytlink": "https://www.youtube.com/watch?v=b2GJcYBoVyg"
         }
     ]
 }

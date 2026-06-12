@@ -16,10 +16,73 @@
         },
         {
             "id": "2",
-            "title": "ド屑(DOKUZU)",
+            "title": "DOKUZU",
             "artist": "NAKISO",
-            "album": "ド屑",
+            "album": "DOKUZU",
             "ytlink": "https://www.youtube.com/watch?v=5XehRIb81k8"
+        },
+        {
+            "id": "3",
+            "title": "Kimi ni Kaikisen",
+            "artist": "inabakumori",
+            "album": "Kimi ni Kaikisen",
+            "ytlink": "https://www.youtube.com/watch?v=3NLsyjOH92k"
+        },
+        {
+            "id": "4",
+            "title": "Kyoufuu All Back",
+            "artist": "Yukopi",
+            "album": "Kyoufuu All Back",
+            "ytlink": "https://www.youtube.com/watch?v=D6DVTLvOupE"
+        },
+        {
+            "id": "5",
+            "title": "Pascal Beats",
+            "artist": "inabakumori",
+            "album": "Pascal Beats",
+            "ytlink": "https://www.youtube.com/watch?v=M8ZGGCqJduU"
+        },
+        {
+            "id": "6",
+            "title": "Hello Marina",
+            "artist": "inabakumori",
+            "album": "Hello Marina",
+            "ytlink": "https://www.youtube.com/watch?v=g6sYNwl1EWg"
+        },
+        {
+            "id": "7",
+            "title": "Rainy Boots",
+            "artist": "inabakumori",
+            "album": "Rainy Boots",
+            "ytlink": "https://www.youtube.com/watch?v=G5hScSFkib4"
+        },
+        {
+            "id": "8",
+            "title": "Float Play",
+            "artist": "inabakumori",
+            "album": "Float Play",
+            "ytlink": "https://www.youtube.com/watch?v=NRQRC_0ZQ00"
+        },
+        {
+            "id": "9",
+            "title": "Nantabetai",
+            "artist": "Yukopi",
+            "album": "Nantabetai",
+            "ytlink": "https://youtu.be/lZzVzYWPOKk"
+        },
+        {
+            "id": "10",
+            "title": "Pig Thunder",
+            "artist": "Yukopi",
+            "album": "Pig Thunder",
+            "ytlink": "https://www.youtube.com/watch?v=j8zb5q2UkxE"
+        },
+        {
+            "id": "11",
+            "title": "Neoki Yashi no Ki",
+            "artist": "Yukopi",
+            "album": "Neoki Yashi no Ki",
+            "ytlink": "https://www.youtube.com/watch?v=FSXsAt7z_RU"
         }
     ]
 }
