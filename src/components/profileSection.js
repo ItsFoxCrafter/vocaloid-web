@@ -25,37 +25,69 @@ class CProfileSection extends HTMLElement {
         this.innerHTML = `
             <section class="profile-section">
                 <h1 class="profile-title">PROFILE</h1>
+                <div class="profile-favs"></div>
                 <div class="profile-recent"></div>
             </section>
         `;
 
-        const recent = JSON.parse(localStorage.getItem("recentVocalists") || "[]");
-        const container = this.querySelector(".profile-recent");
+        const favContainer = this.querySelector(".profile-favs");
+        const recentContainer = this.querySelector(".profile-recent");
 
+        const favSlugs = typeof getFavorites === "function" ? getFavorites() : [];
+        const favVocalists = favSlugs.length
+            ? (await Promise.all(
+                  favSlugs.map((slug) =>
+                      fetch(`./src/json/vocals/${slug}.json`)
+                          .then((r) => r.json())
+                          .then((data) => ({ slug, title: data.title, imageUrl: data.imageUrl }))
+                          .catch(() => null),
+                  ),
+              )).filter(Boolean)
+            : [];
+
+        if (favVocalists.length) {
+            favContainer.innerHTML = `
+                <p class="profile-fav-label">⭐ FAVORITES</p>
+                <div class="profile-fav-list">
+                    ${favVocalists
+                        .map(
+                            (v) => `
+                        <a class="profile-fav-card" href="#${v.slug}" style="--accent: var(--${v.slug}-color);">
+                            <span class="profile-fav-name">${v.title}</span>
+                            <img class="profile-fav-img" src="${v.imageUrl}" alt="${v.title}" loading="lazy" />
+                        </a>
+                    `,
+                        )
+                        .join("")}
+                </div>
+                <hr class="profile-divider">
+            `;
+        }
+
+        const recent = JSON.parse(localStorage.getItem("recentVocalists") || "[]");
         if (recent.length === 0) {
-            container.innerHTML = `<p class="profile-empty">No recent vocalists yet. Start exploring!</p>`;
+            recentContainer.innerHTML = `<p class="profile-empty">No recent vocalists yet. Start exploring!</p>`;
             return;
         }
 
-        const vocalists = await Promise.all(
+        const recentVocalists = (await Promise.all(
             recent.map((slug) =>
                 fetch(`./src/json/vocals/${slug}.json`)
                     .then((r) => r.json())
                     .then((data) => ({ slug, title: data.title, imageUrl: data.imageUrl }))
                     .catch(() => null),
             ),
-        );
+        )).filter(Boolean);
 
-        const valid = vocalists.filter(Boolean);
-        if (valid.length === 0) {
-            container.innerHTML = `<p class="profile-empty">No recent vocalists yet.</p>`;
+        if (recentVocalists.length === 0) {
+            recentContainer.innerHTML = `<p class="profile-empty">No recent vocalists yet.</p>`;
             return;
         }
 
-        container.innerHTML = `
+        recentContainer.innerHTML = `
             <p class="profile-recent-label">RECENTLY VIEWED</p>
             <div class="profile-recent-list">
-                ${valid
+                ${recentVocalists
                     .map(
                         (v) => `
                     <a class="profile-recent-card" href="#${v.slug}" style="--accent: var(--${v.slug}-color);">

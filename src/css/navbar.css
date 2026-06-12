@@ -70,6 +70,48 @@
     border-bottom: 3px solid var(--neutral-color);
 }
 
+/* ── Offline indicator ── */
+
+.offline-indicator {
+    display: none;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: #ff4444;
+    padding: 0 0.5rem;
+    white-space: nowrap;
+}
+
+.offline-indicator.visible {
+    display: inline;
+}
+
+/* ── Dice button ── */
+
+.dice-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 0 0.5rem;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    transition: 0.1s ease;
+    cursor: pointer;
+}
+
+.dice-button:hover,
+.dice-button:active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}
+
+.dice-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: block;
+}
+
 /* §4 Theme & Sound Buttons ──────────────────────────────────── */
 
 .theme-button,

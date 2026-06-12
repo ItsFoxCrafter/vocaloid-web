@@ -74,6 +74,39 @@ body {
     gap: 1rem;
 }
 
+/* ── Scroll-To-Top Button ── */
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1.5px solid var(--neutral-color);
+    border-radius: 4px;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-top-btn:hover,
+.scroll-top-btn:active {
+    background-color: var(--neutral-color);
+    color: var(--background-color);
+}
+
 /* §4 About Section ──────────────────────────────────────────── */
 
 .about-section {

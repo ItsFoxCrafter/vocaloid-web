@@ -28,6 +28,16 @@ class CNavbar extends HTMLElement {
             </div>
 
             <div class="other-buttons-container">
+                <span class="offline-indicator" title="You are offline">OFFLINE</span>
+
+                <button class="dice-button" data-action="surprise" title="Surprise me!" aria-label="Random vocalist">
+                    <svg class="dice-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="2"/>
+                        <circle cx="8" cy="8" r="1" fill="currentColor"/>
+                        <circle cx="16" cy="16" r="1" fill="currentColor"/>
+                        <circle cx="8" cy="16" r="1" fill="currentColor"/>
+                    </svg>
+                </button>
 
                 <button class="sound-button" data-action="sound-toggle" title="Sound on" aria-label="Toggle sound">
                     <svg class="sound-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -64,6 +74,17 @@ class CNavbar extends HTMLElement {
 
             if (button.dataset.action === "theme-toggle") {
                 if (typeof changeTheme === "function") changeTheme();
+                return;
+            }
+
+            if (button.dataset.action === "surprise") {
+                fetch("./src/json/vocaloidNames.json")
+                    .then((r) => r.json())
+                    .then((names) => {
+                        const slug = names[Math.floor(Math.random() * names.length)];
+                        window.location.hash = slug;
+                    })
+                    .catch(() => {});
                 return;
             }
 

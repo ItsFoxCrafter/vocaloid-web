@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="64" viewBox="0 0 240 64">
+  <defs>
+    <style>
+      .bg { fill: #ffd024; opacity: 0.12; }
+      .orange { fill: #ff8c00; opacity: 0.75; }
+      .orange-seg { fill: #ffa500; opacity: 0.5; }
+      .banana { fill: #ffe135; opacity: 0.75; }
+      .stem { stroke: #5a3a0a; stroke-width: 1.5; fill: none; opacity: 0.5; }
+    </style>
+  </defs>
+  <rect class="bg" width="240" height="64"/>
+  <circle class="orange" cx="35" cy="32" r="12"/>
+  <circle class="orange-seg" cx="35" cy="32" r="8"/>
+  <circle class="orange-seg" cx="35" cy="32" r="4" fill="none" stroke="#ff8c00" stroke-width="0.8" opacity="0.4"/>
+  <line x1="35" y1="20" x2="35" y2="12" class="stem"/>
+  <path class="banana" d="M 75 20 Q 95 12 105 28 Q 95 44 75 36 Q 85 28 75 20" fill="#ffe135" opacity="0.8"/>
+  <circle class="orange" cx="155" cy="32" r="12" opacity="0.6"/>
+  <circle class="orange-seg" cx="155" cy="32" r="8" opacity="0.4"/>
+  <line x1="155" y1="20" x2="155" y2="12" class="stem"/>
+  <path class="banana" d="M 195 20 Q 215 12 225 28 Q 215 44 195 36 Q 205 28 195 20" fill="#ffe135" opacity="0.6"/>
+  <path class="banana" d="M -45 20 Q -25 12 -15 28 Q -25 44 -45 36 Q -35 28 -45 20" fill="#ffe135" opacity="0.7"/>
+  <line x1="0" y1="10" x2="240" y2="10" stroke="#ffd024" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="54" x2="240" y2="54" stroke="#ffd024" stroke-width="0.5" opacity="0.3"/>
+</svg>

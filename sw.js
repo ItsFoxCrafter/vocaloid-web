@@ -1,4 +1,4 @@
-const CACHE_NAME = "vocaweb-v3";
+const CACHE_NAME = "vocaweb-v4";
 
 const DATA_PATTERN = /\/src\/json\//;
 
@@ -42,6 +42,9 @@ self.addEventListener("install", (event) => {
                 "./src/js/welcomeDotsRenderer.js",
                 "./src/js/pageRenderer.js",
                 "./src/js/swManager.js",
+                "./src/js/favoritesHandler.js",
+                "./src/js/offlineHandler.js",
+                "./src/js/scrollToTop.js",
                 "./src/components/updateBanner.js",
                 "./src/css/update-banner.css",
                 "./src/assets/img/icons/icon.svg",
@@ -77,6 +80,10 @@ self.addEventListener("install", (event) => {
                 "./src/assets/img/dividers/divider-miku.png",
                 "./src/assets/img/dividers/divider-neru.png",
                 "./src/assets/img/dividers/divider-teto.png",
+                "./src/assets/img/dividers/divider-luka.svg",
+                "./src/assets/img/dividers/divider-rin-len.svg",
+                "./src/assets/img/dividers/divider-yixi.svg",
+                "./src/assets/img/dividers/divider-yuki.svg",
                 "./src/assets/img/signs/sign-gumi.png",
                 "./src/assets/img/signs/sign-luka.png",
                 "./src/assets/img/signs/sign-miku.png",

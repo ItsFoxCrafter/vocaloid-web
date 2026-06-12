@@ -40,11 +40,17 @@ class CHeroSection extends HTMLElement {
         imageDividerUrl,
         dykContent,
     }) {
+        const isFav = typeof isFavorite === "function" && isFavorite(page);
         this.innerHTML = `
         <section class="hero-section">
             <div class="hero-text">
                 <div class="hero-title-row">
                     <h1 class="hero-title" style="color: var(--${page}-color);">${title}</h1>
+                    <button class="hero-fav-btn ${isFav ? "favorited" : ""}" data-slug="${page}" aria-label="${isFav ? "Remove from" : "Add to"} favorites">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="${isFav ? "currentColor" : "none"}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </button>
                     <button class="hero-share-btn" aria-label="Share ${title}">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
@@ -85,6 +91,19 @@ class CHeroSection extends HTMLElement {
             MODAL.data = { title, description, imageUrl, page };
             document.body.appendChild(MODAL);
         });
+
+        const favBtn = this.querySelector(".hero-fav-btn");
+        if (favBtn) {
+            favBtn.addEventListener("click", () => {
+                if (typeof toggleFavorite === "function") {
+                    const nowFav = toggleFavorite(page);
+                    favBtn.classList.toggle("favorited", nowFav);
+                    const star = favBtn.querySelector("svg");
+                    star.setAttribute("fill", nowFav ? "currentColor" : "none");
+                    favBtn.setAttribute("aria-label", (nowFav ? "Remove from" : "Add to") + " favorites");
+                }
+            });
+        }
     }
 }
 
