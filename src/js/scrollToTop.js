@@ -2,7 +2,9 @@
     const btn = document.createElement("button");
     btn.className = "scroll-top-btn";
     btn.setAttribute("aria-label", "Scroll to top");
-    btn.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>`;
+    const wrap = document.createElement("span");
+    wrap.className = "icon-wrap";
+    btn.appendChild(wrap);
     document.body.appendChild(btn);
 
     let ticking = false;
@@ -19,6 +21,8 @@
             ticking = true;
         }
     }
+
+    if (typeof loadSVG === "function") loadSVG("./src/assets/img/icons/chevron-up.svg", wrap);
 
     window.addEventListener("scroll", requestTick, { passive: true });
     btn.addEventListener("click", function () {

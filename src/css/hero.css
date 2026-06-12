@@ -67,6 +67,12 @@
     color: #ffd700;
 }
 
+.hero-fav-btn .icon-wrap,
+.hero-share-btn .icon-wrap {
+    width: 18px;
+    height: 18px;
+}
+
 .hero-share-btn {
     display: inline-flex;
     align-items: center;
