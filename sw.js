@@ -87,7 +87,6 @@ self.addEventListener("install", (event) => {
                 "./src/assets/img/dividers/divider-neru.png",
                 "./src/assets/img/dividers/divider-teto.png",
                 "./src/assets/img/dividers/divider-luka.png",
-                "./src/assets/img/dividers/divider-rin-len.png",
                 "./src/assets/img/dividers/divider-yixi.png",
                 "./src/assets/img/dividers/divider-yuki.png",
                 "./src/assets/img/signs/sign-gumi.png",
