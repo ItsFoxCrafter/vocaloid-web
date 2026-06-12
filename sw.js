@@ -1,6 +1,6 @@
 const CACHE_NAME = "vocaweb-v4";
 
-const DATA_PATTERN = /\/src\/json\//;
+const DATA_PATTERN = /(\/src\/json\/|\/version\.json$)/;
 
 self.addEventListener("install", (event) => {
     event.waitUntil(
