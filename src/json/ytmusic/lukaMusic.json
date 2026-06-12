@@ -13,6 +13,76 @@
             "artist": "nazoJ",
             "album": "Phantom Thief Hatch",
             "ytlink": "https://www.youtube.com/watch?v=lXWsJEoBHPU"
+        },
+        {
+            "id": "2",
+            "title": "Just Be Friends",
+            "artist": "Dixie Flatline",
+            "album": "Just Be Friends",
+            "ytlink": "https://www.youtube.com/watch?v=VoPzP-MwcLI"
+        },
+        {
+            "id": "3",
+            "title": "Double Lariat",
+            "artist": "Agoaniki",
+            "album": "Double Lariat",
+            "ytlink": "https://www.youtube.com/watch?v=hC8KrIY8qT4"
+        },
+        {
+            "id": "4",
+            "title": "Luka Luka Night Fever",
+            "artist": "samfree",
+            "album": "Luka Luka Night Fever",
+            "ytlink": "https://www.youtube.com/watch?v=6m_a2hpSbm8"
+        },
+        {
+            "id": "5",
+            "title": "No Logic",
+            "artist": "JimmySamP",
+            "album": "No Logic",
+            "ytlink": "https://www.youtube.com/watch?v=0GLSJHTZDuM"
+        },
+        {
+            "id": "6",
+            "title": "Dream",
+            "artist": "CircusP",
+            "album": "Dream",
+            "ytlink": "https://www.youtube.com/watch?v=ew1Ww-_7L8A"
+        },
+        {
+            "id": "7",
+            "title": "Last of Me",
+            "artist": "CircusP",
+            "album": "Last of Me",
+            "ytlink": "https://www.youtube.com/watch?v=7Skij_GE9n4"
+        },
+        {
+            "id": "8",
+            "title": "Blackjack",
+            "artist": "yuchaP",
+            "album": "Blackjack",
+            "ytlink": "https://www.youtube.com/watch?v=yIc8j0oMAW8"
+        },
+        {
+            "id": "9",
+            "title": "Million Dollar Dreamers",
+            "artist": "KANON69",
+            "album": "Million Dollar Dreamers",
+            "ytlink": "https://www.youtube.com/watch?v=Zq9VOheV6mQ"
+        },
+        {
+            "id": "10",
+            "title": "Wonderland Reverie",
+            "artist": "KAT",
+            "album": "Wonderland Reverie",
+            "ytlink": "https://www.youtube.com/watch?v=1TBdx0xcfgU"
+        },
+        {
+            "id": "11",
+            "title": "magnet",
+            "artist": "minato",
+            "album": "magnet",
+            "ytlink": "https://www.youtube.com/watch?v=egxSBhfjcTU"
         }
     ]
 }

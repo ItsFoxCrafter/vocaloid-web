@@ -6,6 +6,83 @@
             "artist": "ePiaeon",
             "album": "FLOP ERA",
             "ytlink": "https://www.youtube.com/watch?v=1bsd8fFmTAo"
+        },
+        {
+            "id": "1",
+            "title": "Kamioshi Neru-sama",
+            "artist": "WUNDER RiKU",
+            "album": "Princess Miku: The Musical",
+            "ytlink": "https://www.youtube.com/watch?v=pVOymCutpG4"
+        },
+        {
+            "id": "2",
+            "title": "Zako",
+            "artist": "OwataP",
+            "album": "Zako",
+            "ytlink": "https://www.youtube.com/watch?v=kqj7b59D85Y"
+        },
+        {
+            "id": "3",
+            "title": "King-o'-Lantern",
+            "artist": "OwataP",
+            "album": "King-o'-Lantern",
+            "ytlink": "https://www.youtube.com/watch?v=C1FnUXjmi6s"
+        },
+        {
+            "id": "4",
+            "title": "Okay Green Is the Enemy",
+            "artist": "Ichigyou-P",
+            "album": "Okay Green Is the Enemy",
+            "ytlink": "https://www.youtube.com/watch?v=Mx3-9FDGiJE"
+        },
+        {
+            "id": "5",
+            "title": "Gocha Gocha Urusee!",
+            "artist": "OwataP",
+            "album": "Gocha Gocha Urusee!",
+            "ytlink": "https://www.youtube.com/watch?v=-bt0IP16PZI"
+        },
+        {
+            "id": "6",
+            "title": "Fumbritical",
+            "artist": "OwataP",
+            "album": "Fumbritical",
+            "ytlink": "https://www.youtube.com/watch?v=3cA8DYVNNFI"
+        },
+        {
+            "id": "7",
+            "title": "Shinchoku Dou Desu ka!",
+            "artist": "OwataP",
+            "album": "Shinchoku Dou Desu ka!",
+            "ytlink": "https://www.youtube.com/watch?v=MULFx71eonY"
+        },
+        {
+            "id": "8",
+            "title": "Tantei Yowane Haku no Yuutsu",
+            "artist": "OwataP",
+            "album": "The Melancholy of Detective Yowane Haku",
+            "ytlink": "https://www.youtube.com/watch?v=umLzqR4N9fM"
+        },
+        {
+            "id": "9",
+            "title": "Turkish March Tsumanne",
+            "artist": "OwataP",
+            "album": "Turkish March - FML",
+            "ytlink": "https://youtu.be/d0xwa8rPaCc"
+        },
+        {
+            "id": "10",
+            "title": "Hatarake! NEET",
+            "artist": "OwataP",
+            "album": "Hatarake! NEET",
+            "ytlink": "https://www.youtube.com/watch?v=asiHrVKcPyc"
+        },
+        {
+            "id": "11",
+            "title": "Nigero! Genjitsu da",
+            "artist": "OwataP",
+            "album": "Nigero! Genjitsu da",
+            "ytlink": "https://www.youtube.com/watch?v=CV9zj7y2ly8"
         }
     ]
 }
