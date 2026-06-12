@@ -74,21 +74,7 @@
         <script src="./src/js/themeHandler.js"></script>
         <script src="./src/js/welcomeDotsRenderer.js"></script>
         <script src="./src/js/pageRenderer.js"></script>
-        <script>
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.register("./sw.js").then((reg) => {
-                    reg.addEventListener("updatefound", () => {
-                        const newSW = reg.installing;
-                        newSW.addEventListener("statechange", () => {
-                            if (newSW.state === "installed" && navigator.serviceWorker.controller) {
-                                if (confirm("A new version of VocaWeb is available. Reload to update?")) {
-                                    window.location.reload();
-                                }
-                            }
-                        });
-                    });
-                });
-            }
-        </script>
+        <script src="./src/components/updateBanner.js"></script>
+        <script src="./src/js/swManager.js"></script>
     </body>
 </html>

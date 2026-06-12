@@ -1,4 +1,6 @@
-const CACHE_NAME = "vocaweb-v2";
+const CACHE_NAME = "vocaweb-v3";
+
+const DATA_PATTERN = /\/src\/json\//;
 
 self.addEventListener("install", (event) => {
     event.waitUntil(
@@ -7,6 +9,7 @@ self.addEventListener("install", (event) => {
                 "./",
                 "./index.html",
                 "./manifest.json",
+                "./version.json",
                 "./src/css/global.css",
                 "./src/css/reset.css",
                 "./src/css/variables.css",
@@ -38,6 +41,9 @@ self.addEventListener("install", (event) => {
                 "./src/js/themeHandler.js",
                 "./src/js/welcomeDotsRenderer.js",
                 "./src/js/pageRenderer.js",
+                "./src/js/swManager.js",
+                "./src/components/updateBanner.js",
+                "./src/css/update-banner.css",
                 "./src/assets/img/icons/icon.svg",
                 "./src/assets/img/icons/search.svg",
                 "./src/assets/img/icons/sun-moon.svg",
@@ -82,9 +88,26 @@ self.addEventListener("install", (event) => {
             ]);
         }),
     );
+    self.skipWaiting();
 });
 
 self.addEventListener("fetch", (event) => {
+    const url = new URL(event.request.url);
+
+    if (DATA_PATTERN.test(url.pathname)) {
+        event.respondWith(
+            fetch(event.request).then((response) => {
+                if (response.ok) {
+                    caches.open(CACHE_NAME).then((cache) =>
+                        cache.put(event.request, response.clone())
+                    );
+                }
+                return response;
+            }).catch(() => caches.match(event.request)),
+        );
+        return;
+    }
+
     event.respondWith(
         caches.match(event.request).then((cached) => {
             return cached || fetch(event.request).then((response) => {
@@ -105,6 +128,12 @@ self.addEventListener("activate", (event) => {
                     .filter((key) => key !== CACHE_NAME)
                     .map((key) => caches.delete(key)),
             );
-        }),
+        }).then(() => self.clients.claim()),
     );
+});
+
+self.addEventListener("message", (event) => {
+    if (event.data === "skip-waiting") {
+        self.skipWaiting();
+    }
 });
