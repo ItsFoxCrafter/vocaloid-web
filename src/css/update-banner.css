@@ -10,7 +10,6 @@
     padding: 0.75rem 1.25rem;
     background-color: var(--secondary-color);
     border: 1px solid var(--neutral-color);
-    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     color: var(--text-color);
     font-size: 0.9rem;
@@ -33,7 +32,6 @@
 .update-banner-btn {
     padding: 0.4rem 0.9rem;
     border: 1px solid var(--neutral-color);
-    border-radius: 4px;
     background-color: transparent;
     color: var(--text-color);
     font-size: 0.8rem;
