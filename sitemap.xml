@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/</loc><priority>1.0</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#about</loc><priority>0.5</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#profile</loc><priority>0.5</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#all</loc><priority>0.8</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#vocaloid</loc><priority>0.7</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#utau</loc><priority>0.7</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#vsynth</loc><priority>0.7</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#other</loc><priority>0.7</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#miku</loc><priority>0.9</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#teto</loc><priority>0.9</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#neru</loc><priority>0.9</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#gumi</loc><priority>0.9</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#luka</loc><priority>0.9</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#rin-len</loc><priority>0.9</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#yixi</loc><priority>0.9</priority></url>
-    <url><loc>https://itsfoxcrafter.github.io/vocaloid-web/#yuki</loc><priority>0.9</priority></url>
+  <url>
+    <loc>https://itsfoxcrafter.github.io/vocaloid-web/</loc>
+    <priority>1.0</priority>
+  </url>
 </urlset>
