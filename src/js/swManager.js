@@ -4,6 +4,7 @@
     let swReg = null;
     let versionInterval = null;
     let dismissedVersion = null;
+    const SW_VERSION = "5"; // bump when sw.js changes (match cache name)
 
     function showBanner(message, versionKey) {
         if (dismissedVersion === versionKey) return;
@@ -38,7 +39,7 @@
             .catch(() => {});
     }
 
-    navigator.serviceWorker.register("./sw.js").then((reg) => {
+    navigator.serviceWorker.register("./sw.js?v=" + SW_VERSION).then((reg) => {
         swReg = reg;
 
         reg.addEventListener("updatefound", () => {
