@@ -110,9 +110,10 @@ self.addEventListener("fetch", (event) => {
     if (DATA_PATTERN.test(url.pathname)) {
         event.respondWith(
             fetch(event.request).then((response) => {
-                if (response.ok) {
+                if (response.ok && response.clone) {
+                    const cloned = response.clone();
                     caches.open(CACHE_NAME).then((cache) =>
-                        cache.put(event.request, response.clone())
+                        cache.put(event.request, cloned).catch(() => {})
                     );
                 }
                 return response;
@@ -124,10 +125,11 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
         caches.match(event.request).then((cached) => {
             return cached || fetch(event.request).then((response) => {
-                return caches.open(CACHE_NAME).then((cache) => {
-                    cache.put(event.request, response.clone());
-                    return response;
+                const cloned = response.clone();
+                caches.open(CACHE_NAME).then((cache) => {
+                    cache.put(event.request, cloned).catch(() => {});
                 });
+                return response;
             });
         }),
     );
