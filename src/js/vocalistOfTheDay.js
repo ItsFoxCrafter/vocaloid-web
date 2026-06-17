@@ -35,10 +35,10 @@ function renderVocalistOfTheDay(names) {
                 <a class="votd-link" href="#${slug}">
                     <span class="votd-label">VOCALIST OF THE DAY</span>
                     <div class="votd-name-wrap" style="color: var(--${slug}-color);">
-                        <span class="votd-star votd-star-1"><img src="./src/assets/img/icons/votd-star.svg" alt="Star"></img></span>
-                        <span class="votd-star votd-star-2"><img src="./src/assets/img/icons/votd-star.svg" alt="Star"></img></span>
-                        <span class="votd-star votd-star-3"><img src="./src/assets/img/icons/votd-star.svg" alt="Star"></img></span>
-                        <span class="votd-star votd-star-4"><img src="./src/assets/img/icons/votd-star.svg" alt="Star"></img></span>
+                        <span class="votd-star votd-star-1" data-svg="./src/assets/img/icons/votd-star.svg"></span>
+                        <span class="votd-star votd-star-2" data-svg="./src/assets/img/icons/votd-star.svg"></span>
+                        <span class="votd-star votd-star-3" data-svg="./src/assets/img/icons/votd-star.svg"></span>
+                        <span class="votd-star votd-star-4" data-svg="./src/assets/img/icons/votd-star.svg"></span>
                         <span class="votd-name">${data.title}</span>
                     </div>
                     <div class="votd-img-wrap">
@@ -46,6 +46,11 @@ function renderVocalistOfTheDay(names) {
                     </div>
                 </a>
             `;
+            container.querySelectorAll(".votd-star[data-svg]").forEach((wrap) => {
+                if (typeof loadSVG === "function") {
+                    loadSVG(wrap.dataset.svg, wrap);
+                }
+            });
         })
         .catch(() => {});
 }
