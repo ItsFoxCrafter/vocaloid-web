@@ -1,4 +1,4 @@
-const CACHE_NAME = "vocaweb-v4";
+const CACHE_NAME = "vocaweb-v5";
 
 const DATA_PATTERN = /(\/src\/json\/|\/version\.json$)/;
 
@@ -56,6 +56,7 @@ self.addEventListener("install", (event) => {
                 "./src/assets/img/icons/star.svg",
                 "./src/assets/img/icons/share.svg",
                 "./src/assets/img/icons/chevron-up.svg",
+                "./src/assets/img/icons/votd-star.svg",
                 "./src/json/vocaloidNames.json",
                 "./src/json/error/error.json",
                 "./src/json/vocals/gumi.json",
