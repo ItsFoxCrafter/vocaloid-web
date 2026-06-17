@@ -26,7 +26,7 @@ This is the most common contribution and doesn't require touching any JS or CSS.
 Open `src/json/vocaloidNames.json` and append the new slug:
 
 ```json
-["miku", "teto", "neru", "gumi", "luka", "rin-len", "yixi", "yuki", "your-vocalist"]
+["miku", "teto", "neru", "gumi", "luka", "rin-len", "yixi", "yuki"]
 ```
 
 Use lowercase with hyphens for multi-word names (e.g. `rin-len`, `flower`).

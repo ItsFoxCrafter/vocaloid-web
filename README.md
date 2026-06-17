@@ -20,13 +20,15 @@ Built with plain HTML, CSS, and JavaScript. No frameworks, no build tools — ju
 - **Music section** — sortable by title, artist, album, or date (newest / oldest first) with song count badge
 - **Skeleton loading** — shimmer placeholders while data loads
 - **Light / dark theme toggle** with localStorage persistence
-- **Sound clips** on category button clicks
+- **Sound clips** on vocalist page navigation (click a vocalist card or visit their page)
+- **Favorites** — star a vocalist to save them to your profile page, with scale-bounce animation
+- **Offline indicator** — red "OFFLINE" badge in the navbar when you lose connection
 - **Share modal** — native Web Share API with clipboard fallback, social preview card, animated close
 - **Social meta tags** — OG and Twitter cards update dynamically per page
-- **PWA support** — installable as a standalone app with service worker caching
+- **PWA support** — installable as a standalone app (minimal passthrough service worker, no caching)
 - **Custom scrollbar** — theme-aware with vocalist accent color on active drag
 - **Per-vocalist selection highlight** — `::selection` color matches the current vocalist
-- **Animated welcome screen**, section transitions, staggered card entrance, and modal close
+- **Animated welcome screen**, section transitions, staggered card entrance, modal close, and scroll-to-top button
 - **Fully community-expandable** — new vocalists need a JSON entry, portrait and sign images, a divider strip, a CSS color variable, and a welcome dot rule
 
 ---
@@ -40,23 +42,32 @@ vocaloid-web/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── manifest.json                    # PWA manifest
-├── sw.js                            # Service worker (cache-first)
+├── sw.js                            # Service worker (passthrough, no caching)
 ├── sitemap.xml                      # SEO sitemap
 └── src/
     ├── assets/
     │   ├── img/
     │   │   ├── <vocalist>.webp          # vocalist portrait images (yixi uses .png)
     │   │   ├── dividers/
-    │   │   │   ├── divider-gumi.png
-    │   │   │   ├── divider-miku.png
-    │   │   │   ├── divider-neru.png
-    │   │   │   └── divider-teto.png
-    │   │   ├── signs/
-    │   │   │   └── sign-<vocalist>.png  # error screen images
-    │   │   └── icons/
-    │   │       ├── icon.svg              # PWA icon, favicon, OG image
-    │   │       ├── search.svg
-    │   │       └── sun-moon.svg
+│   │   │   ├── divider-gumi.png
+│   │   │   ├── divider-luka.png
+│   │   │   ├── divider-miku.png
+│   │   │   ├── divider-neru.png
+│   │   │   ├── divider-teto.png
+│   │   │   ├── divider-yixi.png
+│   │   │   └── divider-yuki.png
+│   │   ├── signs/
+│   │   │   └── sign-<vocalist>.png  # error screen images
+│   │   └── icons/
+│   │       ├── icon.svg              # PWA icon, favicon, OG image
+│   │       ├── chevron-up.svg        # scroll-to-top button
+│   │       ├── dice.svg              # surprise me button
+│   │       ├── search.svg
+│   │       ├── share.svg             # share modal
+│   │       ├── sound.svg             # sound toggle
+│   │       ├── star.svg              # favorites star
+│   │       ├── sun-moon.svg          # theme toggle
+│   │       └── votd-star.svg         # vocalist of the day star
     │   └── sound/
     │       ├── miku/                     # vocalist audio clips
     │       ├── neru/
@@ -90,13 +101,18 @@ vocaloid-web/
     │   └── animations.css       # keyframe animations (staggered cards, modal, etc.)
     ├── js/
     │   ├── errorHandler.js      # error screen logic
+    │   ├── favoritesHandler.js  # favorites (star) persistence
     │   ├── musicHandler.js      # music fetch, sort, render, song count
     │   ├── musicSearchHandler.js  # search filtering + init listeners
+    │   ├── offlineHandler.js    # online/offline detection
     │   ├── pageRenderer.js      # hash-driven router, social meta, selection color, recently-viewed tracking
+    │   ├── scrollToTop.js       # scroll-to-top button
     │   ├── soundHandler.js      # audio clip playback
+    │   ├── svgLoader.js         # fetches SVGs and injects them inline
     │   ├── themeHandler.js      # dark/light theme toggle
     │   ├── vocalistOfTheDay.js  # deterministic daily vocalist picker + renderer
-    │   └── welcomeDotsRenderer.js  # welcome dot population
+    │   ├── welcomeDotsRenderer.js  # welcome dot population
+    │   └── swManager.js         # service worker registration
     └── json/
         ├── vocaloidNames.json   # list of active vocalist slugs
         ├── error/
@@ -110,15 +126,17 @@ vocaloid-web/
         │   ├── teto.json
         │   ├── yixi.json
         │   └── yuki.json
-        └── ytmusic/             # per-vocalist music playlists
-            ├── gumiMusic.json
-            ├── lukaMusic.json
-            ├── mikuMusic.json
-            ├── neruMusic.json
-            ├── rin-lenMusic.json
-            ├── tetoMusic.json
-            ├── yixiMusic.json
-            └── yukiMusic.json
+        ├── ytmusic/             # per-vocalist music playlists
+        │   ├── gumiMusic.json
+        │   ├── lukaMusic.json
+        │   ├── mikuMusic.json
+        │   ├── neruMusic.json
+        │   ├── rin-lenMusic.json
+        │   ├── tetoMusic.json
+        │   ├── yixiMusic.json
+        │   └── yukiMusic.json
+        └── error/
+            └── error.json       # random error titles
 ```
 
 ---
@@ -168,9 +186,9 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full guide. The short version:
 | Styling   | Vanilla CSS with custom properties (CSS variables)                          |
 | Logic     | Vanilla JavaScript (no frameworks)                                          |
 | Fonts     | [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue) via Google Fonts |
-| Icons     | [Lucide](https://lucide.dev/)                                               |
+| Icons     | Custom SVGs loaded via `svgLoader.js` (inline injection for `currentColor`) |
 | Data      | Local JSON files                                                            |
-| PWA       | Service worker with cache-first strategy, Web App Manifest                  |
+| PWA       | Minimal passthrough service worker (no caching), Web App Manifest           |
 
 ---
 
