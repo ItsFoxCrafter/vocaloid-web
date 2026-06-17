@@ -83,9 +83,6 @@ class CNavbar extends HTMLElement {
                 );
                 button.classList.add("active-button");
 
-                if (typeof playButtonSound === "function") {
-                    playButtonSound(button.dataset.page);
-                }
                 window.location.hash = button.dataset.page;
             }
         });

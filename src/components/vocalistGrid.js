@@ -212,6 +212,7 @@ class CVocalistGrid extends HTMLElement {
                 const page = card.dataset.page;
                 if (!page) return;
 
+                if (typeof playButtonSound === "function") playButtonSound(page);
                 window.location.hash = page;
             });
         });

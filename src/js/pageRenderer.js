@@ -156,6 +156,7 @@ function renderPage(page) {
 
             updateSocialMeta(`${data.title} — VocaWeb`, data.description || data.subtitle || `Explore ${data.title} on VocaWeb.`);
 
+            if (typeof playButtonSound === "function") playButtonSound(page);
             renderMusicSection(page, SIGNAL);
         })
         .catch((err) => {
